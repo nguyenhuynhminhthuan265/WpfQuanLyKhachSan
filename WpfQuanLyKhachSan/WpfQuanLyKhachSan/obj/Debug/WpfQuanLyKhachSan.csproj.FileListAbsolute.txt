@@ -1,0 +1,15 @@
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\WpfQuanLyKhachSan.exe.config
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\WpfQuanLyKhachSan.exe
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\WpfQuanLyKhachSan.pdb
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.csprojAssemblyReference.cache
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\MainWindow.g.cs
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\App.g.cs
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan_MarkupCompile.cache
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan_MarkupCompile.lref
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\MainWindow.baml
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.g.resources
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.Properties.Resources.resources
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.csproj.GenerateResource.cache
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.csproj.CoreCompileInputs.cache
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.exe
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.pdb
