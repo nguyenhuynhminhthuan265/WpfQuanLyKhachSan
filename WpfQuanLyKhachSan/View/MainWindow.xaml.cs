@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +29,7 @@ namespace WpfQuanLyKhachSan
         }
         
 
-        *//*private void Fill()
+        /*private void Fill()
         {
             var rooms = new[]
             {
@@ -55,7 +55,6 @@ namespace WpfQuanLyKhachSan
             Context.Rooms.AddRange(rooms);
             Context.Clients.AddRange(clients);
             Context.SaveChanges();
-        }*//*
+        }*/
     }
 }
-*/

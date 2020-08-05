@@ -86,10 +86,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\HotelSystemContext.cs" />
+    <Compile Include="HotelSystemContext.cs" />
     <Compile Include="MainTest\MainProgram.cs" />
+    <Compile Include="Migrations\202008040815339_create-db.cs" />
+    <Compile Include="Migrations\202008040815339_create-db.designer.cs">
+      <DependentUpon>202008040815339_create-db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\QuanLyKhachSanDbContext.cs" />
     <Compile Include="Model\Revenue .cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Room.cs" />
@@ -114,6 +120,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202008040815339_create-db.resx">
+      <DependentUpon>202008040815339_create-db.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -18,3 +18,8 @@ D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bi
 D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\EntityFramework.xml
 D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\EntityFramework.SqlServer.xml
 D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.csproj.CopyComplete
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\System.IO.Packaging.dll
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\DocumentFormat.OpenXml.xml
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\bin\Debug\System.IO.Packaging.xml
+D:\Dotnet Core\workspace_DotNet_Framework\WpfQuanLyKhachSan\WpfQuanLyKhachSan\obj\Debug\WpfQuanLyKhachSan.Migrations.createdb.resources

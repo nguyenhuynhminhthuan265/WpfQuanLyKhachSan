@@ -13,15 +13,15 @@ namespace WpfQuanLyKhachSan.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int Id { get; set; }
-        private string NameRoom { get; set; }
-       
-        private string Note { get; set; }
+        public int Id { get; set; }
+        public string NameRoom { get; set; }
 
-        [ForeignKey("TypeRoom")]
-        private int TypeRoomId { get; set; }
+        public string Note { get; set; }
 
-        private TypeRoom TypeRoom { get; set; }
+
+        public int TypeRoomId { get; set; }
+        [ForeignKey("TypeRoomId")]
+        public virtual TypeRoom TypeRoom { get; set; }
 
     }
 }

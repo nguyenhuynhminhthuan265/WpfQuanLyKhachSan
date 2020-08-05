@@ -12,11 +12,11 @@ namespace WpfQuanLyKhachSan.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private string NameTypeRoom { get; set; }
+        public string NameTypeRoom { get; set; }
 
-        private float Price { get; set; }
+        public float Price { get; set; }
 
         public ICollection<Room> Rooms { get; set; }
     }

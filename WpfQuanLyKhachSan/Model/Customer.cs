@@ -12,12 +12,12 @@ namespace WpfQuanLyKhachSan.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int Id { get; set; }
-        private string NameCustomer { get; set; }
-        private string IDNumber { get; set; }
-        private string Address { get; set; }
-        private string TypeCustomer { get; set; }
+        public int Id { get; set; }
+        public string NameCustomer { get; set; }
+        public string IDNumber { get; set; }
+        public string Address { get; set; }
+        public string TypeCustomer { get; set; }
 
-        private DateTime dateRent { get; set; }
+        public DateTime dateRent { get; set; }
     }
 }

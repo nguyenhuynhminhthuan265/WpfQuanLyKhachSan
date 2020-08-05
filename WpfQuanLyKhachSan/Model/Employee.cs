@@ -13,18 +13,19 @@ namespace WpfQuanLyKhachSan.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private string Fullname { get; set; }
+        public string Fullname { get; set; }
 
-        private string Email { get; set; }
+        public string Email { get; set; }
 
-        private string Password { get; set; }
+        public string Password { get; set; }
 
-        [ForeignKey("Role")]
-        private int RoleId { get; set; }
 
-        private Role Role { get; set; }
+        public int RoleId { get; set; }
+
+        [ForeignKey("RoleId")]
+        public virtual Role Role { get; set; }
 
 
     }
