@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfQuanLyKhachSan.Model;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan
 {
@@ -20,15 +22,36 @@ namespace WpfQuanLyKhachSan
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly QuanLyKhachSanDbContext context = new QuanLyKhachSanDbContext();
 
-        public MainWindow() => InitializeComponent();
+        private RoleViewModel roleViewModel = new RoleViewModel();
+
+        
 
         private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-        
 
+        }
+
+        public MainWindow()
+        {
+            roleViewModel.Add(new Role
+            {
+                Name= "Test",
+                Description="test"
+            });
+
+            InitializeComponent();
+            List<Role> roles = roleViewModel.findAll();
+
+            foreach (Role role in roles)
+            {
+                Console.WriteLine("================> " + $"{role.Name}");
+            }
+        }
+
+       
         /*private void Fill()
         {
             var rooms = new[]

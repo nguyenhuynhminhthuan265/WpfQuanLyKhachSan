@@ -88,9 +88,9 @@
     </Compile>
     <Compile Include="HotelSystemContext.cs" />
     <Compile Include="MainTest\MainProgram.cs" />
-    <Compile Include="Migrations\202008040815339_create-db.cs" />
-    <Compile Include="Migrations\202008040815339_create-db.designer.cs">
-      <DependentUpon>202008040815339_create-db.cs</DependentUpon>
+    <Compile Include="Migrations\202008060608414_create-db.cs" />
+    <Compile Include="Migrations\202008060608414_create-db.designer.cs">
+      <DependentUpon>202008060608414_create-db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\TypeRoom.cs" />
+    <Compile Include="ViewModel\RoleViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -120,8 +121,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008040815339_create-db.resx">
-      <DependentUpon>202008040815339_create-db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008060608414_create-db.resx">
+      <DependentUpon>202008060608414_create-db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,9 +137,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

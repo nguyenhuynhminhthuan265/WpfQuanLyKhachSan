@@ -21,5 +21,7 @@ namespace WpfQuanLyKhachSan.Model
         public DbSet<Room> Rooms { get; set; }
         public DbSet<TypeRoom> TypeRooms { get; set; }
 
+        public DbSet<Revenue> Revenues { get; set; }
+
     }
 }
