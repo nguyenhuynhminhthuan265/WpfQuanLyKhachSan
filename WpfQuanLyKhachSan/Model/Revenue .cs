@@ -16,5 +16,7 @@ namespace WpfQuanLyKhachSan.Model
         public TypeRoom TypeRoom { get; set; }
         public Room Room { get; set; }
         public float RevenueOfDay { get; set; }
+
+        public Boolean isDeleted { get; set; }
     }
 }

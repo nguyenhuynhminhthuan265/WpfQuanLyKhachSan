@@ -23,5 +23,7 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("TypeRoomId")]
         public virtual TypeRoom TypeRoom { get; set; }
 
+        public Boolean isDeleted { get; set; }
+
     }
 }

@@ -19,5 +19,7 @@ namespace WpfQuanLyKhachSan.Model
         public float Price { get; set; }
 
         public ICollection<Room> Rooms { get; set; }
+
+        public Boolean isDeleted { get; set; }
     }
 }

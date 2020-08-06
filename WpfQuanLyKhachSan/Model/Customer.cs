@@ -19,5 +19,6 @@ namespace WpfQuanLyKhachSan.Model
         public string TypeCustomer { get; set; }
 
         public DateTime dateRent { get; set; }
+        public Boolean isDeleted { get; set; }
     }
 }

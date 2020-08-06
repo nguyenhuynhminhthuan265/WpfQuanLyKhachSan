@@ -21,5 +21,7 @@ namespace WpfQuanLyKhachSan.Model
         public string Description { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
+
+        public Boolean isDeleted { get; set; }
     }
 }
