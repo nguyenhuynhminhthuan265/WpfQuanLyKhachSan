@@ -36,19 +36,19 @@ namespace WpfQuanLyKhachSan
 
         public MainWindow()
         {
-            roleViewModel.Add(new Role
+          /*  roleViewModel.Add(new Role
             {
                 Name= "Test",
                 Description="test"
-            });
+            });*/
 
             InitializeComponent();
-            List<Role> roles = roleViewModel.findAll();
+            /*List<Role> roles = roleViewModel.findAll();
 
             foreach (Role role in roles)
             {
                 Console.WriteLine("================> " + $"{role.Name}");
-            }
+            }*/
         }
 
        
