@@ -51,7 +51,17 @@ namespace WpfQuanLyKhachSan
             }*/
         }
 
-       
+        private void ButtonsDemoChip_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked Manage Employee Information");
+        }
+
+        private void ButtonsDemoChip_OnDeleteClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked Logout");
+        }
+
+
         /*private void Fill()
         {
             var rooms = new[]

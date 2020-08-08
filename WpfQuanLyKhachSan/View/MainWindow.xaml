@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfQuanLyKhachSan"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1136">
+        Title="MainWindow" Height="800" Width="1250">
     <Window.Resources>
 
         <Style TargetType="DataGrid">
@@ -98,7 +98,106 @@
             </DockPanel>
         </materialDesign:ColorZone>
 
-        <TabControl Margin="250,72,0,0">
+        <!--Quan ly phien su dung-->
+        <materialDesign:Chip
+  Content="Xin chào Tony Stark"
+  IsDeletable="True"
+  Click="ButtonsDemoChip_OnClick"
+  DeleteClick="ButtonsDemoChip_OnDeleteClick"
+  ToolTip="Click to go to Manage you account"
+  DeleteToolTip="Your friendly neighbor delete button" Margin="1042,19,0,718" IconForeground="#FF673AB7" IconBackground="White" Background="#FF673AB7">
+            <materialDesign:Chip.Icon>
+                <Image
+      Source="../Assets/Tony.png"></Image>
+            </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
+
+        <!--Sidebar Here -->
+        <materialDesign:Card
+  Background="#FF673AB7"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="8"
+  UniformCornerRadius="0" Margin="0,72,967,0"/>
+        <!--Sidebar Buttons Here-->
+        <!--Trang chu button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,230.665,950,319.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="Home" Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="TRANG CHỦ"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Dich vu an uong button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,280.665,950,269.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="FoodForkDrink" Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ ĂN UỐNG"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Dich vu giat ui button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,330.665,950,219.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="WashingMachine" Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ GIẶT ỦI"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Dich vu di chuyen button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,380.665,950,169.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="Car" Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ DI CHUYỂN"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Tra cuu, quan ly button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,430.665,950,119.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="Magnify"  Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="TRA CỨU, QUẢN LÝ"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Bao cao, thong ke button-->
+        <Button
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,480.665,950,69.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="35" Width="230">
+                <materialDesign:PackIcon Kind="ChartAreaspline"   Width="35" Height="35" Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="BÁO CÁO, THỐNG KÊ"/>
+            </StackPanel>
+
+        </Button>
+
+        <!--Hotel Icon -->
+        <StackPanel Margin="0,77.665,950,369.335" Height="153" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
+            <materialDesign:PackIcon Kind="HomeCityOutline" Margin="0" Height="100" Width="100" Background="#FF673AB7" Foreground="#FFEBE5F5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Label FontSize="28" Height="51" FontWeight="Bold" Foreground="#FFEBE5F5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="HOTEL"/>
+        </StackPanel>
+
+        
+
+        
+
+
+
+        <TabControl Margin="275,72,0,0">
             <!-- < Clients TAB > -->
             <TabItem x:Name="ClientsTab" Header="Clients" RenderTransformOrigin="0.5,0.509">
                 <Grid>
