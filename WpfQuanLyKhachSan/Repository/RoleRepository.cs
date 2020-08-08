@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfQuanLyKhachSan.Model;
 
-namespace WpfQuanLyKhachSan.ViewModel
+namespace WpfQuanLyKhachSan.Repository
 {
-    class RoleViewModel
+    class RoleRepository
     {
-        /*public List<Role> findAll()
+        public List<Role> findAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -56,6 +56,6 @@ namespace WpfQuanLyKhachSan.ViewModel
 
             }
 
-        }*/
+        }
     }
 }

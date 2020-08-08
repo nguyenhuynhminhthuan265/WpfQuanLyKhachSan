@@ -6,34 +6,35 @@
         xmlns:local="clr-namespace:WpfQuanLyKhachSan"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1250">
+        Title="MainWindow"
+        Height="800"
+        Width="1250">
     <Window.Resources>
 
         <Style TargetType="DataGrid">
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="AutoGenerateColumns"
+                    Value="False" />
+            <Setter Property="CanUserAddRows"
+                    Value="False" />
+            <Setter Property="CanUserDeleteRows"
+                    Value="False" />
         </Style>
     </Window.Resources>
 
     <Grid>
         <!--Header Here -->
-        <materialDesign:ColorZone
-  Mode="PrimaryMid"
-  Padding="16">
+        <materialDesign:ColorZone Mode="PrimaryMid"
+                                  Padding="16">
             <DockPanel>
-                <StackPanel
-      Orientation="Horizontal"
-      materialDesign:RippleAssist.IsCentered="True">
-                    <ToggleButton
-        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                    <ComboBox
-        SelectedIndex="0"
-        Margin="8 0 0 0"
-        BorderThickness="0"
-        materialDesign:ColorZoneAssist.Mode="Standard"
-        materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
-        BorderBrush="{DynamicResource MaterialDesignPaper}">
+                <StackPanel Orientation="Horizontal"
+                            materialDesign:RippleAssist.IsCentered="True">
+                    <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                    <ComboBox SelectedIndex="0"
+                              Margin="8 0 0 0"
+                              BorderThickness="0"
+                              materialDesign:ColorZoneAssist.Mode="Standard"
+                              materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
+                              BorderBrush="{DynamicResource MaterialDesignPaper}">
                         <ComboBoxItem>
                             Android
                         </ComboBoxItem>
@@ -47,168 +48,283 @@
                             Windows
                         </ComboBoxItem>
                     </ComboBox>
-                    <materialDesign:ColorZone
-        Mode="Standard"
-        Padding="8 4 8 4"
-        CornerRadius="2"
-        Panel.ZIndex="1"
-        Margin="16 0 0 0"
-        materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <materialDesign:ColorZone Mode="Standard"
+                                              Padding="8 4 8 4"
+                                              CornerRadius="2"
+                                              Panel.ZIndex="1"
+                                              Margin="16 0 0 0"
+                                              materialDesign:ShadowAssist.ShadowDepth="Depth1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition
-              Width="Auto" />
-                                <ColumnDefinition
-              Width="*" />
-                                <ColumnDefinition
-              Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button
-            Style="{DynamicResource MaterialDesignToolButton}">
-                                <materialDesign:PackIcon
-              Kind="Magnify"
-              Opacity=".56" />
+                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Magnify"
+                                                         Opacity=".56" />
                             </Button>
-                            <TextBox
-            Grid.Column="1"
-            Margin="8 0 0 0"
-            materialDesign:HintAssist.Hint="Tim kiem"
-            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-            BorderThickness="0"
-            MinWidth="200"
-            VerticalAlignment="Center" />
-                            <Button
-            Style="{DynamicResource MaterialDesignToolButton}"
-            Grid.Column="2">
-                                <materialDesign:PackIcon
-              Kind="Microphone"
-              Opacity=".56"
-              Margin="8 0 0 0" />
+                            <TextBox Grid.Column="1"
+                                     Margin="8 0 0 0"
+                                     materialDesign:HintAssist.Hint="Tim kiem"
+                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                     BorderThickness="0"
+                                     MinWidth="200"
+                                     VerticalAlignment="Center" />
+                            <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                    Grid.Column="2">
+                                <materialDesign:PackIcon Kind="Microphone"
+                                                         Opacity=".56"
+                                                         Margin="8 0 0 0" />
                             </Button>
                         </Grid>
                     </materialDesign:ColorZone>
-                    <Button
-        Style="{DynamicResource MaterialDesignToolForegroundButton}"
-        Margin="8 0 0 0"
-        Panel.ZIndex="0">
-                        <materialDesign:PackIcon
-          Kind="Send" />
+                    <Button Style="{DynamicResource MaterialDesignToolForegroundButton}"
+                            Margin="8 0 0 0"
+                            Panel.ZIndex="0">
+                        <materialDesign:PackIcon Kind="Send" />
                     </Button>
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
 
         <!--Quan ly phien su dung-->
-        <materialDesign:Chip
-  Content="Xin chào Tony Stark"
-  IsDeletable="True"
-  Click="ButtonsDemoChip_OnClick"
-  DeleteClick="ButtonsDemoChip_OnDeleteClick"
-  ToolTip="Click to go to Manage you account"
-  DeleteToolTip="Your friendly neighbor delete button" Margin="1042,19,0,718" IconForeground="#FF673AB7" IconBackground="White" Background="#FF673AB7">
+        <materialDesign:Chip Content="Xin chào Tony Stark"
+                             IsDeletable="True"
+                             Click="ButtonsDemoChip_OnClick"
+                             DeleteClick="ButtonsDemoChip_OnDeleteClick"
+                             ToolTip="Click to go to Manage you account"
+                             DeleteToolTip="Your friendly neighbor delete button"
+                             Margin="1042,19,0,718"
+                             IconForeground="#FF673AB7"
+                             IconBackground="White"
+                             Background="#FF673AB7">
             <materialDesign:Chip.Icon>
-                <Image
-      Source="../Assets/Tony.png"></Image>
+                <Image Source="../Assets/Tony.png"></Image>
             </materialDesign:Chip.Icon>
         </materialDesign:Chip>
 
         <!--Sidebar Here -->
-        <materialDesign:Card
-  Background="#FF673AB7"
-  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
-  Padding="8"
-  UniformCornerRadius="0" Margin="0,72,967,0"/>
+        <materialDesign:Card Background="#FF673AB7"
+                             Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                             Padding="8"
+                             UniformCornerRadius="0"
+                             Margin="0,72,967,0" />
         <!--Sidebar Buttons Here-->
         <!--Trang chu button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,230.665,950,319.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="Home" Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="TRANG CHỦ"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,230.665,950,319.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center"
+                
+                >
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="Home"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="TRANG CHỦ" />
             </StackPanel>
 
         </Button>
 
         <!--Dich vu an uong button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,280.665,950,269.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="FoodForkDrink" Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ ĂN UỐNG"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,280.665,950,269.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center"
+                Click="FindAllRoom"
+                >
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="Room"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="PHÒNG" />
             </StackPanel>
 
         </Button>
 
         <!--Dich vu giat ui button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,330.665,950,219.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="WashingMachine" Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ GIẶT ỦI"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,330.665,950,219.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="WashingMachine"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="DỊCH VỤ GIẶT ỦI" />
             </StackPanel>
 
         </Button>
 
         <!--Dich vu di chuyen button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,380.665,950,169.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="Car" Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="DỊCH VỤ DI CHUYỂN"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,380.665,950,169.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="Car"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="DỊCH VỤ DI CHUYỂN" />
             </StackPanel>
 
         </Button>
 
         <!--Tra cuu, quan ly button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,430.665,950,119.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="Magnify"  Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="TRA CỨU, QUẢN LÝ"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,430.665,950,119.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="Magnify"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="TRA CỨU, QUẢN LÝ" />
             </StackPanel>
 
         </Button>
 
         <!--Bao cao, thong ke button-->
-        <Button
-    Style="{StaticResource MaterialDesignRaisedButton}"
-    ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,480.665,950,69.334" Height="50" BorderBrush="#FF673AB7" BorderThickness="0" Background="Transparent" HorizontalContentAlignment="Center">
-            <StackPanel Orientation="Horizontal" Height="35" Width="230">
-                <materialDesign:PackIcon Kind="ChartAreaspline"   Width="35" Height="35" Margin="0,0,5,0" />
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFEBE5F5" FontSize="18" Width="190" Margin="0,1.53" Content="BÁO CÁO, THỐNG KÊ"/>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,480.665,950,69.334"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="ChartAreaspline"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="BÁO CÁO, THỐNG KÊ" />
             </StackPanel>
 
         </Button>
 
         <!--Hotel Icon -->
-        <StackPanel Margin="0,77.665,950,369.335" Height="153" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
-            <materialDesign:PackIcon Kind="HomeCityOutline" Margin="0" Height="100" Width="100" Background="#FF673AB7" Foreground="#FFEBE5F5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <Label FontSize="28" Height="51" FontWeight="Bold" Foreground="#FFEBE5F5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="HOTEL"/>
+        <StackPanel Margin="0,77.665,950,369.335"
+                    Height="153"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="250">
+            <materialDesign:PackIcon Kind="HomeCityOutline"
+                                     Margin="0"
+                                     Height="100"
+                                     Width="100"
+                                     Background="#FF673AB7"
+                                     Foreground="#FFEBE5F5"
+                                     HorizontalContentAlignment="Center"
+                                     VerticalContentAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center" />
+            <Label FontSize="28"
+                   Height="51"
+                   FontWeight="Bold"
+                   Foreground="#FFEBE5F5"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   Content="HOTEL" />
         </StackPanel>
 
-        
-
-        
 
 
 
-        <TabControl Margin="275,72,0,0">
+
+
+
+        <TabControl SelectedIndex="2" Margin="275,72,0,0">
             <!-- < Clients TAB > -->
-            <TabItem x:Name="ClientsTab" Header="Clients" RenderTransformOrigin="0.5,0.509">
+            <TabItem x:Name="ClientsTab"
+                     Header="Clients"
+                     RenderTransformOrigin="0.5,0.509">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Grid.Column="0" x:Name="ClientsGrid" ItemsSource="{Binding Context.Clients.Local}" SelectedItem="{Binding SelectedClient, Mode=TwoWay}">
+                    <DataGrid Grid.Column="0"
+                              x:Name="ClientsGrid"
+                              ItemsSource="{Binding Context.Clients.Local}"
+                              SelectedItem="{Binding SelectedClient, Mode=TwoWay}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="First name"/>
+                            <DataGridTextColumn Header="First name" />
                             <DataGridTextColumn Header="Last name" />
                             <DataGridTextColumn Header="Birthdate" />
                             <DataGridTextColumn Header="Account" />
@@ -218,40 +334,75 @@
                     </DataGrid>
 
                     <!-- < Clients CRUD > -->
-                    <Border Grid.Column="1" BorderThickness="1" Margin="50" CornerRadius="10" BorderBrush="LightBlue">
+                    <Border Grid.Column="1"
+                            BorderThickness="1"
+                            Margin="50"
+                            CornerRadius="10"
+                            BorderBrush="LightBlue">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}"/>
-                            <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}"/>
-                            <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}"/>
-                            <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}"/>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="3"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="4"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}" />
 
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding ClientInfo.FirstName, Mode=TwoWay}"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding ClientInfo.LastName, Mode=TwoWay}"/>
-                            <DatePicker Grid.Row="2" Grid.Column="1" Margin="3" SelectedDate="{Binding ClientInfo.Birthdate, Mode=TwoWay}"/>
-                            <TextBox Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding ClientInfo.Account, Mode=TwoWay}"/>
-                            <ComboBox Grid.Row="4" Grid.Column="1" Margin="3" ItemsSource="{Binding Context.Rooms.Local}" SelectedItem="{Binding ClientInfo.Room, Mode=TwoWay}">
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding ClientInfo.FirstName, Mode=TwoWay}" />
+                            <TextBox Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding ClientInfo.LastName, Mode=TwoWay}" />
+                            <DatePicker Grid.Row="2"
+                                        Grid.Column="1"
+                                        Margin="3"
+                                        SelectedDate="{Binding ClientInfo.Birthdate, Mode=TwoWay}" />
+                            <TextBox Grid.Row="3"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding ClientInfo.Account, Mode=TwoWay}" />
+                            <ComboBox Grid.Row="4"
+                                      Grid.Column="1"
+                                      Margin="3"
+                                      ItemsSource="{Binding Context.Rooms.Local}"
+                                      SelectedItem="{Binding ClientInfo.Room, Mode=TwoWay}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock>
                                             <TextBlock.Text>
                                                 <MultiBinding StringFormat="{}{0} - {1}">
-                                                    <Binding Path="Number"/>
-                                                    <Binding Path="Type"/>
+                                                    <Binding Path="Number" />
+                                                    <Binding Path="Type" />
                                                 </MultiBinding>
                                             </TextBlock.Text>
                                         </TextBlock>
@@ -259,56 +410,113 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
 
-                            <DockPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="277" Margin="31,0,26,0">
-                                <Button Margin="5" Padding="10,0,10,0" Content="Add" Command="{Binding AddClientCommand}"/>
-                                <Button Margin="5" Padding="10,0,10,0" Content="Update" Command="{Binding UpdateClientCommand}"/>
-                                <Button Margin="5" Padding="10,0,10,0" Content="Delete" Command="{Binding DeleteClientCommand}"/>
-                                <Button Margin="5" Padding="10,0,10,0" HorizontalAlignment="Right" Content="Export" Command="{Binding ExportClientsCommand}"/>
+                            <DockPanel Grid.Row="5"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       HorizontalAlignment="Center"
+                                       Width="277"
+                                       Margin="31,0,26,0">
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Add"
+                                        Command="{Binding AddClientCommand}" />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Update"
+                                        Command="{Binding UpdateClientCommand}" />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Delete"
+                                        Command="{Binding DeleteClientCommand}" />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        HorizontalAlignment="Right"
+                                        Content="Export"
+                                        Command="{Binding ExportClientsCommand}" />
                             </DockPanel>
 
                             <!-- < Clients Filter > -->
-                            <Expander Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Header="Filters">
+                            <Expander Grid.Row="6"
+                                      Grid.Column="0"
+                                      Grid.ColumnSpan="2"
+                                      Header="Filters">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}"/>
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="3"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="4"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}" />
 
-                                    <TextBox x:Name="FnTbFilter" Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding ClientFilter.FirstName, UpdateSourceTrigger=PropertyChanged}">
+                                    <TextBox x:Name="FnTbFilter"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Margin="3"
+                                             Text="{Binding ClientFilter.FirstName, UpdateSourceTrigger=PropertyChanged}">
 
                                     </TextBox>
-                                    <TextBox x:Name="LnTbFilter" Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding ClientFilter.LastName, UpdateSourceTrigger=PropertyChanged}">
+                                    <TextBox x:Name="LnTbFilter"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Margin="3"
+                                             Text="{Binding ClientFilter.LastName, UpdateSourceTrigger=PropertyChanged}">
 
                                     </TextBox>
-                                    <DatePicker x:Name="BdDpFilter" Grid.Row="2" Grid.Column="1" Margin="3" SelectedDate="{Binding ClientFilter.Birthdate}">
+                                    <DatePicker x:Name="BdDpFilter"
+                                                Grid.Row="2"
+                                                Grid.Column="1"
+                                                Margin="3"
+                                                SelectedDate="{Binding ClientFilter.Birthdate}">
 
                                     </DatePicker>
-                                    <TextBox x:Name="AccTbFilter" Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding ClientFilter.Account, UpdateSourceTrigger=PropertyChanged}">
+                                    <TextBox x:Name="AccTbFilter"
+                                             Grid.Row="3"
+                                             Grid.Column="1"
+                                             Margin="3"
+                                             Text="{Binding ClientFilter.Account, UpdateSourceTrigger=PropertyChanged}">
 
                                     </TextBox>
-                                    <ComboBox x:Name="RnCbFilter" Grid.Row="4" Grid.Column="1" Margin="3" ItemsSource="{Binding Context.Rooms.Local}" SelectedItem="{Binding ClientFilter.Room}">
+                                    <ComboBox x:Name="RnCbFilter"
+                                              Grid.Row="4"
+                                              Grid.Column="1"
+                                              Margin="3"
+                                              ItemsSource="{Binding Context.Rooms.Local}"
+                                              SelectedItem="{Binding ClientFilter.Room}">
                                         <ComboBox.ItemTemplate>
                                             <DataTemplate>
                                                 <TextBlock>
                                                     <TextBlock.Text>
                                                         <MultiBinding StringFormat="{}{0} - {1}">
-                                                            <Binding Path="Number"/>
-                                                            <Binding Path="Type"/>
+                                                            <Binding Path="Number" />
+                                                            <Binding Path="Type" />
                                                         </MultiBinding>
                                                     </TextBlock.Text>
                                                 </TextBlock>
@@ -316,13 +524,21 @@
                                         </ComboBox.ItemTemplate>
 
                                     </ComboBox>
-                                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="4,5,4,5" Content="Reset filter" Command="{Binding ResetFilterClientCommand}">
+                                    <Button Grid.Row="5"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="4,5,4,5"
+                                            Content="Reset filter"
+                                            Command="{Binding ResetFilterClientCommand}">
 
                                     </Button>
 
-                                    <DataGrid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding FilteredClientList}">
+                                    <DataGrid Grid.Row="6"
+                                              Grid.Column="0"
+                                              Grid.ColumnSpan="2"
+                                              ItemsSource="{Binding FilteredClientList}">
                                         <DataGrid.Columns>
-                                            <DataGridTextColumn Header="First name"/>
+                                            <DataGridTextColumn Header="First name" />
                                             <DataGridTextColumn Header="Last name" />
                                             <DataGridTextColumn Header="Birthdate" />
                                             <DataGridTextColumn Header="Account" />
@@ -340,98 +556,174 @@
             <!-- </ Clients TAB > -->
 
             <!-- < Hotel room TAB > -->
-            <TabItem x:Name="RoomsTab" Header="Hotel rooms" >
+            <TabItem x:Name="RoomsTab"
+                     Header="Hotel rooms" IsSelected="True">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="8*"/>
-                        <ColumnDefinition Width="239*"/>
-                        <ColumnDefinition Width="247*"/>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="247*" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Grid.Column="0" x:Name="RoomsGrid" ItemsSource="{Binding Context.Rooms.Local}" SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" SelectionChanged="RoomsGrid_SelectionChanged" Grid.ColumnSpan="2" Margin="0,0,0.4,0.4">
+                    <DataGrid Grid.Column="0"
+                              x:Name="RoomsGrid"
+                              ItemsSource="{Binding Context.Rooms.Local}"
+                              SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+                              SelectionChanged="RoomsGrid_SelectionChanged"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,0.4,0.4">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Room number" Binding="{Binding Number}"/>
-                            <DataGridTextColumn Header="Room type" Binding="{Binding Type}"/>
+                            <DataGridTextColumn Header="Room name"
+                                                Binding="{Binding NameRoom}" />
+                            <DataGridTextColumn Header="Room type"
+                                                Binding="{Binding Note}" />
+                            <DataGridTextColumn Header="Room type"
+                                                Binding="{Binding TypeRoom.NameTypeRoom}" />
+                            <DataGridTextColumn Header="Price"
+                                                Binding="{Binding TypeRoom.Price}" />
                         </DataGrid.Columns>
 
                     </DataGrid>
 
                     <!-- < Hotel rooms CRUD > -->
-                    <Border Grid.Column="2" BorderThickness="1" Margin="49.6,50,50,50.4" CornerRadius="10" BorderBrush="LightBlue">
+                    <Border Grid.Column="2"
+                            BorderThickness="1"
+                            Margin="49.6,50,50,50.4"
+                            CornerRadius="10"
+                            BorderBrush="LightBlue">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="{Binding ElementName=RoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}"/>
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=RoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
 
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding RoomInfo.Number, Mode=TwoWay}"/>
-                            <ComboBox x:Name="RoomTypeCb" Grid.Row="1" Grid.Column="1" Margin="3" />
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding RoomInfo.Number, Mode=TwoWay}" />
+                            <ComboBox x:Name="RoomTypeCb"
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Margin="3" />
 
-                            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Margin="5" Padding="10,0,10,0" Content="Add" Command="{Binding AddRoomCommand}"/>
-                                <Button Margin="5" Padding="10,0,10,0" Content="Update" Command="{Binding UpdateRoomCommand}"/>
-                                <Button Margin="5" Padding="10,0,10,0" Content="Delete" Command="{Binding DeleteRoomCommand}"/>
+                            <StackPanel Grid.Row="2"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Add"
+                                        Command="{Binding AddRoomCommand}" />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Update"
+                                        Command="{Binding UpdateRoomCommand}" />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Delete"
+                                        Command="{Binding DeleteRoomCommand}" />
                             </StackPanel>
 
-                            <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding SelectedRoom.Clients}">
+                            <DataGrid Grid.Row="3"
+                                      Grid.Column="0"
+                                      Grid.ColumnSpan="2"
+                                      ItemsSource="{Binding SelectedRoom.Clients}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="First name" />
-                                    <DataGridTextColumn Header="Last name"/>
+                                    <DataGridTextColumn Header="Last name" />
                                     <DataGridTextColumn Header="Birthdate" />
                                     <DataGridTextColumn Header="Account" />
                                 </DataGrid.Columns>
                             </DataGrid>
 
                             <!-- < Rooms Filter > -->
-                            <Expander Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Header="Filters">
+                            <Expander Grid.Row="4"
+                                      Grid.Column="0"
+                                      Grid.ColumnSpan="2"
+                                      Header="Filters">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="{Binding ElementName=RoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Room freedom:"/>
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=RoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="0"
+                                               Margin="5"
+                                               Text="Room freedom:" />
 
-                                    <TextBox x:Name="RnTbFilter" Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding RoomFilter.Number, UpdateSourceTrigger=PropertyChanged}">
+                                    <TextBox x:Name="RnTbFilter"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Margin="3"
+                                             Text="{Binding RoomFilter.Number, UpdateSourceTrigger=PropertyChanged}">
 
                                     </TextBox>
-                                    <ComboBox x:Name="RtCbFilter" Grid.Row="1" Grid.Column="1" Margin="3" SelectedItem="{Binding RoomFilter.Type}">
+                                    <ComboBox x:Name="RtCbFilter"
+                                              Grid.Row="1"
+                                              Grid.Column="1"
+                                              Margin="3"
+                                              SelectedItem="{Binding RoomFilter.Type}">
 
                                     </ComboBox>
-                                    <ComboBox x:Name="RfCbFilter" Grid.Row="2" Grid.Column="1" Margin="3" SelectedIndex="{Binding RoomFreedomFilterIndex, Mode=TwoWay}">
+                                    <ComboBox x:Name="RfCbFilter"
+                                              Grid.Row="2"
+                                              Grid.Column="1"
+                                              Margin="3"
+                                              SelectedIndex="{Binding RoomFreedomFilterIndex, Mode=TwoWay}">
                                         <ComboBox.Items>
-                                            <TextBlock Text="None"/>
-                                            <TextBlock Text="Free"/>
-                                            <TextBlock Text="Not free"/>
+                                            <TextBlock Text="None" />
+                                            <TextBlock Text="Free" />
+                                            <TextBlock Text="Not free" />
                                         </ComboBox.Items>
 
                                     </ComboBox>
-                                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="4,5,4,5" Content="Reset filter" Command="{Binding ResetFilterRoomCommand}">
+                                    <Button Grid.Row="3"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="4,5,4,5"
+                                            Content="Reset filter"
+                                            Command="{Binding ResetFilterRoomCommand}">
 
                                     </Button>
 
-                                    <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                                    <DataGrid Grid.Row="4"
+                                              Grid.Column="0"
+                                              Grid.ColumnSpan="2">
                                         <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Room number"/>
+                                            <DataGridTextColumn Header="Room number" />
                                             <DataGridTextColumn Header="Room type" />
                                         </DataGrid.Columns>
                                     </DataGrid>

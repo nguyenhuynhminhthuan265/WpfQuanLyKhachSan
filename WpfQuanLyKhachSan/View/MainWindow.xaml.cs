@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfQuanLyKhachSan.Model;
+using WpfQuanLyKhachSan.Repository;
 using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan
@@ -24,9 +25,13 @@ namespace WpfQuanLyKhachSan
     {
         private readonly QuanLyKhachSanDbContext context = new QuanLyKhachSanDbContext();
 
-        private RoleViewModel roleViewModel = new RoleViewModel();
+        private RoleRepository roleViewModel = new RoleRepository();
 
-        
+        private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
+
+        private RoomViewModel roomViewModel = new RoomViewModel();
+
+
 
         private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -49,6 +54,8 @@ namespace WpfQuanLyKhachSan
             {
                 Console.WriteLine("================> " + $"{role.Name}");
             }*/
+
+
         }
 
         private void ButtonsDemoChip_OnClick(object sender, RoutedEventArgs e)
@@ -59,6 +66,25 @@ namespace WpfQuanLyKhachSan
         private void ButtonsDemoChip_OnDeleteClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Clicked Logout");
+        }
+
+        private void FindAllRoom(object sender, RoutedEventArgs e)
+        {
+            /*List<TypeRoom> typeRooms = typeRoomViewModel.findAll();
+            Console.WriteLine("======>>>>>>>>sender: " + sender);
+            foreach (TypeRoom item in typeRooms)
+            {
+                Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.Price}");
+            }*/
+
+            List<Room> rooms = roomViewModel.findAll();
+            /*foreach (Room item in rooms)
+            {
+                Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.NameRoom}" + ": " + $"{item.TypeRoom.Price}");
+            }*/
+
+            RoomsGrid.ItemsSource = rooms;
+
         }
 
 

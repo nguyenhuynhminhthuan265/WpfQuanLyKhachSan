@@ -18,8 +18,13 @@ namespace WpfQuanLyKhachSan.Model
 
         public float Price { get; set; }
 
-        public ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
 
         public Boolean isDeleted { get; set; }
+
+        public TypeRoom()
+        {
+            isDeleted = false;
+        }
     }
 }

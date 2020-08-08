@@ -23,5 +23,10 @@ namespace WpfQuanLyKhachSan.Model
         public virtual ICollection<Employee> Employees { get; set; }
 
         public Boolean isDeleted { get; set; }
+
+        public Role()
+        {
+            isDeleted = false;
+        }
     }
 }
