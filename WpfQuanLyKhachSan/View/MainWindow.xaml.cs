@@ -29,15 +29,10 @@ namespace WpfQuanLyKhachSan
 
         private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
 
-        private RoomViewModel roomViewModel = new RoomViewModel();
+        
 
 
-
-        private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-
-        }
+        
 
         public MainWindow()
         {
@@ -77,13 +72,13 @@ namespace WpfQuanLyKhachSan
                 Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.Price}");
             }*/
 
-            List<Room> rooms = roomViewModel.findAll();
+
             /*foreach (Room item in rooms)
             {
                 Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.NameRoom}" + ": " + $"{item.TypeRoom.Price}");
             }*/
+            Frame.Content = new View.Home();
 
-            RoomsGrid.ItemsSource = rooms;
 
         }
 
@@ -91,6 +86,11 @@ namespace WpfQuanLyKhachSan
         {
             Frame.Content = new View.Home();
             
+        }
+
+        private void ManagementHotel(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = new View.AdminManagement();
         }
 
 
