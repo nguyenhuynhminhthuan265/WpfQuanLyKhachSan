@@ -95,7 +95,7 @@
                              DeleteClick="ButtonsDemoChip_OnDeleteClick"
                              ToolTip="Click to go to Manage you account"
                              DeleteToolTip="Your friendly neighbor delete button"
-                             Margin="1042,19,0,718"
+                             Margin="1034.5,19.588,0,717.411"
                              IconForeground="#FF673AB7"
                              IconBackground="White"
                              Background="#FF673AB7">
@@ -120,7 +120,7 @@
                 BorderThickness="0"
                 Background="Transparent"
                 HorizontalContentAlignment="Center"
-                
+                Click="HomeButton_Click"
                 >
             <StackPanel Orientation="Horizontal"
                         Height="35"
@@ -140,7 +140,7 @@
 
         </Button>
 
-        <!--Dich vu an uong button-->
+        <!--Phong button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,280.665,950,269.334"
@@ -169,10 +169,38 @@
 
         </Button>
 
+        <!--Dich vu an uong button-->
+        <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Margin="0,415.165,950,303.834"
+                Height="50"
+                BorderBrush="#FF673AB7"
+                BorderThickness="0"
+                Background="Transparent"
+                HorizontalContentAlignment="Center"
+                >
+            <StackPanel Orientation="Horizontal"
+                        Height="35"
+                        Width="230">
+                <materialDesign:PackIcon Kind="Food"
+                                         Width="35"
+                                         Height="35"
+                                         Margin="0,0,5,0" />
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFEBE5F5"
+                       FontSize="18"
+                       Width="190"
+                       Margin="0,1.53"
+                       Content="DỊCH VỤ ĂN UỐNG" />
+            </StackPanel>
+
+        </Button>
+
         <!--Dich vu giat ui button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
-                Margin="0,330.665,950,219.334"
+                Margin="0,465.165,950,253.834"
                 Height="50"
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
@@ -199,7 +227,7 @@
         <!--Dich vu di chuyen button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
-                Margin="0,380.665,950,169.334"
+                Margin="0,515.165,950,203.834"
                 Height="50"
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
@@ -226,7 +254,7 @@
         <!--Tra cuu, quan ly button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
-                Margin="0,430.665,950,119.334"
+                Margin="0,565.165,950,153.834"
                 Height="50"
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
@@ -253,7 +281,7 @@
         <!--Bao cao, thong ke button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
-                Margin="0,480.665,950,69.334"
+                Margin="0,615.165,950,103.834"
                 Height="50"
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
@@ -732,10 +760,12 @@
                             <!-- </ Rooms Filter > -->
                         </Grid>
                     </Border>
+
                     <!-- </ Hotel rooms CRUD > -->
                 </Grid>
             </TabItem>
             <!-- </ Hotel room TAB > -->
         </TabControl>
+        <Frame x:Name="Frame" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="970" Margin="275,72,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

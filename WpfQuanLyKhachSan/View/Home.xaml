@@ -1,0 +1,55 @@
+﻿<Page x:Class="WpfQuanLyKhachSan.View.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfQuanLyKhachSan.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="970"
+      Title="Home">
+
+    <Grid Background="White">
+        <TextBlock Margin="85,35,85,609.959" HorizontalAlignment="Center" Width="800" TextAlignment="Center" FontSize="30" FontWeight="Bold">DANH SÁCH PHÒNG</TextBlock>
+
+        <StackPanel Height="40" Margin="10,107.67,10,552.329" Orientation="Horizontal">
+            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="5">Tất cả</Label>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5,0">
+                <TextBlock Margin="5" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">6</TextBlock>
+            </Border>
+            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Còn trống</Label>
+            <Border BorderBrush="Black" BorderThickness="1" Background="LightGray" Margin="5,0">
+                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">1</TextBlock>
+            </Border>
+            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Đang thuê</Label>
+            <Border BorderBrush="Black" BorderThickness="1" Background="LightSalmon" Margin="5,0">
+                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">1</TextBlock>
+            </Border>
+            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Được đặt trước</Label>
+            <Border BorderBrush="Black" BorderThickness="1" Background="#FF673AB7" Margin="5,0">
+                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">4</TextBlock>
+            </Border>
+
+
+        </StackPanel>
+        <Border BorderBrush="LightGray" BorderThickness="0.8" Margin="10,188.66,10,0">
+        <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Height="95" Width="155">
+                        <StackPanel Width="155" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding NameRoom}" Width="120.647" TextAlignment="Center" FontSize="18"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding TypeRoom.NameTypeRoom}" TextAlignment="Center" FontSize="18"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </Border>
+
+    </Grid>
+</Page>

@@ -87,6 +87,12 @@ namespace WpfQuanLyKhachSan
 
         }
 
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = new View.Home();
+            
+        }
+
 
         /*private void Fill()
         {
