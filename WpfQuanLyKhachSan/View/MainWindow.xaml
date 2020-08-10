@@ -262,8 +262,7 @@
                 BorderThickness="0"
                 Background="Transparent"
                 HorizontalContentAlignment="Center"
-                Click="ManagementHotel"
-                >
+                Click="ManagementHotel">
             <StackPanel Orientation="Horizontal"
                         Height="35"
                         Width="230">
@@ -334,7 +333,13 @@
                    Content="HOTEL" />
         </StackPanel>
 
-        <!-- FRAME BODY CONTENT -->
+
+
+
+
+
+
+     
         <Frame x:Name="Frame" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="970" Margin="275,72,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

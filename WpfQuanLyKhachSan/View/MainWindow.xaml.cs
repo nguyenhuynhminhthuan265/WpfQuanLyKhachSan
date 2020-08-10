@@ -93,6 +93,11 @@ namespace WpfQuanLyKhachSan
             Frame.Content = new View.AdminManagement();
         }
 
+        private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
 
         /*private void Fill()
         {

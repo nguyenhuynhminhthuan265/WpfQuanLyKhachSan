@@ -17,5 +17,17 @@ namespace WpfQuanLyKhachSan.ViewModel
 
             return typeRooms;
         }
+
+
+        public void Add(Room room)
+        {
+            roomRepository.Add(room);
+        }
+
+        public void UpdateIsDeleted(int id)
+        {
+            Room room = roomRepository.FindById(id);
+            roomRepository.UpdateIsDeleted(room);
+        }
     }
 }

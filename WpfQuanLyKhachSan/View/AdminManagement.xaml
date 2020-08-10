@@ -284,6 +284,8 @@
                               ItemsSource="{Binding Context.Rooms.Local}"
                               SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
                               SelectionChanged="RoomsGrid_SelectionChanged"
+                              MouseDoubleClick="Row_MouseDoubleClick"
+                              AutoGenerateColumns="False"
                               Grid.ColumnSpan="2"
                               Margin="0,0,0.4,0.4">
                         <DataGrid.Columns>
@@ -326,17 +328,46 @@
                                        Grid.Column="0"
                                        Margin="5"
                                        Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=RoomsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+
+
+                            <TextBlock Grid.Row="3"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=RoomsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
+
 
                             <TextBox Grid.Row="0"
                                      Grid.Column="1"
                                      Margin="3"
-                                     Text="{Binding RoomInfo.Number, Mode=TwoWay}" />
-                            <ComboBox x:Name="RoomTypeCb"
-                                      Grid.Row="1"
-                                      Grid.Column="1"
-                                      Margin="3" />
+                                     Text="{Binding SelectedItem.NameRoom, ElementName=RoomsGrid}"
+                                     x:Name="NameRoomCRUD"
+                                     />
 
-                            <StackPanel Grid.Row="2"
+                            <TextBox Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.Note, ElementName=RoomsGrid}"
+                                     x:Name="NoteRoomCRUD" />
+                            
+                            <ComboBox x:Name="RoomTypeCb"
+                                      Grid.Row="2"
+                                      Grid.Column="1"
+                                      Margin="3"
+                                      DisplayMemberPath="NameTypeRoom"
+                                      />
+
+                            <TextBox Grid.Row="3"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.TypeRoom.Price, ElementName=RoomsGrid}"
+                                     x:Name="PriceRoomCRUD" />
+
+
+                            <StackPanel Grid.Row="9"
                                         Grid.Column="0"
                                         Grid.ColumnSpan="2"
                                         Orientation="Horizontal"
@@ -344,105 +375,21 @@
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Add"
-                                        Command="{Binding AddRoomCommand}" />
+                                        Click="CRUDItem"
+                                         />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Update"
-                                        Command="{Binding UpdateRoomCommand}" />
+                                        Click="CRUDItem"
+                                        />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Delete"
-                                        Command="{Binding DeleteRoomCommand}" />
+                                        Click="CRUDItem"
+                                        />
                             </StackPanel>
 
-                            <DataGrid Grid.Row="3"
-                                      Grid.Column="0"
-                                      Grid.ColumnSpan="2"
-                                      ItemsSource="{Binding SelectedRoom.Clients}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="First name" />
-                                    <DataGridTextColumn Header="Last name" />
-                                    <DataGridTextColumn Header="Birthdate" />
-                                    <DataGridTextColumn Header="Account" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-
                             <!-- < Rooms Filter > -->
-                            <Expander Grid.Row="4"
-                                      Grid.Column="0"
-                                      Grid.ColumnSpan="2"
-                                      Header="Filters">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Row="0"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=RoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="1"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=RoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="2"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="Room freedom:" />
-
-                                    <TextBox x:Name="RnTbFilter"
-                                             Grid.Row="0"
-                                             Grid.Column="1"
-                                             Margin="3"
-                                             Text="{Binding RoomFilter.Number, UpdateSourceTrigger=PropertyChanged}">
-
-                                    </TextBox>
-                                    <ComboBox x:Name="RtCbFilter"
-                                              Grid.Row="1"
-                                              Grid.Column="1"
-                                              Margin="3"
-                                              SelectedItem="{Binding RoomFilter.Type}">
-
-                                    </ComboBox>
-                                    <ComboBox x:Name="RfCbFilter"
-                                              Grid.Row="2"
-                                              Grid.Column="1"
-                                              Margin="3"
-                                              SelectedIndex="{Binding RoomFreedomFilterIndex, Mode=TwoWay}">
-                                        <ComboBox.Items>
-                                            <TextBlock Text="None" />
-                                            <TextBlock Text="Free" />
-                                            <TextBlock Text="Not free" />
-                                        </ComboBox.Items>
-
-                                    </ComboBox>
-                                    <Button Grid.Row="3"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
-                                            Margin="4,5,4,5"
-                                            Content="Reset filter"
-                                            Command="{Binding ResetFilterRoomCommand}">
-
-                                    </Button>
-
-                                    <DataGrid Grid.Row="4"
-                                              Grid.Column="0"
-                                              Grid.ColumnSpan="2">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Room number" />
-                                            <DataGridTextColumn Header="Room type" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </Grid>
-                            </Expander>
                             <!-- </ Rooms Filter > -->
                         </Grid>
                     </Border>
