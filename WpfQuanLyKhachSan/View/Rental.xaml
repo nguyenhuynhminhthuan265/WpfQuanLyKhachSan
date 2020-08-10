@@ -1,0 +1,134 @@
+﻿<Page x:Class="WpfQuanLyKhachSan.View.Rental"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfQuanLyKhachSan.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="970"
+      Title="Rental">
+
+    <Grid Background="White">
+        <TextBlock Margin="0,0,380,641.444" FontSize="36" TextAlignment="Center" FontWeight="Bold">PHIẾU THUÊ PHÒNG</TextBlock>
+        <StackPanel Width="380" Margin="590,0,0,0" Height="700" Background="#FF673AB7">
+            <TextBlock Height="45" FontSize="24" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" Foreground="White">THÔNG TIN KHÁCH HÀNG</TextBlock>
+            
+            <!--So Phong-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
+                <TextBlock Width="130" Text="PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <TextBlock Width="215" Text="101" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="15,0,5,0"/>
+            </StackPanel>
+            
+            <!--Ten Khach Hang-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
+                <TextBlock Width="140" Text="KHÁCH HÀNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <TextBox TextWrapping="Wrap" 
+  x:Name="NameTextBox" materialDesign:HintAssist.Hint="Họ và Tên"
+  materialDesign:TransitionAssist.DisableTransitions="True" Width="205" Foreground="White" BorderBrush="White" Height="31.051" VerticalAlignment="Bottom" Margin="5,0" />
+            </StackPanel>
+
+            <!--Loai Khach Hang-->
+            <StackPanel Orientation="Horizontal" Height="45" Margin="0,20,0,0">
+                <TextBlock Width="130" Text="LOẠI KHÁCH:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <ComboBox x:Name="TypeComboBox" Foreground="Black" FontSize="16"
+  materialDesign:HintAssist.Hint="Loại Khách" Width="205" BorderBrush="White" Height="35" VerticalAlignment="Bottom" Margin="15,0,5,0" Background="#FF673AB7">
+
+                </ComboBox>
+            </StackPanel>
+
+            <!--CMND Khach Hang-->
+            <StackPanel Orientation="Horizontal" Height="45" Margin="0,20,0,0">
+                <TextBlock Width="130" Text="CMND:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <TextBox
+  x:Name="CMNDTextBox" materialDesign:HintAssist.Hint="0xx.xxx.xxx"
+  materialDesign:TransitionAssist.DisableTransitions="True" Width="205" VerticalAlignment="Bottom" Foreground="White" BorderBrush="White" Margin="14,0,5,0" Height="31" />
+            </StackPanel>
+
+            <!--Dia chi Khach Hang-->
+            <StackPanel Orientation="Horizontal" Height="85" Margin="0,25,0,0">
+                <TextBlock Width="130" Text="ĐỊA CHỈ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Top" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <TextBox VerticalAlignment="Top"
+  x:Name="AddressTextBox" TextWrapping="Wrap"
+  materialDesign:TransitionAssist.DisableTransitions="True" Width="205" Foreground="White" BorderBrush="White" Height="75" Margin="15,0,5,0" />
+            </StackPanel>
+            
+            <!--Ngay Thue Phong-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="45">
+                <TextBlock Width="130" Text="NGÀY THUÊ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <DatePicker VerticalAlignment="Bottom"
+  Name="StartDatePicker" IsTodayHighlighted="True"
+  Width="205"
+  materialDesign:HintAssist.Hint="Ngày Thuê Phòng" Margin="15,0,5,0" Foreground="White" BorderBrush="White" Height="32" />
+            </StackPanel>
+
+            <!--Ngay Thue Phong-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="45">
+                <TextBlock Width="130" Text="NGÀY THUÊ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
+                <DatePicker VerticalAlignment="Bottom"
+  Name="EndDatePicker" IsTodayHighlighted="True"
+  Width="205"
+  materialDesign:HintAssist.Hint="Ngày Trả Phòng" Margin="15,0,5,0" Foreground="White" BorderBrush="White" Height="32" />
+            </StackPanel>
+            <!--Button-->
+            <StackPanel Orientation="Horizontal" Height="45" Margin="0,31,0,0">
+                <Button x:Name="ApplyButton"
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    materialDesign:ButtonProgressAssist.Value="-1"
+    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+    Content="XÁC NHẬN" Width="105" Height="30" Margin="20,0,0,0"/>
+
+                <Button
+            x:Name="AddButton" Click="AddButton_Click"
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White" BorderBrush="White" Margin="15,0,0,0">
+                    Add
+                </Button>
+
+                <Button
+            x:Name="CancelButton"
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White" BorderBrush="White" Margin="15,0,0,0">
+                    HỦY BỎ
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView x:Name="RentListView" Margin="0,60,380,0" MouseDoubleClick="MouseDown_DoubleClick">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">KHÁCH HÀNG</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="108" DisplayMemberBinding="{Binding Type}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="108" VerticalAlignment="Center" HorizontalContentAlignment="Center">LOẠI KHÁCH</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding IDNumber}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="80" VerticalAlignment="Center" HorizontalContentAlignment="Center">CMND</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="105">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="105" VerticalAlignment="Center" HorizontalContentAlignment="Center">ĐỊA CHỈ</GridViewColumnHeader>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Address}" Width="105"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="116">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="116" VerticalAlignment="Center" HorizontalContentAlignment="Center">NGÀY THUÊ</GridViewColumnHeader>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding StartDate}" Width="116"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+</Page>

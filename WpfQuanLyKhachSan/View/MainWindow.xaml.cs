@@ -98,6 +98,11 @@ namespace WpfQuanLyKhachSan
 
         }
 
+        private void Rental_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = new View.Rental();
+        }
+
 
         /*private void Fill()
         {
