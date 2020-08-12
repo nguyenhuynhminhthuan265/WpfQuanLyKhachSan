@@ -93,6 +93,16 @@ namespace WpfQuanLyKhachSan
             MyFrame.Content = new View.Rental();
         }
 
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = new View.Login(MyFrame);
+        }
+
+        private void TotalRunueve_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = new View.TotalRevenue();
+        }
+
 
         /*private void Fill()
         {

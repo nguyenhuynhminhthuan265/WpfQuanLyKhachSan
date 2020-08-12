@@ -87,8 +87,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\CardBookRoom.cs" />
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Rental.xaml.cs">
       <DependentUpon>Rental.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TotalRevenue.xaml.cs">
+      <DependentUpon>TotalRevenue.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AdminManagement.xaml">
       <SubType>Designer</SubType>
@@ -97,6 +103,10 @@
     <Page Include="View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +150,10 @@
     <Page Include="View\Rental.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TotalRevenue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

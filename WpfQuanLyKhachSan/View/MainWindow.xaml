@@ -109,7 +109,7 @@
                              Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                              Padding="8"
                              UniformCornerRadius="0"
-                             Margin="0,72,967,0" />
+                             Margin="0,72,957,0" />
         <!--Sidebar Buttons Here-->
         <!--Trang chu button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
@@ -208,7 +208,8 @@
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
                 Background="Transparent"
-                HorizontalContentAlignment="Center">
+                HorizontalContentAlignment="Center"
+                Click="Login_Click">
             <StackPanel Orientation="Horizontal"
                         Height="35"
                         Width="230">
@@ -235,7 +236,7 @@
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
                 Background="Transparent"
-                HorizontalContentAlignment="Center">
+                HorizontalContentAlignment="Center" Click="TotalRunueve_Click">
             <StackPanel Orientation="Horizontal"
                         Height="35"
                         Width="230">

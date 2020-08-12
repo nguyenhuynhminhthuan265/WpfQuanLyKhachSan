@@ -14,6 +14,5 @@ namespace WpfQuanLyKhachSan.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public 
     }
 }
