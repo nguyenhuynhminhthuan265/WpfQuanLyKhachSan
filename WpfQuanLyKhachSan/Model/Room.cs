@@ -23,6 +23,11 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("TypeRoomId")]
         public virtual TypeRoom TypeRoom { get; set; }
 
+        public string Status { get; set; }
+
+        public virtual ICollection<Customer> Customers { get; set; }
+
+
         public Boolean isDeleted { get; set; }
 
     }

@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CardBookRoom.cs" />
     <Compile Include="View\Rental.xaml.cs">
       <DependentUpon>Rental.xaml</DependentUpon>
     </Compile>

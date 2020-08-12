@@ -55,7 +55,7 @@ namespace WpfQuanLyKhachSan.View
 
             obj = RoomsGrid.SelectedItem as Room;
             string name = obj.NameRoom;
-            Console.WriteLine("==================>>>>>>>>>>> room selected: " + $"{obj.Id}" + $"{name}");
+            Console.WriteLine("==================>>>>>>>>>>> room selected: " + $"{obj.Id} " + $"{name}");
 
             RoomTypeCb.ItemsSource = typeRoomViewModel.findAll();
 
@@ -91,18 +91,32 @@ namespace WpfQuanLyKhachSan.View
             Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
 
             /*MessageBox.Show(keyword);*/
+            string _nameRoom = NameRoomCRUD.Text;
+            string _noteRoom = NoteRoomCRUD.Text;
+            float _priceRoom = float.Parse(PriceRoomCRUD.Text);
+
+            /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
+            var _typeRoomId = 1;
+            if (RoomTypeCb.SelectedItem != null)
+            {
+                _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;
+            }
+            else
+            {
+                _typeRoomId = 1;
+            }
 
             switch (action)
             {
                 case "Add":
                     int _idAdd = 0;
-                    string _nameRoom = NameRoomCRUD.Text;
-                    string _noteRoom = NoteRoomCRUD.Text;
-                    float _priceRoom = float.Parse(PriceRoomCRUD.Text);
+                    /*  _nameRoom = NameRoomCRUD.Text;
+                      _noteRoom = NoteRoomCRUD.Text;
+                      _priceRoom = float.Parse(PriceRoomCRUD.Text);
 
 
-                    /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
-                    var _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;
+                     *//*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*//* // gives you the required string
+                      _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;*/
                     Console.WriteLine("=================>>>>>>>>>>>>Name Room add: " + $"{_nameRoom}");
                     Console.WriteLine("=================>>>>>>>>>>>>Note Room add: " + $"{_noteRoom}");
                     Console.WriteLine("=================>>>>>>>>>>>>Price Room add: " + $"{_priceRoom}");
@@ -122,6 +136,23 @@ namespace WpfQuanLyKhachSan.View
                     break;
 
                 case "Update":
+                    int _idUpdate = int.Parse(IdRoomCRUD.Text);
+                    Console.WriteLine("==============>>>>>>>>>>>>> ID UPDATE ROOM: " + $"{_idUpdate}");
+
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Room Update: " + $"{_nameRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Note Room Update: " + $"{_noteRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Price Room Update: " + $"{_priceRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoomId Room Update: " + $"{_typeRoomId}");
+
+                    Room roomUpdate = new Room()
+                    {
+                        Id = _idUpdate,
+                        NameRoom = _nameRoom,
+                        Note = _noteRoom,
+                        TypeRoomId = _typeRoomId
+                    };
+
+                    roomViewModel.Update(roomUpdate);
 
                     break;
 

@@ -8,21 +8,12 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Customer
+    class CardBookRoom
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string NameCustomer { get; set; }
-        public string IDNumber { get; set; }
-        public string Address { get; set; }
-        public string TypeCustomer { get; set; }
 
-        public int RoomId { get; set; }
-
-        [ForeignKey("RoomId")]
-        public virtual Room Room { get; set; }
-
-        public Boolean isDeleted { get; set; }
+        public 
     }
 }

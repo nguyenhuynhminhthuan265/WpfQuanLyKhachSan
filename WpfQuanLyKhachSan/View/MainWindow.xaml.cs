@@ -36,20 +36,9 @@ namespace WpfQuanLyKhachSan
 
         public MainWindow()
         {
-          /*  roleViewModel.Add(new Role
-            {
-                Name= "Test",
-                Description="test"
-            });*/
-
             InitializeComponent();
-            /*List<Role> roles = roleViewModel.findAll();
 
-            foreach (Role role in roles)
-            {
-                Console.WriteLine("================> " + $"{role.Name}");
-            }*/
-
+            MyFrame.Content = new View.Home(MyFrame);
 
         }
 
@@ -77,20 +66,21 @@ namespace WpfQuanLyKhachSan
             {
                 Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.NameRoom}" + ": " + $"{item.TypeRoom.Price}");
             }*/
-            Frame.Content = new View.Home();
+            MyFrame.Content = new View.Home(MyFrame);
 
 
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = new View.Home();
+
+            MyFrame.Content = new View.Home(MyFrame);
             
         }
 
         private void ManagementHotel(object sender, RoutedEventArgs e)
         {
-            Frame.Content = new View.AdminManagement();
+            MyFrame.Content = new View.AdminManagement();
         }
 
         private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,9 +88,9 @@ namespace WpfQuanLyKhachSan
 
         }
 
-        private void Rental_Click(object sender, RoutedEventArgs e)
+        public void Rental_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Content = new View.Rental();
+            MyFrame.Content = new View.Rental();
         }
 
 

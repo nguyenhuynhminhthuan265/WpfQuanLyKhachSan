@@ -29,5 +29,11 @@ namespace WpfQuanLyKhachSan.ViewModel
             Room room = roomRepository.FindById(id);
             roomRepository.UpdateIsDeleted(room);
         }
+
+        public void Update(Room room)
+        {
+            roomRepository.Update(room);
+        }
+
     }
 }

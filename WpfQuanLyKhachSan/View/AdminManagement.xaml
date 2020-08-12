@@ -339,6 +339,10 @@
                                        Margin="5"
                                        Text="{Binding ElementName=RoomsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
 
+                            <TextBox 
+                                     Visibility="Hidden"
+                                     Text="{Binding SelectedItem.Id, ElementName=RoomsGrid}"
+                                     x:Name="IdRoomCRUD" />
 
                             <TextBox Grid.Row="0"
                                      Grid.Column="1"
@@ -357,12 +361,16 @@
                                       Grid.Row="2"
                                       Grid.Column="1"
                                       Margin="3"
+                                      IsEditable="True"
+                                      IsReadOnly="True"
+                                      Text="-- Select Team --"
                                       DisplayMemberPath="NameTypeRoom"
                                       />
 
                             <TextBox Grid.Row="3"
                                      Grid.Column="1"
                                      Margin="3"
+                                     IsReadOnly="True"
                                      Text="{Binding SelectedItem.TypeRoom.Price, ElementName=RoomsGrid}"
                                      x:Name="PriceRoomCRUD" />
 

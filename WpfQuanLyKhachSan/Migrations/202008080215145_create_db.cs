@@ -7,7 +7,7 @@
     {
         public override void Up()
         {
-            CreateTable(
+            /*CreateTable(
                 "dbo.Customers",
                 c => new
                     {
@@ -87,7 +87,7 @@
                         isDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
+            */
         }
         
         public override void Down()

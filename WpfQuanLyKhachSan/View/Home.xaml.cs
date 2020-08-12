@@ -23,12 +23,30 @@ namespace WpfQuanLyKhachSan.View
     public partial class Home : Page
     {
         private RoomViewModel roomViewModel = new RoomViewModel();
-
+        Frame Frame;
         public Home()
         {
             InitializeComponent();
             List<Room> rooms = roomViewModel.findAll();
             roomComboBox.ItemsSource = rooms;
+        }
+
+        public Home(Frame frame)
+        {
+            this.Frame = frame;
+            InitializeComponent();
+            List<Room> rooms = roomViewModel.findAll();
+            roomComboBox.ItemsSource = rooms;
+        }
+
+        private void roomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BookRoom(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = new View.Rental();
         }
     }
 }

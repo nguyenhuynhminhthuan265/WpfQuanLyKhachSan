@@ -341,6 +341,6 @@
 
 
      
-        <Frame x:Name="Frame" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="970" Margin="275,72,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MyFrame" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="970" Margin="275,72,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

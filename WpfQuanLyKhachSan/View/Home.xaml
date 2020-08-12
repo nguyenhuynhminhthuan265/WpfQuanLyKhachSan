@@ -24,15 +24,14 @@
             <Border BorderBrush="Black" BorderThickness="1" Background="LightSalmon" Margin="5,0">
                 <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">1</TextBlock>
             </Border>
-            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Được đặt trước</Label>
-            <Border BorderBrush="Black" BorderThickness="1" Background="#FF673AB7" Margin="5,0">
-                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">4</TextBlock>
-            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Background="#FF673AB7" Margin="5,0"/>
+            <Button x:Name="button" Content="ĐẶT PHÒNG" Height="Auto" Width="167.612" Background="#FF746C83" Click="BookRoom"/>
 
 
         </StackPanel>
         <Border BorderBrush="LightGray" BorderThickness="0.8" Margin="10,188.66,10,0">
-        <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20">
+        <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20"
+                      SelectionChanged="roomComboBox_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"></WrapPanel>
