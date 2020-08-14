@@ -291,7 +291,9 @@
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
                 Background="Transparent"
-                HorizontalContentAlignment="Center">
+                HorizontalContentAlignment="Center"
+                Click="ReportBtn_Click">
+            
             <StackPanel Orientation="Horizontal"
                         Height="35"
                         Width="230">

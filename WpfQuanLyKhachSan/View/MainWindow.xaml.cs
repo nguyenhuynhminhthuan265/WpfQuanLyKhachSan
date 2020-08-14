@@ -103,6 +103,11 @@ namespace WpfQuanLyKhachSan
             MyFrame.Content = new View.TotalRevenue();
         }
 
+        private void ReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = new View.Report();
+        }
+
 
         /*private void Fill()
         {
