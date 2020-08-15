@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfQuanLyKhachSan.MainTest;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.ViewModel;
 
@@ -190,6 +191,7 @@ namespace WpfQuanLyKhachSan.View
 
         private void CRUDItemEmployee(object sender, RoutedEventArgs e)
         {
+            PasswordEncode passwordEncode = new PasswordEncode();
             var action = (e.Source as Button).Content.ToString();
             Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
 
@@ -197,7 +199,8 @@ namespace WpfQuanLyKhachSan.View
             string _nameEmp = FullnameEmployeeCRUD.Text;
             string _emailEmp = EmailEmployeeCRUD.Text;
             /*float _pRoom = float.Parse(PriceRoomCRUD.Text);*/
-
+            string _passwordEmp = PasswordEmployeeCRUD.Text;
+            string hashed = passwordEncode.EncodePasswordToBase64(_passwordEmp);
             /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
             var _typeRoleId = 3;
             if (RoomTypeCb.SelectedItem != null)
@@ -208,6 +211,83 @@ namespace WpfQuanLyKhachSan.View
             {
                 _typeRoleId = 3;
             }
+            switch (action)
+            {
+                case "Add":
+                    int _idAdd = 0;
+                    /*  _nameRoom = NameRoomCRUD.Text;
+                      _noteRoom = NoteRoomCRUD.Text;
+                      _priceRoom = float.Parse(PriceRoomCRUD.Text);
+
+
+                     *//*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*//* // gives you the required string
+                      _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;*/
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Room add: " + $"{_nameEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Note Room add: " + $"{_emailEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Price Room add: " + $"{_passwordEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoomId Room add: " + $"{_typeRoleId}");
+
+                    Employee employee = new Employee()
+                    {
+                        Id = _idAdd,
+                        Fullname = _nameEmp,
+                        Email = _emailEmp,
+                        RoleId = _typeRoleId,
+                        Password = hashed
+                    };
+
+                    employeeViewModel.Add(employee);
+
+
+                    break;
+
+                case "Update":
+                    /*int _idUpdate = int.Parse(IdRoomCRUD.Text);
+                    Console.WriteLine("==============>>>>>>>>>>>>> ID UPDATE ROOM: " + $"{_idUpdate}");
+
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Room Update: " + $"{_nameRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Note Room Update: " + $"{_noteRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Price Room Update: " + $"{_priceRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoomId Room Update: " + $"{_typeRoomId}");
+
+                    Room roomUpdate = new Room()
+                    {
+                        Id = _idUpdate,
+                        NameRoom = _nameRoom,
+                        Note = _noteRoom,
+                        TypeRoomId = _typeRoomId
+                    };
+
+                    roomViewModel.Update(roomUpdate);*/
+
+                    break;
+
+
+                case "Delete":
+                    /*int _idDelete = (RoomsGrid.SelectedItem as Room).Id;
+                    Console.WriteLine("=================>>>>>>>>>>>>> id delete: " + $"{_idDelete}");
+
+                    string message = "Are you sure?";
+                    string caption = "Confirmation";
+                    MessageBoxButton buttons = MessageBoxButton.YesNo;
+                    MessageBoxImage icon = MessageBoxImage.Question;
+                    if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+                    {
+                        roomViewModel.UpdateIsDeleted(_idDelete);
+                        LoadContent();
+                    }
+                    else
+                    {
+                        // Cancel code here  
+                    }*/
+
+
+                    break;
+
+            }
+
+
+
         }
 
         private void EmployeesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
