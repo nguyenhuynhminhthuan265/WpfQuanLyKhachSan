@@ -30,5 +30,9 @@ namespace WpfQuanLyKhachSan.Model
 
         public Boolean isDeleted { get; set; }
 
+        public static implicit operator Room(Employee v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace WpfQuanLyKhachSan.ViewModel
 {
     class RoleViewModel
     {
-        /*public List<Role> findAll()
+        public List<Role> findAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -56,6 +56,6 @@ namespace WpfQuanLyKhachSan.ViewModel
 
             }
 
-        }*/
+        }
     }
 }

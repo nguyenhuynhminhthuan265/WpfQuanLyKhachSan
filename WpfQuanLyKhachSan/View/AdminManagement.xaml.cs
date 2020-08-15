@@ -26,7 +26,8 @@ namespace WpfQuanLyKhachSan.View
     {
         private RoomViewModel roomViewModel = new RoomViewModel();
         private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
-
+        private EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+        private RoleViewModel roleViewModel = new RoleViewModel();
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -35,8 +36,8 @@ namespace WpfQuanLyKhachSan.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private Room obj;
-        public string NameRoom
+        
+        /*public string NameRoom
         {
             get { return obj.NameRoom; }
             set
@@ -47,13 +48,13 @@ namespace WpfQuanLyKhachSan.View
                     OnPropertyChanged("NameRoom");
                 }
             }
-        }
+        }*/
         private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             Console.WriteLine("===>>>>>>>>>>>>>>>>>>> " + $"{sender}");
 
-            obj = RoomsGrid.SelectedItem as Room;
+            Room obj = RoomsGrid.SelectedItem as Room;
             string name = obj.NameRoom;
             Console.WriteLine("==================>>>>>>>>>>> room selected: " + $"{obj.Id} " + $"{name}");
 
@@ -64,9 +65,12 @@ namespace WpfQuanLyKhachSan.View
         {
             InitializeComponent();
             List<Room> rooms = roomViewModel.findAll();
+            List<Employee> employees = employeeViewModel.findAll();
 
             RoomsGrid.ItemsSource = rooms;
             RoomTypeCb.ItemsSource = typeRoomViewModel.findAll();
+
+            EmployeesGrid.ItemsSource = employees;
 
         }
 
@@ -85,7 +89,7 @@ namespace WpfQuanLyKhachSan.View
 
         }
 
-        private void CRUDItem(object sender, RoutedEventArgs e)
+        private void CRUDItemRoom(object sender, RoutedEventArgs e)
         {
             var action = (e.Source as Button).Content.ToString();
             Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
@@ -184,68 +188,35 @@ namespace WpfQuanLyKhachSan.View
 
         }
 
+        private void CRUDItemEmployee(object sender, RoutedEventArgs e)
+        {
+            var action = (e.Source as Button).Content.ToString();
+            Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
 
+            /*MessageBox.Show(keyword);*/
+            string _nameEmp = FullnameEmployeeCRUD.Text;
+            string _emailEmp = EmailEmployeeCRUD.Text;
+            /*float _pRoom = float.Parse(PriceRoomCRUD.Text);*/
 
+            /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
+            var _typeRoleId = 3;
+            if (RoomTypeCb.SelectedItem != null)
+            {
+                _typeRoleId = (RoomTypeCb.SelectedItem as TypeRoom).Id;
+            }
+            else
+            {
+                _typeRoleId = 3;
+            }
+        }
 
+        private void EmployeesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Employee obj = EmployeesGrid.SelectedItem as Employee;
+            string name = obj.Fullname;
+            Console.WriteLine("==================>>>>>>>>>>> Employee selected: " + $"{obj.Id} " + $"{name}");
 
-
-
-
-        /*private RelayCommand _addRoomCommand;
-        private RelayCommand _updateRoomCommand;
-        private RelayCommand _deleteRoomCommand;
-        private RelayCommand<object> _resetFilterRoomCommand;
-        private RelayCommand _roomsGridSelectionChangedCommand;
-        private RelayCommand _roomsFilterChangedCommand;
-
-        public ICommand AddRoomCommand =>
-            _addRoomCommand ??
-            (_addRoomCommand = new RelayCommand(
-                () =>
-                {
-                    Context.Rooms.Add(new Room
-                    {
-                        Number = RoomInfo.Number,
-                        Type = RoomInfo.Type
-                    });
-                    Context.SaveChanges();
-                },
-                () =>
-                {
-                    if (string.IsNullOrEmpty(RoomInfo.Number) || RoomInfo.Type == RoomTypes.None)
-                    {
-                        return false;
-                    }
-                    return true;
-                }));
-
-        public ICommand UpdateRoomCommand =>
-            _updateRoomCommand ??
-            (_updateRoomCommand = new RelayCommand(
-                () =>
-                {
-                    SelectedRoom.Number = RoomInfo.Number;
-                    SelectedRoom.Type = RoomInfo.Type;
-                    Context.SaveChanges();
-                },
-                () =>
-                {
-                    if (SelectedRoom == null) return false;
-                    if (string.IsNullOrEmpty(RoomInfo.Number) || RoomInfo.Type == RoomTypes.None)
-                    {
-                        return false;
-                    }
-                    return true;
-                }));
-
-        public ICommand DeleteRoomCommand =>
-            _deleteRoomCommand ??
-            (_deleteRoomCommand = new RelayCommand(
-                () =>
-                {
-                    Context.Rooms.Remove(SelectedRoom);
-                    Context.SaveChanges();
-                },
-                () => SelectedRoom != null));*/
+            RoleTypeCb.ItemsSource = roleViewModel.findAll();
+        }
     }
 }

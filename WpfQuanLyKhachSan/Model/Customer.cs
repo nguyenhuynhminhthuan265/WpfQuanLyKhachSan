@@ -20,8 +20,14 @@ namespace WpfQuanLyKhachSan.Model
 
         public int RoomId { get; set; }
 
+        public int CardBookRoomId { get; set; }
+
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
+
+        [ForeignKey("CardBookRoomId")]
+        public virtual CardBookRoom CardBookRoom { get; set; }
+
 
         public Boolean isDeleted { get; set; }
     }

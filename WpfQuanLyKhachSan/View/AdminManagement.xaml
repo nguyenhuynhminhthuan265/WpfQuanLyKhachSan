@@ -383,17 +383,17 @@
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Add"
-                                        Click="CRUDItem"
+                                        Click="CRUDItemRoom"
                                          />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Update"
-                                        Click="CRUDItem"
+                                        Click="CRUDItemRoom"
                                         />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Delete"
-                                        Click="CRUDItem"
+                                        Click="CRUDItemRoom"
                                         />
                             </StackPanel>
 
@@ -406,6 +406,140 @@
                 </Grid>
             </TabItem>
             <!-- </ Hotel room TAB > -->
+            
+            
+            
+            <!--===============================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.-->
+            <!-- < Hotel Employee TAB > -->
+            <TabItem x:Name="EmployeesTab"
+                     Header="Hotel employees"
+                     IsSelected="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="247*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Grid.Column="0"
+                              x:Name="EmployeesGrid"
+                              ItemsSource="{Binding Context.Employees.Local}"
+                              SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+                              SelectionChanged="EmployeesGrid_SelectionChanged"
+                              MouseDoubleClick="Row_MouseDoubleClick"
+                              AutoGenerateColumns="False"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,0.4,0.4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Fullname"
+                                                Binding="{Binding Fullname}" />
+                            <DataGridTextColumn Header="Email"
+                                                Binding="{Binding Email}" />
+                            <DataGridTextColumn Header="Role"
+                                                Binding="{Binding Role.Name}" />
+                            
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <!-- < Hotel employees CRUD > -->
+                    <Border Grid.Column="2"
+                            BorderThickness="1"
+                            Margin="49.6,50,50,50.4"
+                            CornerRadius="10"
+                            BorderBrush="LightBlue">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=EmployeesGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=EmployeesGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=EmployeesGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+
+
+                            <TextBox 
+                                     Visibility="Hidden"
+                                     Text="{Binding SelectedItem.Id, ElementName=EmployeesGrid}"
+                                     x:Name="IdEmployeeCRUD" />
+
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.Fullname, ElementName=EmployeesGrid}"
+                                     x:Name="FullnameEmployeeCRUD"
+                                     />
+
+                            <TextBox Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.Email, ElementName=EmployeesGrid}"
+                                     x:Name="EmailEmployeeCRUD"
+                                     />
+
+
+                            <ComboBox x:Name="RoleTypeCb"
+                                      Grid.Row="2"
+                                      Grid.Column="1"
+                                      Margin="3"
+                                      IsEditable="True"
+                                      IsReadOnly="True"
+                                      Text="-- Select role --"
+                                      DisplayMemberPath="Name"
+                                      />
+
+
+
+                            <StackPanel Grid.Row="9"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Add"
+                                        Click="CRUDItemEmployee"
+                                         />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Update"
+                                        Click="CRUDItemEmployee"
+                                        />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Delete"
+                                        Click="CRUDItemEmployee"
+                                        />
+                            </StackPanel>
+
+                            <!-- < Rooms Filter > -->
+                            <!-- </ Rooms Filter > -->
+                        </Grid>
+                    </Border>
+
+                    <!-- </ Hotel rooms CRUD > -->
+                </Grid>
+            </TabItem>
+            <!-- </ Hotel room TAB > -->
+
+
         </TabControl>
       
 
