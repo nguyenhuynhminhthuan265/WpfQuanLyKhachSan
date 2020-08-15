@@ -137,6 +137,15 @@ namespace WpfQuanLyKhachSan
 
 
         }
+        /*private void FillCustomer()
+        {
+            var customers = new[]
+            {
+                new Customer{}
+            }
+        }*/
+
+
 
 
         /*private void Fill()

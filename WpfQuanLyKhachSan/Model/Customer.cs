@@ -18,15 +18,17 @@ namespace WpfQuanLyKhachSan.Model
         public string Address { get; set; }
         public string TypeCustomer { get; set; }
 
-        public int RoomId { get; set; }
 
-        public int CardBookRoomId { get; set; }
+        public ICollection<CardBookRoom> CardBookRoom { get; set; }
+        /*public int RoomId { get; set; }
 
-        [ForeignKey("RoomId")]
-        public virtual Room Room { get; set; }
+        public int CardBookRoomId { get; set; }*/
 
-        [ForeignKey("CardBookRoomId")]
-        public virtual CardBookRoom CardBookRoom { get; set; }
+        /*[ForeignKey("RoomId")]
+        public virtual Room Room { get; set; }*/
+
+        /*[ForeignKey("CardBookRoomId")]
+        public virtual CardBookRoom CardBookRoom { get; set; }*/
 
 
         public Boolean isDeleted { get; set; }

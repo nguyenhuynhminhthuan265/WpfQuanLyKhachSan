@@ -264,7 +264,7 @@ namespace WpfQuanLyKhachSan.View
 
 
                 case "Delete":
-                    /*int _idDelete = (RoomsGrid.SelectedItem as Room).Id;
+                    int _idDelete = (EmployeesGrid.SelectedItem as Employee).Id;
                     Console.WriteLine("=================>>>>>>>>>>>>> id delete: " + $"{_idDelete}");
 
                     string message = "Are you sure?";
@@ -273,13 +273,13 @@ namespace WpfQuanLyKhachSan.View
                     MessageBoxImage icon = MessageBoxImage.Question;
                     if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
                     {
-                        roomViewModel.UpdateIsDeleted(_idDelete);
+                        employeeViewModel.UpdateIsDeleted(_idDelete);
                         LoadContent();
                     }
                     else
                     {
                         // Cancel code here  
-                    }*/
+                    }
 
 
                     break;

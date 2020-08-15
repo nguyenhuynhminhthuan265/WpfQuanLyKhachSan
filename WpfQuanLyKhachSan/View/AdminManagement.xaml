@@ -436,7 +436,7 @@
                             <DataGridTextColumn Header="Email"
                                                 Binding="{Binding Email}" />
                             <DataGridTextColumn Header="Role"
-                                                Binding="{Binding Role.Name}" />
+                                                Binding="{Binding Role.Description}" />
                             
                         </DataGrid.Columns>
 
@@ -509,7 +509,7 @@
                                       IsEditable="True"
                                       IsReadOnly="True"
                                       Text="-- Select role --"
-                                      DisplayMemberPath="Name"
+                                      DisplayMemberPath="Description"
                                       />
                             <TextBox Grid.Row="3"
                                      Grid.Column="1"

@@ -13,6 +13,37 @@ namespace WpfQuanLyKhachSan.Model
         {
 
         }
+       
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            /*modelBuilder.Entity<CardBookRoom>().HasKey(sc => new { sc.CustomerId, sc.RoomId});*/
+
+
+            /*modelBuilder.Entity<CardBookRoom>()
+                        .HasOne<Customer>(sc => sc.Customer)
+                        .WithMany(s => s.CardBookRoom)
+                        .HasForeignKey(sc => sc.Id);
+
+
+            modelBuilder.Entity<CardBookRoom>()
+                .HasOne<Course>(sc => sc.Course)
+                .WithMany(s => s.StudentCourses)
+                .HasForeignKey(sc => sc.CId);*/
+
+        }
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Course>().
+              HasMany(c => c.Students).
+              WithMany(p => p.CoursesAttending).
+              Map(
+               m =>
+               {
+                   m.MapLeftKey("CourseId");
+                   m.MapRightKey("PersonId");
+                   m.ToTable("PersonCourses");
+               });
+        }*/
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
 
@@ -23,5 +54,8 @@ namespace WpfQuanLyKhachSan.Model
 
         public DbSet<Revenue> Revenues { get; set; }
 
+        public DbSet<CardBookRoom> CardBookRooms { get; set; }
+
+        public DbSet<Bill> Bills { get; set; }
     }
 }

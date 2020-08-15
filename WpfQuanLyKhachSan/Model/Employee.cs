@@ -27,6 +27,9 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
 
+
+        public ICollection<Bill> Bills;
+
         public Boolean isDeleted { get; set; }
     }
 }
