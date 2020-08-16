@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfQuanLyKhachSan.MainTest;
+using WpfQuanLyKhachSan.Model;
+using WpfQuanLyKhachSan.Repository;
 
 namespace WpfQuanLyKhachSan.View
 {
@@ -31,9 +34,43 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
         }
 
+        public delegate void SendResultDelegate(int userID);
+        public event SendResultDelegate LoginHandler;
+
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void SubmitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string enteredUsername = usernameTextBox.Text;
+            string enteredPassword = passwordBox.Password;
+            EmployeeRepository employeeRepository = new EmployeeRepository();
+            List<Employee> allEmployees = employeeRepository.findAll();
+            Employee findResult = allEmployees.Find(emp => emp.Email == enteredUsername);
+            if (findResult != null)
+            {
+                PasswordEncode encoder = new PasswordEncode();
+                if (findResult.Password.Equals(encoder.EncodePasswordToBase64(enteredPassword)))
+                {
+                    MessageBox.Show("Đăng nhập thành công!", "Đăng nhập", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoginHandler?.Invoke(findResult.Id);
+                }
+                else
+                {
+                    MessageBox.Show("Sai thông tin đăng nhập", "Lỗi đăng nhập", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập không tồn tại", "Lỗi đăng nhập...", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+           
+            
+
         }
     }
 }

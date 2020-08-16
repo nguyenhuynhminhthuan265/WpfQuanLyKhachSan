@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class create_db : DbMigration
+    public partial class createdb : DbMigration
     {
         public override void Up()
         {
@@ -78,7 +78,8 @@
                         isDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
+            Sql("DBCC CHECKIDENT('[TypeRooms]', RESEED, 0);");
+
             CreateTable(
                 "dbo.Employees",
                 c => new
