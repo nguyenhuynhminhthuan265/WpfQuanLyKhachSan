@@ -20,7 +20,7 @@
                 </StackPanel.Background>
                 <StackPanel Orientation="Vertical">
                     <Label Content="TỔNG DOANH THU" FontSize="16" Foreground="White" Margin="10,10,0,0"/>
-                    <Label Content="SỐ TIỀN" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
+                    <Label x:Name="sumRevenueLabel" Content="SỐ TIỀN" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
                 </StackPanel>
                 <materialDesign:PackIcon Kind="Cash" Width="100" Height="100" Margin="10,10,0,0" Foreground="White"/>
                 
@@ -35,7 +35,7 @@
                 </StackPanel.Background>
                 <StackPanel Orientation="Vertical">
                     <Label Content="TỔNG ĐƯỢC THUÊ" FontSize="16" Foreground="White" Margin="10,10,0,0"/>
-                    <Label Content="SỐ PHÒNG" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
+                    <Label x:Name="sumRoomRentLabel" Content="SỐ PHÒNG" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
                 </StackPanel>
                 <materialDesign:PackIcon Kind="Home" Width="100" Height="100" Margin="10,10,0,0" Foreground="White"/>
 
@@ -49,12 +49,33 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="TỔNG KHÁCH HÀNG" FontSize="16" Foreground="White" Margin="10,10,0,0"/>
-                    <Label Content="SỐ KHÁCH" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
+                    <Label Content="TỔNG GIỜ ĐÃ THUÊ" FontSize="16" Foreground="White" Margin="10,10,0,0"/>
+                    <Label x:Name="sumTimeRentLabel" Content="SỐ GIỜ" FontSize="24" Foreground="White" Margin="10,10,0,0" FontWeight="Bold" Height="40"/>
                 </StackPanel>
-                <materialDesign:PackIcon Kind="AccountCircleOutline" Width="100" Height="100" Margin="10,10,0,0" Foreground="White"/>
+                <materialDesign:PackIcon Kind="CalendarRange" Width="100" Height="100" Margin="10,10,0,0" Foreground="White"/>
 
             </StackPanel>
         </StackPanel>
+        <ListView Margin="35,180,35,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding ID}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">ID</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding NameRoom}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">PHÒNG</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding NameTypeRoom}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">LOẠI PHÒNG</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding RevenueOfDay}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">SỐ NGÀY</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Cost}">
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">TỔNG TIỀN</GridViewColumnHeader>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
