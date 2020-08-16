@@ -14,16 +14,16 @@ namespace WpfQuanLyKhachSan.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-       
-        
-
         public DateTime DateBookRoom { get; set; }
 
         public DateTime DateReturnRoom { get; set; }
 
-        public float PriceBookRoom { get; set; }
+        public double PriceBookRoom { get; set; }
 
-        /*        public virtual ICollection<Customer> Customer { get; set; }
+        public int CountCustomers { get; set; }
+
+        /*
+         * public virtual ICollection<Customer> Customer { get; set; }
         */
         public int RoomId { get; set; }
         public int CustomerId { get; set; }
@@ -34,8 +34,13 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
 
-
-        public ICollection<Bill> Bills;
+        public double GetPriceRoomRental()
+        {
+            var timeSpan = DateReturnRoom - DateBookRoom;
+            int days = timeSpan.Days;
+            
+            return days * Room.TypeRoom.Price;
+        }
 
         public Boolean isDelete { get; set; }
 

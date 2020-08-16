@@ -43,15 +43,20 @@
 
             <!--Ngay Thue Phong-->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="45">
-                <TextBlock Width="130" Text="NGÀY THUÊ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
+                <TextBlock Width="130" Text="NGÀY TRẢ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
                 <DatePicker VerticalAlignment="Bottom" Name="EndDatePicker" IsTodayHighlighted="True" Width="205" materialDesign:HintAssist.Hint="Ngày Trả Phòng" Margin="15,0,5,0" Foreground="White" BorderBrush="White" Height="32" />
             </StackPanel>
             <!--Button-->
             <StackPanel Orientation="Horizontal" Height="45" Margin="0,31,0,0">
-                <Button x:Name="ApplyButton" Click="ConfirmBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="105" Height="30" Margin="20,0,0,0" />
+                <Button x:Name="ApplyButton" Click="ConfirmBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" 
+                        materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="105" Height="30"
+                        BorderBrush="White" BorderThickness="2" Margin="20,0,0,0" />
 
-                <Button x:Name="AddButton" Click="AddButton_Click" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White" BorderBrush="White" Margin="15,0,0,0">
-                    Add
+                <Button x:Name="AddButton" Click="AddButton_Click" Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White"
+                        BorderBrush="White" Margin="15,0,0,0">
+                    THÊM
                 </Button>
 
                 <Button x:Name="CancelButton" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White" BorderBrush="White" Margin="15,0,0,0">

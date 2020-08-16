@@ -87,13 +87,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainTest\PasswordEncode.cs" />
-    <Compile Include="Migrations\202008160503244_create-db.cs" />
-    <Compile Include="Migrations\202008160503244_create-db.designer.cs">
-      <DependentUpon>202008160503244_create-db.cs</DependentUpon>
+    <Compile Include="Migrations\202008161538342_create-db.cs" />
+    <Compile Include="Migrations\202008161538342_create-db.designer.cs">
+      <DependentUpon>202008161538342_create-db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\CardBookRoom.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Repository\BillRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\EmployeeRepository.cs" />
@@ -135,7 +136,7 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\QuanLyKhachSanDbContext.cs" />
-    <Compile Include="Model\Revenue .cs" />
+    <Compile Include="Model\Revenue.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Test.cs" />
@@ -183,8 +184,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008160503244_create-db.resx">
-      <DependentUpon>202008160503244_create-db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008161538342_create-db.resx">
+      <DependentUpon>202008161538342_create-db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,6 +18,8 @@ namespace WpfQuanLyKhachSan.Model
 
         public string Note { get; set; }
 
+        public const string EMPTY = "empty";
+        public const string BOOKED = "booked";
 
         public int TypeRoomId { get; set; }
         [ForeignKey("TypeRoomId")]

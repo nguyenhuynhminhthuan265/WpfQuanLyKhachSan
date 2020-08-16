@@ -31,6 +31,7 @@ namespace WpfQuanLyKhachSan.Model
                 .HasForeignKey(sc => sc.CId);*/
 
         }
+
         /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().
@@ -44,6 +45,7 @@ namespace WpfQuanLyKhachSan.Model
                    m.ToTable("PersonCourses");
                });
         }*/
+
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
 

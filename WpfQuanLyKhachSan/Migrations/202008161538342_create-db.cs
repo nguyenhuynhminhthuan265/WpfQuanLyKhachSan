@@ -12,15 +12,15 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        IdEmployee = c.Int(nullable: false),
-                        TotalPrice = c.Single(nullable: false),
+                        TotalPrice = c.Double(nullable: false),
                         IdCardBookRoom = c.Int(nullable: false),
+                        IdEmployee = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.CardBookRooms", t => t.IdCardBookRoom, cascadeDelete: true)
                 .ForeignKey("dbo.Employees", t => t.IdEmployee, cascadeDelete: true)
-                .Index(t => t.IdEmployee)
-                .Index(t => t.IdCardBookRoom);
+                .Index(t => t.IdCardBookRoom)
+                .Index(t => t.IdEmployee);
             
             CreateTable(
                 "dbo.CardBookRooms",
@@ -29,7 +29,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         DateBookRoom = c.DateTime(nullable: false),
                         DateReturnRoom = c.DateTime(nullable: false),
-                        PriceBookRoom = c.Single(nullable: false),
+                        PriceBookRoom = c.Double(nullable: false),
                         RoomId = c.Int(nullable: false),
                         CustomerId = c.Int(nullable: false),
                         isDelete = c.Boolean(nullable: false),
@@ -78,8 +78,7 @@
                         isDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            Sql("DBCC CHECKIDENT('[TypeRooms]', RESEED, 0);");
-
+            
             CreateTable(
                 "dbo.Employees",
                 c => new
@@ -140,8 +139,8 @@
             DropIndex("dbo.Rooms", new[] { "TypeRoomId" });
             DropIndex("dbo.CardBookRooms", new[] { "CustomerId" });
             DropIndex("dbo.CardBookRooms", new[] { "RoomId" });
-            DropIndex("dbo.Bills", new[] { "IdCardBookRoom" });
             DropIndex("dbo.Bills", new[] { "IdEmployee" });
+            DropIndex("dbo.Bills", new[] { "IdCardBookRoom" });
             DropTable("dbo.Revenues");
             DropTable("dbo.Roles");
             DropTable("dbo.Employees");

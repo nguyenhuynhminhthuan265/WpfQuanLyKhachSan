@@ -147,9 +147,11 @@
                              Padding="8"
                              UniformCornerRadius="0"
                              Margin="0,72,957,0" />
+        
         <!--Sidebar Buttons Here-->
         <!--Trang chu button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnHomePage"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,230.665,950,319.334"
                 Height="50"
@@ -179,6 +181,7 @@
 
         <!--Phong button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnListRooms"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,280.665,950,269.334"
                 Height="50"
@@ -210,6 +213,7 @@
 
         <!--Loai Phong button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnTypeRooms"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,415.165,950,303.834"
                 Height="50"
@@ -231,7 +235,7 @@
                        FontSize="18"
                        Width="190"
                        Margin="0,1.53"
-                       Content="LOẠI PHÒNG" />
+                       Content="THUÊ PHÒNG" />
             </StackPanel>
 
         </Button>
@@ -239,6 +243,7 @@
 
         <!--Dich vu giat ui button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnLaundryService"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,465.165,950,253.834"
                 Height="50"
@@ -267,6 +272,7 @@
 
         <!--Dich vu di chuyen button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnTransportService"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,515.165,950,203.834"
                 Height="50"
@@ -294,6 +300,7 @@
 
         <!--Tra cuu, quan ly button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnSearchManage"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,565.165,950,153.834"
                 Height="50"
@@ -322,6 +329,7 @@
 
         <!--Bao cao, thong ke button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                x:Name="btnReportStats"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,615.165,950,103.834"
                 Height="50"
