@@ -17,8 +17,10 @@ namespace WpfQuanLyKhachSan.Model
         public string NameTypeRoom { get; set; }
 
         public float Price { get; set; }
+        public int NumberOfCustomer { get; set; }
 
         public virtual ICollection<Room> Rooms { get; set; }
+
 
         public Boolean isDeleted { get; set; }
 
@@ -26,5 +28,6 @@ namespace WpfQuanLyKhachSan.Model
         {
             isDeleted = false;
         }
+
     }
 }
