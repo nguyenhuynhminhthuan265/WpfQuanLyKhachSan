@@ -7,13 +7,13 @@ namespace WpfQuanLyKhachSan.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class create_db : IMigrationMetadata
+    public sealed partial class createdb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create_db));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createdb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008150807487_create_db"; }
+            get { return "202008160503244_create-db"; }
         }
         
         string IMigrationMetadata.Source

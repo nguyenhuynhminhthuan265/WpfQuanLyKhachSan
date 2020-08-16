@@ -87,9 +87,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainTest\PasswordEncode.cs" />
-    <Compile Include="Migrations\202008150807487_create_db.cs" />
-    <Compile Include="Migrations\202008150807487_create_db.designer.cs">
-      <DependentUpon>202008150807487_create_db.cs</DependentUpon>
+    <Compile Include="Migrations\202008160503244_create-db.cs" />
+    <Compile Include="Migrations\202008160503244_create-db.designer.cs">
+      <DependentUpon>202008160503244_create-db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bill.cs" />
@@ -101,6 +101,9 @@
     <Compile Include="ViewModel\CardBookRoomViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="View\Information.xaml.cs">
+      <DependentUpon>Information.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Information.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,8 +193,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008150807487_create_db.resx">
-      <DependentUpon>202008150807487_create_db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008160503244_create-db.resx">
+      <DependentUpon>202008160503244_create-db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

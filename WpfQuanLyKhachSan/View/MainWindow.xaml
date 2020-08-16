@@ -7,8 +7,10 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow"
+        WindowStartupLocation="CenterScreen"
         Height="800"
-        Width="1250">
+        Width="1250"
+        ResizeMode="CanMinimize">
     <Window.Resources>
 
         <Style TargetType="DataGrid">
@@ -25,8 +27,40 @@
         <!--Header Here -->
         <materialDesign:ColorZone Mode="PrimaryMid"
                                   Padding="16">
-            <DockPanel>
-                <StackPanel Orientation="Horizontal"
+            <DockPanel >
+                <!--Quan ly phien su dung-->
+                <StackPanel x:Name="stackPanelUserSession" Orientation="Horizontal" 
+                    DockPanel.Dock="Right" Margin="0 0 10 0">
+
+                    <materialDesign:Chip 
+                        x:Name="chipUserSession"
+                        Content="Xin chào Tony Stark"
+                        IsDeletable="True"
+                        Click="ChipUserSession_OnClick"
+                        DeleteClick="ChipUserSession_OnDeleteClick"
+                        ToolTip="Click to go to Manage you account"
+                        DeleteToolTip="Your friendly neighbor Delete Button"
+                        IconForeground="#FF673AB7"
+                        IconBackground="White"
+                        Visibility="Hidden"
+                        Background="#FF673AB7">
+                        <materialDesign:Chip.Icon>
+                            <Image Source="../Assets/Tony.png"></Image>
+                        </materialDesign:Chip.Icon>
+                    </materialDesign:Chip>
+
+                    <Button Content="Đăng nhập" Margin="0 0 20 0"
+                            BorderBrush="White"
+                            materialDesign:ButtonAssist.CornerRadius="3"
+                            BorderThickness="2"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.Value="-1" 
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            Click="Login_Click"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left"
                             materialDesign:RippleAssist.IsCentered="True">
                     <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                     <ComboBox SelectedIndex="0"
@@ -69,7 +103,7 @@
                                      materialDesign:HintAssist.Hint="Tim kiem"
                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                      BorderThickness="0"
-                                     MinWidth="200"
+                                     MinWidth="300"
                                      VerticalAlignment="Center" />
                             <Button Style="{DynamicResource MaterialDesignToolButton}"
                                     Grid.Column="2">
@@ -85,24 +119,27 @@
                         <materialDesign:PackIcon Kind="Send" />
                     </Button>
                 </StackPanel>
+                
+                
             </DockPanel>
         </materialDesign:ColorZone>
 
-        <!--Quan ly phien su dung-->
-        <materialDesign:Chip Content="Xin chào Tony Stark"
+        <!--Quan ly phien su dung--><!--
+        <materialDesign:Chip x:Name="chipUserSession"
+            Content="Xin chào Tony Stark"
                              IsDeletable="True"
-                             Click="ButtonsDemoChip_OnClick"
-                             DeleteClick="ButtonsDemoChip_OnDeleteClick"
+                             Click="ChipUserSession_OnClick"
+                             DeleteClick="ChipUserSession_OnDeleteClick"
                              ToolTip="Click to go to Manage you account"
-                             DeleteToolTip="Your friendly neighbor delete button"
-                             Margin="1034.5,19.588,0,717.411"
+                             DeleteToolTip="Your friendly neighbor Delete Button"
+                             
                              IconForeground="#FF673AB7"
                              IconBackground="White"
                              Background="#FF673AB7">
             <materialDesign:Chip.Icon>
                 <Image Source="../Assets/Tony.png"></Image>
             </materialDesign:Chip.Icon>
-        </materialDesign:Chip>
+        </materialDesign:Chip>-->
 
         <!--Sidebar Here -->
         <materialDesign:Card Background="#FF673AB7"
@@ -200,7 +237,7 @@
         </Button>
 
 
-        <!--Dich vu an uong button-->
+        <!--Dich vu giat ui button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,465.165,950,253.834"
@@ -228,7 +265,7 @@
 
         </Button>
 
-        <!--Dich vu giat ui button-->
+        <!--Dich vu di chuyen button-->
         <Button Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Margin="0,515.165,950,203.834"
@@ -236,7 +273,7 @@
                 BorderBrush="#FF673AB7"
                 BorderThickness="0"
                 Background="Transparent"
-                HorizontalContentAlignment="Center" Click="TotalRunueve_Click">
+                HorizontalContentAlignment="Center" Click="Transport_Click">
             <StackPanel Orientation="Horizontal"
                         Height="35"
                         Width="230">
@@ -337,13 +374,6 @@
                    Content="HOTEL" />
         </StackPanel>
 
-
-
-
-
-
-
-     
         <Frame x:Name="MyFrame" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="970" Margin="275,72,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

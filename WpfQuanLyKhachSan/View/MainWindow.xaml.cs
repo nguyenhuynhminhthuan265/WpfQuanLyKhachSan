@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfQuanLyKhachSan.MainTest;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.Repository;
+using WpfQuanLyKhachSan.View;
 using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan
@@ -30,27 +31,34 @@ namespace WpfQuanLyKhachSan
 
         private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
 
-        
+        Employee currentUser = null;
 
+        private const string GuestHello = "Xin chào Tony Stark";
 
-        
 
         public MainWindow()
         {
             InitializeComponent();
-            /*FillEmployee();*/
+
+            EmployeeRepository employeeRepo = new EmployeeRepository();
+            if (employeeRepo.findAll().Count == 0) {
+                FillEmployee();
+            }
+            
             MyFrame.Content = new View.Home(MyFrame);
-
         }
 
-        private void ButtonsDemoChip_OnClick(object sender, RoutedEventArgs e)
+        private void ChipUserSession_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Clicked Manage Employee Information");
+            MyFrame.Content = new View.Information(MyFrame);
         }
 
-        private void ButtonsDemoChip_OnDeleteClick(object sender, RoutedEventArgs e)
+        private void ChipUserSession_OnDeleteClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Clicked Logout");
+            currentUser = null;
+            FlipStackPanelUserSession();
+            chipUserSession.Content = GuestHello;
+            MessageBox.Show("Đăng xuất thành công", "Đăng xuất", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void FindAllRoom(object sender, RoutedEventArgs e)
@@ -74,7 +82,6 @@ namespace WpfQuanLyKhachSan
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-
             MyFrame.Content = new View.Home(MyFrame);
             
         }
@@ -96,10 +103,36 @@ namespace WpfQuanLyKhachSan
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.Login(MyFrame);
+            var loginFrame = new View.Login(MyFrame);
+            MyFrame.Content = loginFrame;
+            loginFrame.LoginHandler += userID => {
+                EmployeeRepository empRepo = new EmployeeRepository();
+                currentUser = empRepo.FindById(userID);
+                FlipStackPanelUserSession();
+                chipUserSession.Content = "Xin chào " + currentUser.Fullname;
+                HomeButton_Click(null, null);
+            };
         }
 
-        private void TotalRunueve_Click(object sender, RoutedEventArgs e)
+        private void FlipStackPanelUserSession()
+        {
+            var children = stackPanelUserSession.Children;
+            children[0].Visibility = Visibility.Visible;
+            Stack<UIElement> stack = new Stack<UIElement>();
+            for (int i = 0; i < children.Count; i++)
+            {
+                stack.Push(children[i]);
+            }
+            stack.Peek().Visibility = Visibility.Hidden;
+            children.RemoveRange(0, children.Count);
+
+            while (stack.Count > 0)
+            {
+                children.Add(stack.Pop());
+            }
+        }
+
+        private void Transport_Click(object sender, RoutedEventArgs e)
         {
             MyFrame.Content = new View.TotalRevenue();
         }
@@ -112,7 +145,6 @@ namespace WpfQuanLyKhachSan
 
         private void FillEmployee()
         {
-
             PasswordEncode passwordEncode = new PasswordEncode();
             var employees = new[]
             {
@@ -133,10 +165,8 @@ namespace WpfQuanLyKhachSan
             {
                 employeeRepository.Add(employee);
             }
-
-
-
         }
+
         /*private void FillCustomer()
         {
             var customers = new[]
@@ -144,9 +174,6 @@ namespace WpfQuanLyKhachSan
                 new Customer{}
             }
         }*/
-
-
-
 
         /*private void Fill()
         {
