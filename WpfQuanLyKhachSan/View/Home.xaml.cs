@@ -50,6 +50,7 @@ namespace WpfQuanLyKhachSan.View
         private void BookRoom(object sender, RoutedEventArgs e)
         {
             var idRoom = ((Button)sender).Tag;
+            var room = (sender as Button).DataContext;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             Frame.Content = new View.Rental((int)idRoom);
         }

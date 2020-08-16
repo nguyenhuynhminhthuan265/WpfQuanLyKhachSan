@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Room
+    public class Room
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

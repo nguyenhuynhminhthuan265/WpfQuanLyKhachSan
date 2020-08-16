@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class QuanLyKhachSanDbContext: DbContext
+    public class QuanLyKhachSanDbContext: DbContext
     {
         public QuanLyKhachSanDbContext() : base("QuanLyKhachSanConnectionString")
         {

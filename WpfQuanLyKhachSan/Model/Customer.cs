@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Customer
+    public class Customer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,6 +17,9 @@ namespace WpfQuanLyKhachSan.Model
         public string IDNumber { get; set; }
         public string Address { get; set; }
         public string TypeCustomer { get; set; }
+
+        public const string FOREIGNER = "Nước Ngoài";
+        public const string DOMESTIC = "Việt Nam";
 
 
         public ICollection<CardBookRoom> CardBookRoom { get; set; }

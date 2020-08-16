@@ -44,8 +44,8 @@ namespace WpfQuanLyKhachSan
             if (employeeRepo.findAll().Count == 0) {
                 FillEmployee();
             }
-            
-            MyFrame.Content = new View.Home(MyFrame);
+
+            Login_Click(null, null);
         }
 
         private void ChipUserSession_OnClick(object sender, RoutedEventArgs e)
@@ -59,6 +59,7 @@ namespace WpfQuanLyKhachSan
             FlipStackPanelUserSession();
             chipUserSession.Content = GuestHello;
             MessageBox.Show("Đăng xuất thành công", "Đăng xuất", MessageBoxButton.OK, MessageBoxImage.Information);
+            Login_Click(null, null);
         }
 
         private void FindAllRoom(object sender, RoutedEventArgs e)
@@ -75,20 +76,30 @@ namespace WpfQuanLyKhachSan
             {
                 Console.WriteLine("======>>>>>>>>> type room name: " + $"{item.NameRoom}" + ": " + $"{item.TypeRoom.Price}");
             }*/
-            MyFrame.Content = new View.Home(MyFrame);
 
-
+            if (currentUser != null)
+            {
+                MyFrame.Content = new View.Home(MyFrame);
+            }
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.Home(MyFrame);
-            
+            if (currentUser != null)
+            {
+                MyFrame.Content = new View.Home(MyFrame);
+            }            
         }
 
         private void ManagementHotel(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.AdminManagement();
+            if (currentUser != null)
+            {
+                if (currentUser.Role.Name == Role.ADMIN ||
+                    currentUser.Role.Name == Role.MANAGER ||
+                    currentUser.Role.Name == Role.TEST)
+                { MyFrame.Content = new View.AdminManagement(); }
+            }
         }
 
         private void RoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,16 +109,19 @@ namespace WpfQuanLyKhachSan
 
         public void Rental_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.Rental();
+            if (currentUser != null)
+            {
+                MyFrame.Content = new View.Rental(); 
+            }
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             var loginFrame = new View.Login(MyFrame);
             MyFrame.Content = loginFrame;
-            loginFrame.LoginHandler += userID => {
+            loginFrame.LoginHandler += user => {
                 EmployeeRepository empRepo = new EmployeeRepository();
-                currentUser = empRepo.FindById(userID);
+                currentUser = user;
                 FlipStackPanelUserSession();
                 chipUserSession.Content = "Xin chào " + currentUser.Fullname;
                 HomeButton_Click(null, null);
@@ -134,12 +148,21 @@ namespace WpfQuanLyKhachSan
 
         private void Transport_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.TotalRevenue();
+            if (currentUser != null)
+            {
+                MyFrame.Content = new View.TotalRevenue(); 
+            }
         }
 
         private void ReportBtn_Click(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.Report();
+            if (currentUser != null)
+            {
+                if (currentUser.Role.Name == Role.ADMIN ||
+                    currentUser.Role.Name == Role.MANAGER ||
+                    currentUser.Role.Name == Role.TEST)
+                { MyFrame.Content = new View.Report(); }
+            }
         }
 
 

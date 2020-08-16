@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Role
+    public class Role
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,6 +23,12 @@ namespace WpfQuanLyKhachSan.Model
         public virtual ICollection<Employee> Employees { get; set; }
 
         public Boolean isDeleted { get; set; }
+
+        public const string ADMIN = "ROLE_ADMIN";
+        public const string MANAGER = "ROLE_MANAGER";
+        public const string EMPLOYEE = "ROLE_EMPLOYEE";
+        public const string TEST = "Test";
+
 
         public Role()
         {

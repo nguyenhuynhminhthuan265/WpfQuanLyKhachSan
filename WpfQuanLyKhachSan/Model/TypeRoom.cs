@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class TypeRoom
+    public class TypeRoom
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,7 +16,7 @@ namespace WpfQuanLyKhachSan.Model
 
         public string NameTypeRoom { get; set; }
 
-        public float Price { get; set; }
+        public double Price { get; set; }
         public int NumberOfCustomer { get; set; }
 
         public virtual ICollection<Room> Rooms { get; set; }
@@ -27,6 +27,7 @@ namespace WpfQuanLyKhachSan.Model
         public TypeRoom()
         {
             isDeleted = false;
+            NumberOfCustomer = 3;
         }
 
     }
