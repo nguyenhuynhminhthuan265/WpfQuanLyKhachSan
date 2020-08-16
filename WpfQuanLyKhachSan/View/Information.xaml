@@ -1,0 +1,47 @@
+﻿<Page x:Class="WpfQuanLyKhachSan.View.Information"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfQuanLyKhachSan.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="970"
+      Title="Information">
+
+    <Grid Background="White">
+        <StackPanel Margin="0,0,485,0" Background="White">
+            <materialDesign:PackIcon Kind="AccountCircle" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FF673AB7" />
+            <Label Content="THÔNG TIN TÀI KHOẢN" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"></Label>
+            <StackPanel Height="90" Margin="30,0" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" Height="40" Width="40" VerticalAlignment="Bottom" />
+                <TextBox Text="{Binding Email}" TextWrapping="Wrap" x:Name="emailTextBox" materialDesign:HintAssist.Hint="Email" materialDesign:TransitionAssist.DisableTransitions="True" Foreground="Black" BorderBrush="Black" Height="80" VerticalAlignment="Center" FontSize="30" VerticalContentAlignment="Bottom" Margin="10,5,0,5" Width="364.575" />
+            </StackPanel>
+            <StackPanel Height="90" Margin="30,90,30,0" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Lock" Height="40" Width="40" VerticalAlignment="Bottom" />
+                <TextBox Text="{Binding Password}" x:Name="passwordBox" materialDesign:HintAssist.Hint="Password" materialDesign:TransitionAssist.DisableTransitions="True" Foreground="Black" BorderBrush="Black" Height="80" VerticalAlignment="Center" FontSize="30" VerticalContentAlignment="Bottom" Margin="10,5,0,5" Width="362.857" />
+            </StackPanel>
+            
+        </StackPanel>
+        <StackPanel Margin="485,0,0,0" Background="White">
+            <materialDesign:PackIcon Kind="CardAccountDetails" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,30,0,0" Foreground="#FF673AB7" />
+            <Label Content="THÔNG TIN CÁ NHÂN" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"></Label>
+            <StackPanel Height="90" Margin="30,0" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Information" Height="40" Width="40" VerticalAlignment="Bottom" />
+                <TextBox Text="{Binding ID}" TextWrapping="Wrap" x:Name="idTextBox" materialDesign:HintAssist.Hint="ID" materialDesign:TransitionAssist.DisableTransitions="True" Foreground="Black" BorderBrush="Black" Height="80" VerticalAlignment="Center" FontSize="30" VerticalContentAlignment="Bottom" Margin="10,5,0,5" Width="364.575" />
+            </StackPanel>
+            <StackPanel Height="90" Margin="30,0" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="AccountBox" Height="40" Width="40" VerticalAlignment="Bottom" />
+                <TextBox Text="{Binding FullName}" x:Name="fullnameTextBox" materialDesign:HintAssist.Hint="Tên đầy đủ" materialDesign:TransitionAssist.DisableTransitions="True" Foreground="Black" BorderBrush="Black" Height="80" VerticalAlignment="Center" FontSize="30" VerticalContentAlignment="Bottom" Margin="10,5,0,5" Width="362.857" />
+            </StackPanel>
+            <StackPanel Height="90" Margin="30,0" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="CogOutline" Height="40" Width="40" VerticalAlignment="Bottom" />
+                <TextBox Text="{Binding RoleName}" x:Name="roleBox" materialDesign:HintAssist.Hint="Role" IsEnabled="False" materialDesign:TransitionAssist.DisableTransitions="True" Foreground="Black" BorderBrush="Black" Height="80" VerticalAlignment="Center" FontSize="30" VerticalContentAlignment="Bottom" Margin="10,5,0,5" Width="362.857" />
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="SubmitButton" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" materialDesign:ButtonAssist.CornerRadius="5" Content="XÁC NHẬN" Width="120" Height="50" Margin="350,600,500,50" Click="SubmitBtn_Click" />
+        <Button x:Name="CancelButton" Click="CancelBtn_Click" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="120" Height="50" Foreground="#FF673AB7" BorderBrush="#FF673AB7" Margin="500,600,350,50" materialDesign:ButtonAssist.CornerRadius="5">
+            HỦY BỎ
+        </Button>
+    </Grid>
+</Page>

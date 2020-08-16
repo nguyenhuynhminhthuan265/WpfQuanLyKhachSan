@@ -47,7 +47,7 @@ namespace WpfQuanLyKhachSan.Repository
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
-                var item = entities.Rooms.FirstOrDefault(e => e.Id == id);
+                var item = entities.Rooms.Include("TypeRoom").FirstOrDefault(e => e.Id == id);
                 if (item != null)
                 {
                     return item;

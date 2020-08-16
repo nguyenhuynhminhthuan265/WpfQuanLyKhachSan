@@ -35,5 +35,11 @@ namespace WpfQuanLyKhachSan.ViewModel
             roomRepository.Update(room);
         }
 
+        public Room FindById(int id)
+        {
+            return roomRepository.FindById(id);
+
+        }
+
     }
 }

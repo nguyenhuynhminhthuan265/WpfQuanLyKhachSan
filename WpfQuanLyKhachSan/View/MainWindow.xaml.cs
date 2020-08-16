@@ -50,7 +50,7 @@ namespace WpfQuanLyKhachSan
 
         private void ChipUserSession_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Clicked Manage Employee Information");
+            MyFrame.Content = new View.Information(MyFrame);
         }
 
         private void ChipUserSession_OnDeleteClick(object sender, RoutedEventArgs e)
