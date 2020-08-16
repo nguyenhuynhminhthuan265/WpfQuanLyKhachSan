@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfQuanLyKhachSan.MainTest;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.Repository;
 using WpfQuanLyKhachSan.ViewModel;
@@ -37,7 +38,7 @@ namespace WpfQuanLyKhachSan
         public MainWindow()
         {
             InitializeComponent();
-
+            /*FillEmployee();*/
             MyFrame.Content = new View.Home(MyFrame);
 
         }
@@ -107,6 +108,44 @@ namespace WpfQuanLyKhachSan
         {
             MyFrame.Content = new View.Report();
         }
+
+
+        private void FillEmployee()
+        {
+
+            PasswordEncode passwordEncode = new PasswordEncode();
+            var employees = new[]
+            {
+                new Employee{Fullname="Admin", Email="admin@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=1},
+                new Employee{Fullname="Manager", Email="manager@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=2},
+
+                new Employee{Fullname="employee1", Email="employee1@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=3},
+                new Employee{Fullname="employee2", Email="employee2@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=3},
+
+                new Employee{Fullname="employee3", Email="employee3@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=3 },
+
+                new Employee{Fullname="employee4", Email="employee4@gmail.com", Password=passwordEncode.EncodePasswordToBase64("123456"), RoleId=3}
+            };
+
+            EmployeeRepository employeeRepository = new EmployeeRepository();
+
+            foreach(Employee employee in employees)
+            {
+                employeeRepository.Add(employee);
+            }
+
+
+
+        }
+        /*private void FillCustomer()
+        {
+            var customers = new[]
+            {
+                new Customer{}
+            }
+        }*/
+
+
 
 
         /*private void Fill()

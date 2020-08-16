@@ -36,7 +36,10 @@ namespace WpfQuanLyKhachSan.View
             this.Frame = frame;
             InitializeComponent();
             List<Room> rooms = roomViewModel.findAll();
+
             roomComboBox.ItemsSource = rooms;
+
+            
         }
 
         private void roomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,7 +49,9 @@ namespace WpfQuanLyKhachSan.View
 
         private void BookRoom(object sender, RoutedEventArgs e)
         {
-            Frame.Content = new View.Rental();
+            var idRoom = ((Button)sender).Tag;
+            Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
+            Frame.Content = new View.Rental((int)idRoom);
         }
     }
 }

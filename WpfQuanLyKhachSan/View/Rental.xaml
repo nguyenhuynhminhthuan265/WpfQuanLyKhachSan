@@ -14,13 +14,13 @@
         <TextBlock Margin="0,0,380,641.444" FontSize="36" TextAlignment="Center" FontWeight="Bold">PHIẾU THUÊ PHÒNG</TextBlock>
         <StackPanel Width="380" Margin="590,0,0,0" Height="700" Background="#FF673AB7">
             <TextBlock Height="45" FontSize="24" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" Foreground="White">THÔNG TIN KHÁCH HÀNG</TextBlock>
-            
+
             <!--So Phong-->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
                 <TextBlock Width="130" Text="PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
-                <TextBlock Width="215" Text="101" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="15,0,5,0"/>
+                <TextBox Width="215" Name="txtBoxIdRoom" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="15,0,5,0"/>
             </StackPanel>
-            
+
             <!--Ten Khach Hang-->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
                 <TextBlock Width="140" Text="KHÁCH HÀNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
@@ -53,7 +53,7 @@
   x:Name="AddressTextBox" TextWrapping="Wrap"
   materialDesign:TransitionAssist.DisableTransitions="True" Width="205" Foreground="White" BorderBrush="White" Height="75" Margin="15,0,5,0" />
             </StackPanel>
-            
+
             <!--Ngay Thue Phong-->
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="45">
                 <TextBlock Width="130" Text="NGÀY THUÊ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0"/>
@@ -73,7 +73,7 @@
             </StackPanel>
             <!--Button-->
             <StackPanel Orientation="Horizontal" Height="45" Margin="0,31,0,0">
-                <Button x:Name="ApplyButton"
+                <Button x:Name="ApplyButton" Click="ConfirmBookRoom"
     Style="{StaticResource MaterialDesignRaisedButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
     materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

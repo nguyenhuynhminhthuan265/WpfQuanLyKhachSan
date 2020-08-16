@@ -25,10 +25,14 @@ namespace WpfQuanLyKhachSan.Model
 
         public string Status { get; set; }
 
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<CardBookRoom> CardBookRoom { get; set; }
 
 
         public Boolean isDeleted { get; set; }
 
+        public static implicit operator Room(Employee v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

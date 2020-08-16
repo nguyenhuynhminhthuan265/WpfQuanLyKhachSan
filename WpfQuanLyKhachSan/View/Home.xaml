@@ -30,24 +30,27 @@
 
         </StackPanel>
         <Border BorderBrush="LightGray" BorderThickness="0.8" Margin="10,188.66,10,0">
-        <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20"
+            <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20"
                       SelectionChanged="roomComboBox_SelectionChanged">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Button Height="95" Width="155">
-                        <StackPanel Width="155" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock TextWrapping="Wrap" Text="{Binding NameRoom}" Width="120.647" TextAlignment="Center" FontSize="18"></TextBlock>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding TypeRoom.NameTypeRoom}" TextAlignment="Center" FontSize="18"></TextBlock>
-                        </StackPanel>
-                    </Button>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Button Height="95" Width="155" Background="LightSalmon" Click="BookRoom" Tag="{Binding Id}">
+                            
+                            <StackPanel Width="155" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding NameRoom}" Width="120.647" TextAlignment="Center" FontSize="18"></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding TypeRoom.NameTypeRoom}" TextAlignment="Center" FontSize="18"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Border>
 
     </Grid>

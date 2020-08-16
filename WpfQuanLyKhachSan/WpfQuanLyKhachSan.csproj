@@ -86,7 +86,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainTest\PasswordEncode.cs" />
+    <Compile Include="Migrations\202008150807487_create_db.cs" />
+    <Compile Include="Migrations\202008150807487_create_db.designer.cs">
+      <DependentUpon>202008150807487_create_db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\CardBookRoom.cs" />
+    <Compile Include="Repository\BillRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\EmployeeRepository.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -121,11 +132,6 @@
     </Compile>
     <Compile Include="HotelSystemContext.cs" />
     <Compile Include="MainTest\MainProgram.cs" />
-    <Compile Include="Migrations\202008080215145_create_db.cs" />
-    <Compile Include="Migrations\202008080215145_create_db.designer.cs">
-      <DependentUpon>202008080215145_create_db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\QuanLyKhachSanDbContext.cs" />
@@ -177,8 +183,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008080215145_create_db.resx">
-      <DependentUpon>202008080215145_create_db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008150807487_create_db.resx">
+      <DependentUpon>202008150807487_create_db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -196,7 +202,9 @@
   <ItemGroup>
     <Resource Include="Assets\Tony.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CrudAdmin\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
