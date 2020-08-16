@@ -15,7 +15,7 @@ namespace WpfQuanLyKhachSan.Model
         public int Id { get; set; }
 
        
-        
+        public int IndexCardBookRoom { get; set; }
 
         public DateTime DateBookRoom { get; set; }
 

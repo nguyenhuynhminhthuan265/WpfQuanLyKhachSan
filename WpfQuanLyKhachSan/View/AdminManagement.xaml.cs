@@ -59,7 +59,7 @@ namespace WpfQuanLyKhachSan.View
             string name = obj.NameRoom;
             Console.WriteLine("==================>>>>>>>>>>> room selected: " + $"{obj.Id} " + $"{name}");
 
-            RoomTypeCb.ItemsSource = typeRoomViewModel.findAll();
+            
 
         }
         public AdminManagement()
@@ -72,6 +72,7 @@ namespace WpfQuanLyKhachSan.View
             RoomTypeCb.ItemsSource = typeRoomViewModel.findAll();
 
             EmployeesGrid.ItemsSource = employees;
+            RoleTypeCb.ItemsSource = roleViewModel.findAll();
 
         }
 
@@ -222,10 +223,10 @@ namespace WpfQuanLyKhachSan.View
 
                      *//*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*//* // gives you the required string
                       _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;*/
-                    Console.WriteLine("=================>>>>>>>>>>>>Name Room add: " + $"{_nameEmp}");
-                    Console.WriteLine("=================>>>>>>>>>>>>Note Room add: " + $"{_emailEmp}");
-                    Console.WriteLine("=================>>>>>>>>>>>>Price Room add: " + $"{_passwordEmp}");
-                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoomId Room add: " + $"{_typeRoleId}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Employee add: " + $"{_nameEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Email add: " + $"{_emailEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>password add: " + $"{_passwordEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoleId Room add: " + $"{_typeRoleId}");
 
                     Employee employee = new Employee()
                     {
@@ -242,23 +243,43 @@ namespace WpfQuanLyKhachSan.View
                     break;
 
                 case "Update":
-                    /*int _idUpdate = int.Parse(IdRoomCRUD.Text);
+                    int _idUpdate = int.Parse(IdEmployeeCRUD.Text);
                     Console.WriteLine("==============>>>>>>>>>>>>> ID UPDATE ROOM: " + $"{_idUpdate}");
 
-                    Console.WriteLine("=================>>>>>>>>>>>>Name Room Update: " + $"{_nameRoom}");
-                    Console.WriteLine("=================>>>>>>>>>>>>Note Room Update: " + $"{_noteRoom}");
-                    Console.WriteLine("=================>>>>>>>>>>>>Price Room Update: " + $"{_priceRoom}");
-                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoomId Room Update: " + $"{_typeRoomId}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Employee update: " + $"{_nameEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Email update: " + $"{_emailEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>password update: " + $"{_passwordEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoleId Room update: " + $"{_typeRoleId}");
 
-                    Room roomUpdate = new Room()
+                    if (_passwordEmp.Trim().Length==0)
                     {
-                        Id = _idUpdate,
-                        NameRoom = _nameRoom,
-                        Note = _noteRoom,
-                        TypeRoomId = _typeRoomId
-                    };
+                        Console.WriteLine("password is blank");
+                        Employee employeeUpdate = new Employee()
+                        {
+                            Id = _idUpdate,
+                            Fullname = _nameEmp,
+                            Email = _emailEmp,
+                            RoleId = _typeRoleId,
+                           
+                        };
 
-                    roomViewModel.Update(roomUpdate);*/
+                        employeeViewModel.Update(employeeUpdate);
+                    }
+                    else
+                    {
+                        Employee employeeUpdate = new Employee()
+                        {
+                            Id = _idUpdate,
+                            Fullname = _nameEmp,
+                            Email = _emailEmp,
+                            RoleId = _typeRoleId,
+                            Password = hashed
+                        };
+
+                        employeeViewModel.Update(employeeUpdate);
+                    }
+                    
+
 
                     break;
 
@@ -296,7 +317,7 @@ namespace WpfQuanLyKhachSan.View
             string name = obj.Fullname;
             Console.WriteLine("==================>>>>>>>>>>> Employee selected: " + $"{obj.Id} " + $"{name}");
 
-            RoleTypeCb.ItemsSource = roleViewModel.findAll();
+            
         }
     }
 }

@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.Repository;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan.View
 {
@@ -38,15 +39,26 @@ namespace WpfQuanLyKhachSan.View
         BindingList<RentalInfo> rentalInfos = new BindingList<RentalInfo>();
 
         private int idRoom { get; set; }
-        private List<Customer> customers { get; set; }
+        ArrayList customers = new ArrayList();
+        CustomerViewModel customerViewModel = new CustomerViewModel();
+        CardBookRoomViewModel cardBookRoomViewModel = new CardBookRoomViewModel();
+        RoomViewModel roomViewModel = new RoomViewModel();
 
         public Rental()
         {
             InitializeComponent();
+            this.idRoom = idRoom;
+            Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
+            txtBoxIdRoom.Text = this.idRoom.ToString();
+
             isSort = false;
+/*
             rentalInfos.Add(new RentalInfo() { Name = "Le Dinh Thanh", Type = "Nước Ngoài", IDNumber = 025868208, Address = "123 ABC",StartDate = new DateTime(2020,8,8),EndDate=new DateTime(2020,8,10) });
             rentalInfos.Add(new RentalInfo() { Name = "Nguyen Huynh Minh Thuan", Type = "Việt Nam", IDNumber = 01234567, Address = "123 ABC FDAJI WJREIQJFIQ DJAIFJIA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
             rentalInfos.Add(new RentalInfo() { Name = "Nguyen Khanh Hoang", Type = "Việt Nam", IDNumber = 09876543, Address = "FDJAIJI MNKKNK JIFDAJIFDAJI ĐÀKÀKẠK FDJIAFJDIAFJDA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
+           */
+            
+            
             List<String> types = new List<String>();
             types.Add("Việt Nam");
             types.Add("Nước Ngoài");
@@ -64,9 +76,11 @@ namespace WpfQuanLyKhachSan.View
             txtBoxIdRoom.Text = this.idRoom.ToString();
 
             isSort = false;
-            rentalInfos.Add(new RentalInfo() { Name = "Le Dinh Thanh", Type = "Nước Ngoài", IDNumber = 025868208, Address = "123 ABC", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
+            /*rentalInfos.Add(new RentalInfo() { Name = "Le Dinh Thanh", Type = "Nước Ngoài", IDNumber = 025868208, Address = "123 ABC", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
             rentalInfos.Add(new RentalInfo() { Name = "Nguyen Huynh Minh Thuan", Type = "Việt Nam", IDNumber = 01234567, Address = "123 ABC FDAJI WJREIQJFIQ DJAIFJIA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
-            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Khanh Hoang", Type = "Việt Nam", IDNumber = 09876543, Address = "FDJAIJI MNKKNK JIFDAJIFDAJI ĐÀKÀKẠK FDJIAFJDIAFJDA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
+            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Khanh Hoang", Type = "Việt Nam", IDNumber = 09876543, Address = "FDJAIJI MNKKNK JIFDAJIFDAJI ĐÀKÀKẠK FDJIAFJDIAFJDA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });*/
+            
+            
             List<String> types = new List<String>();
             types.Add("Việt Nam");
             types.Add("Nước Ngoài");
@@ -101,7 +115,7 @@ namespace WpfQuanLyKhachSan.View
             info.IDNumber = int.Parse(CMNDTextBox.Text);
             info.Address = AddressTextBox.Text;
             info.StartDate = StartDatePicker.SelectedDate.Value;
-            info.EndDate = StartDatePicker.SelectedDate.Value;
+            info.EndDate = EndDatePicker.SelectedDate.Value;
 
             /*INSERT Customer to database*/
             Customer customer = new Customer();
@@ -118,18 +132,67 @@ namespace WpfQuanLyKhachSan.View
             CardBookRoom cardBookRoom = new CardBookRoom();
             cardBookRoom.RoomId = this.idRoom;
             cardBookRoom.isDelete = false;
-            
 
+
+            Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
+            Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
 
             rentalInfos.Add(info);
         }
 
         private void ConfirmBookRoom(object sender, RoutedEventArgs e)
         {
-            foreach(Customer item in customers)
+            Room roomBook = roomViewModel.FindById(this.idRoom);
+            Console.WriteLine("================>>>>>>>>>>.. Price Room: " + roomBook.TypeRoom.Price);
+
+            string message = "Are you sure?";
+            string caption = "Confirmation";
+            if (customers.Count == 0)
             {
-                Console.WriteLine("======>>>>>>.. Name customer: " + $"{item.NameCustomer}");
+
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Question;
+                MessageBox.Show(message, caption, buttons, icon);
+            }
+            else
+            {
+                foreach(Customer customer in customers)
+                {
+                    Console.WriteLine("=========>>>>>>>>>>>>>> name customer: " + customer.NameCustomer);
+                    customerViewModel.Book(customer);
+                }
+
+                /*GET LIST USER BOOKING*/
+                List<Customer> customerBooks = customerViewModel.findAllCustomerBooking();
+                /*info.StartDate = StartDatePicker.SelectedDate.Value;
+                info.EndDate = StartDatePicker.SelectedDate.Value;*/
+                foreach (Customer customer in customerBooks)
+                {
+                    Console.WriteLine("=========>>>>>>>>>>>>>> ID customer is booking: " + customer.Id);
+                    CardBookRoom cardBookRoom = new CardBookRoom();
+                    cardBookRoom.RoomId = this.idRoom;
+                    cardBookRoom.IndexCardBookRoom = this.idRoom;
+                    cardBookRoom.CustomerId = customer.Id;
+                    cardBookRoom.DateBookRoom = StartDatePicker.SelectedDate.Value;
+                    cardBookRoom.DateReturnRoom = EndDatePicker.SelectedDate.Value;
+                    cardBookRoom.PriceBookRoom = roomBook.TypeRoom.Price;
+
+                    cardBookRoomViewModel.Add(cardBookRoom);
+
+                    /*Update Customer attribute isBooking = "done"*/
+                    customerViewModel.UpdateBook(customer);
+
+                    
+                }
+
+
+
             }
         }
+
+        /*public CardBookRoom createObject()
+        {
+
+        }*/
     }
 }

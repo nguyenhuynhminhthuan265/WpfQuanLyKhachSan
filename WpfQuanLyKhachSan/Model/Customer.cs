@@ -32,5 +32,7 @@ namespace WpfQuanLyKhachSan.Model
 
 
         public Boolean isDeleted { get; set; }
+
+        public String isBooking { get; set; }
     }
 }

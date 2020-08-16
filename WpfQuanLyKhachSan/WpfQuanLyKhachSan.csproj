@@ -95,8 +95,11 @@
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\CardBookRoom.cs" />
     <Compile Include="Repository\BillRepository.cs" />
+    <Compile Include="Repository\CardBookRoomRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\EmployeeRepository.cs" />
+    <Compile Include="ViewModel\CardBookRoomViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
