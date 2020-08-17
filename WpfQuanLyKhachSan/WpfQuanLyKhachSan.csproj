@@ -101,6 +101,7 @@
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\EmployeeRepository.cs" />
     <Compile Include="ViewModel\CardBookRoomViewModel.cs" />
+    <Compile Include="ViewModel\BillViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="View\Information.xaml.cs">

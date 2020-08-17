@@ -13,7 +13,7 @@ namespace WpfQuanLyKhachSan.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        
+
         public double TotalPrice { get; set; }
 
         public int IdCardBookRoom { get; set; }
@@ -33,6 +33,6 @@ namespace WpfQuanLyKhachSan.Model
             total = CardBookRoom.GetPriceRoomRental();
             return total;
         }
-        
+
     }
 }

@@ -50,7 +50,7 @@ namespace WpfQuanLyKhachSan
 
         private void ChipUserSession_OnClick(object sender, RoutedEventArgs e)
         {
-            MyFrame.Content = new View.Information(MyFrame);
+            MyFrame.Content = new View.Information(MyFrame, currentUser);
         }
 
         private void ChipUserSession_OnDeleteClick(object sender, RoutedEventArgs e)
