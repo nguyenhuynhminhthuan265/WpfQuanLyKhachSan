@@ -13,7 +13,7 @@ namespace WpfQuanLyKhachSan.Repository
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
-                return entities.CardBookRooms.ToList();
+                return entities.CardBookRooms.Include("Customer").Include("Room").ToList();
 
             }
         }
@@ -30,7 +30,7 @@ namespace WpfQuanLyKhachSan.Repository
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
-                var item = entities.CardBookRooms.FirstOrDefault(e => e.Id == id);
+                var item = entities.CardBookRooms.Include("Customer").Include("Room").FirstOrDefault(e => e.Id == id);
                 if (item != null)
                 {
                     return item;

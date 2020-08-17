@@ -62,10 +62,11 @@ namespace WpfQuanLyKhachSan.View
             types.Add(Customer.DOMESTIC);
             types.Add(Customer.FOREIGNER);
             TypeComboBox.ItemsSource = types;
-            //RentListView.ItemsSource = rentalInfos;
 
-            //cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
-            //RentListView.ItemsSource = cardBookRooms;            
+            cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+
+            
+            RentListView.ItemsSource = cardBookRooms;
         }
 
         public Rental(Room room, Frame frame)
@@ -133,6 +134,7 @@ namespace WpfQuanLyKhachSan.View
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             var info = RentListView.SelectedItem as CardBookRoom;
+            txtBoxRoomName.Text = info.Room.NameRoom;
             txtBoxAmount.Text = info.CountCustomers.ToString();
             PriceBookRoomTextBox.Text = info.PriceBookRoom.ToString();
             NameTextBox.Text = info.Customer.NameCustomer;

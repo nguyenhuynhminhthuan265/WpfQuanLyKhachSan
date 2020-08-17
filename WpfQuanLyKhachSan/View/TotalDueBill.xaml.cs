@@ -21,6 +21,7 @@ namespace WpfQuanLyKhachSan.View
     public partial class TotalDueBill : Page
     {
         Frame myFrame;
+
         public TotalDueBill()
         {
             InitializeComponent();

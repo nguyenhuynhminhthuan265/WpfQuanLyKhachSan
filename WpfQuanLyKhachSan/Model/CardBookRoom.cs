@@ -59,6 +59,7 @@ namespace WpfQuanLyKhachSan.Model
             result = result + result * ((CountCustomers < Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0);
 
             return days * Room.TypeRoom.Price;
+            
         }
 
 

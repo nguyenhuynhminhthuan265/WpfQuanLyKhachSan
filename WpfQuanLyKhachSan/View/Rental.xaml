@@ -57,7 +57,7 @@
             </StackPanel>
 
             <!--Button-->
-            <StackPanel Orientation="Horizontal" Height="45" Margin="0,31,0,0">
+            <StackPanel Orientation="Horizontal" Height="45" Margin="0,20,0,0">
                 <Button x:Name="ApplyButton" Click="ConfirmBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" 
                         materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                         materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="120" Height="30"
@@ -88,20 +88,20 @@
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Customer.NameCustomer}">
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Path=Customer.NameCustomer}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">KHÁCH HÀNG</GridViewColumnHeader>
                     </GridViewColumn>
-                    <GridViewColumn Width="108" DisplayMemberBinding="{Binding Customer.TypeCustomer}">
+                    <GridViewColumn Width="108" DisplayMemberBinding="{Binding Path=Customer.TypeCustomer}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="108" VerticalAlignment="Center" HorizontalContentAlignment="Center">LOẠI KHÁCH</GridViewColumnHeader>
                     </GridViewColumn>
-                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding Customer.IDNumber}">
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding Path=Customer.IDNumber}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="80" VerticalAlignment="Center" HorizontalContentAlignment="Center">CMND</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn Width="105">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="105" VerticalAlignment="Center" HorizontalContentAlignment="Center">ĐỊA CHỈ</GridViewColumnHeader>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding Customer.Address}" Width="105" />
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Path=Customer.Address}" Width="105" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

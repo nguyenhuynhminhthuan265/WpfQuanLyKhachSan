@@ -6,9 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using WpfQuanLyKhachSan.Model;
-using WpfQuanLyKhachSan.View;
 
-namespace WpfQuanLyKhachSan
+namespace WpfQuanLyKhachSan.View
 {
     public class RoomStatusConverter : IValueConverter
     {

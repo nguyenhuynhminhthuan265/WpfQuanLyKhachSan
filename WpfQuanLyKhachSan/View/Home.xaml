@@ -4,12 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfQuanLyKhachSan.View"
-      xmlns:global="clr-namespace:WpfQuanLyKhachSan"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="970"
       Title="Home">
     <Page.Resources>
-        <global:RoomStatusConverter x:Key="RoomStatusConverter"/>
+        <local:RoomStatusConverter x:Key="RoomStatusConverter"/>
     </Page.Resources>
 
     <Grid Background="White">
