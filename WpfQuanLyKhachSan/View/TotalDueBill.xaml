@@ -90,7 +90,7 @@
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                 <!--NGÀY TRẢ PHÒNG ~ LẬP HÓA ĐƠN-->
                 <DatePicker VerticalAlignment="Bottom" Name="DateReturnRoom" IsTodayHighlighted="True"
-                                Height="60" FontSize="22" Margin="10,10,10,10" 
+                                Height="60" FontSize="22" Margin="10,10,10,0" 
                                 materialDesign:HintAssist.Hint="Ngày trả phòng" materialDesign:HintAssist.FloatingScale="0.5" 
                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                 <TextBox x:Name="UnitPriceRoomTxtBox" 

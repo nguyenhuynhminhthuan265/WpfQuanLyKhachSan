@@ -23,9 +23,10 @@ namespace WpfQuanLyKhachSan.View
     /// <summary>
     /// Interaction logic for Rental.xaml
     /// </summary>
+
     //class RentalInfo
     //{
-       
+
     //    public string Name { get; set; }
     //    public string Type { get; set; }
     //    public int IDNumber { get; set; }
@@ -33,6 +34,7 @@ namespace WpfQuanLyKhachSan.View
     //    public DateTime StartDate { get; set; }
     //    public DateTime EndDate { get; set; }
     //}
+
     public partial class Rental : Page
     {
         public bool isSort;
@@ -45,13 +47,14 @@ namespace WpfQuanLyKhachSan.View
         RoomViewModel roomViewModel = new RoomViewModel();
         BindingList<CardBookRoom> cardBookRooms;
         Frame myFrame;
+
         public Rental()
         {
             
             InitializeComponent();
-            this.idRoom = idRoom;
-            Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            txtBoxIdRoom.Text = this.idRoom.ToString();
+
+            //Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
+            //txtBoxRoomName.Text = ;
 
             isSort = false;
             
@@ -61,20 +64,19 @@ namespace WpfQuanLyKhachSan.View
             TypeComboBox.ItemsSource = types;
             //RentListView.ItemsSource = rentalInfos;
 
-            cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            //cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
             //RentListView.ItemsSource = cardBookRooms;            
         }
 
-        public Rental(int idRoom, Frame frame)
+        public Rental(Room room, Frame frame)
         {
             InitializeComponent();
             this.myFrame = frame;
-            this.idRoom = idRoom;
+            this.idRoom = room.Id;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            txtBoxIdRoom.Text = this.idRoom.ToString();
+            txtBoxRoomName.Text = room.NameRoom;
 
             isSort = false;
-
 
             List<String> types = new List<String>();
             types.Add("Việt Nam");
@@ -82,17 +84,30 @@ namespace WpfQuanLyKhachSan.View
             TypeComboBox.ItemsSource = types;
             //RentListView.ItemsSource = rentalInfos;
             LoadPage(idRoom);
-
-
-
         }
 
         public void LoadPage(int idRoom)
         {
+            //BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            //for(int i=0;i<listBookRooms.Count();i++)
+            //{
+            //    if(listBookRooms[i].RoomId != idRoom)
+            //    {
+            //        listBookRooms.RemoveAt(i);
+            //    }
+            //    else
+            //    {
+            //        listBookRooms[i].Room = roomViewModel.FindById(listBookRooms[i].RoomId);
+            //        listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
+            //    }
+            //}
+            //cardBookRooms = listBookRooms;
+            //RentListView.ItemsSource = cardBookRooms;
+
             BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
-            for(int i=0;i<listBookRooms.Count();i++)
+            for (int i = listBookRooms.Count() - 1; i >= 0; i--)
             {
-                if(listBookRooms[i].RoomId != idRoom)
+                if (listBookRooms[i].RoomId != idRoom)
                 {
                     listBookRooms.RemoveAt(i);
                 }
@@ -102,9 +117,9 @@ namespace WpfQuanLyKhachSan.View
                     listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
                 }
             }
-            cardBookRooms = listBookRooms;
-            RentListView.ItemsSource = cardBookRooms;
             
+            RentListView.ItemsSource = listBookRooms;
+
             //cardBookRoom.Room = roomViewModel.FindById(idRoom);
             //MessageBox.Show($"Data {cardBookRoom.Room.NameRoom}");
         }
@@ -161,7 +176,6 @@ namespace WpfQuanLyKhachSan.View
 
             //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
             //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
-
         }
 
         private void ConfirmBookRoom(object sender, RoutedEventArgs e)
@@ -208,9 +222,6 @@ namespace WpfQuanLyKhachSan.View
 
                     
                 }
-
-
-
             }
         }
 

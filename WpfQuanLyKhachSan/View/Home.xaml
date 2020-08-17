@@ -4,33 +4,37 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfQuanLyKhachSan.View"
+      xmlns:global="clr-namespace:WpfQuanLyKhachSan"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="970"
       Title="Home">
+    <Page.Resources>
+        <global:RoomStatusConverter x:Key="RoomStatusConverter"/>
+    </Page.Resources>
 
     <Grid Background="White">
-        <TextBlock Margin="85,35,85,609.959" HorizontalAlignment="Center" Width="800" TextAlignment="Center" FontSize="30" FontWeight="Bold">DANH SÁCH PHÒNG</TextBlock>
+        <TextBlock Margin="85,30,85,610" HorizontalAlignment="Center" Width="800" TextAlignment="Center" FontSize="30" FontWeight="Bold">DANH SÁCH PHÒNG</TextBlock>
 
-        <StackPanel Height="40" Margin="10,107.67,10,552.329" Orientation="Horizontal">
-            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="5">Tất cả</Label>
+        <StackPanel Height="40" Margin="10,90,10,552" Orientation="Horizontal">
+            <Label FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="5">Tất cả</Label>
             <Border BorderBrush="Black" BorderThickness="1" Margin="5,0">
-                <TextBlock Margin="5" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">6</TextBlock>
+                <TextBlock x:Name="txtblkAllRooms" Margin="5" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">8</TextBlock>
             </Border>
-            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Còn trống</Label>
+            <Label FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Đang thuê</Label>
             <Border BorderBrush="Black" BorderThickness="1" Background="LightGray" Margin="5,0">
-                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">1</TextBlock>
+                <TextBlock x:Name="txtblkBookeds" Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold">1</TextBlock>
             </Border>
-            <Label Height="39.96" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Đang thuê</Label>
+            <Label FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Margin="12,5,5,5">Còn trống</Label>
             <Border BorderBrush="Black" BorderThickness="1" Background="LightSalmon" Margin="5,0">
-                <TextBlock Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">1</TextBlock>
+                <TextBlock x:Name="txtblkAvailables" Margin="2" Width="95" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White">7</TextBlock>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Background="#FF673AB7" Margin="5,0"/>
             <Button x:Name="button" Content="ĐẶT PHÒNG" Height="Auto" Width="167.612" Background="#FF746C83" Click="BookRoom"/>
 
 
         </StackPanel>
-        <Border BorderBrush="LightGray" BorderThickness="0.8" Margin="10,188.66,10,0">
-            <ListView Name="roomComboBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20"
+        <Border BorderBrush="LightGray" BorderThickness="0.8" Margin="10,170,10,10">
+            <ListView Name="roomsWrapPanel" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20"
                       SelectionChanged="roomComboBox_SelectionChanged">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -40,8 +44,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
-                        <Button Height="95" Width="155" Background="LightSalmon" Click="BookRoom" Tag="{Binding Id}">
-                            
+                        <Button Height="95" Width="155" Click="BookRoom" Tag="{Binding Id}"
+                         Background="{Binding Status, Converter={StaticResource RoomStatusConverter}}">
                             <StackPanel Width="155" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBlock TextWrapping="Wrap" Text="{Binding NameRoom}" Width="120.647" TextAlignment="Center" FontSize="18"></TextBlock>
                                 <TextBlock TextWrapping="Wrap" Text="{Binding TypeRoom.NameTypeRoom}" TextAlignment="Center" FontSize="18"></TextBlock>
