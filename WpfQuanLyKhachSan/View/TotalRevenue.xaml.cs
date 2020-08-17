@@ -20,7 +20,13 @@ namespace WpfQuanLyKhachSan.View
     /// </summary>
     public partial class TotalRevenue : Page
     {
+        Frame myFrame;
         public TotalRevenue()
+        {
+            InitializeComponent();
+        }
+
+        public TotalRevenue(int idCardBookRoom,Frame frame)
         {
             InitializeComponent();
         }

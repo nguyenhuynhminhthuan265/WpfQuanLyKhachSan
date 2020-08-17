@@ -2,13 +2,23 @@
 
     <Grid Background="White">
         <TextBlock Margin="0,0,380,641.444" FontSize="36" TextAlignment="Center" FontWeight="Bold">PHIẾU THUÊ PHÒNG</TextBlock>
-        <StackPanel Width="380" Margin="590,0,0,0" Height="700" Background="#FF673AB7">
+        <ScrollViewer>
+        <StackPanel Width="380" Height="870" Margin="590,0,0,0" Background="#FF673AB7">
             <TextBlock Height="45" FontSize="24" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Bottom" Margin="0,30,0,0" Foreground="White">THÔNG TIN KHÁCH HÀNG</TextBlock>
 
             <!--So Phong-->
+            
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
-                <TextBlock Width="130" Text="PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
-                <TextBox Width="215" Name="txtBoxIdRoom" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="15,0,5,0" />
+                <TextBlock Width="82" Text="PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
+                <TextBox Width="50" Name="txtBoxIdRoom" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Center" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="5,0" VerticalContentAlignment="Center" />
+                <TextBlock Width="43.333" Text="SL:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
+                <TextBox Width="50" Name="txtBoxAmount" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Center" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="5,0" VerticalContentAlignment="Center" />
+            </StackPanel>
+            
+            <!--Gia Phong-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Height="40">
+                <TextBlock Width="140" Text="GIÁ PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
+                    <TextBox TextWrapping="Wrap" x:Name="PriceBookRoomTextBox" materialDesign:HintAssist.Hint="Giá Phòng" materialDesign:TransitionAssist.DisableTransitions="True" Width="205" Foreground="White" BorderBrush="White" Height="31.051" VerticalAlignment="Bottom" Margin="5,0" />
             </StackPanel>
 
             <!--Ten Khach Hang-->
@@ -46,43 +56,54 @@
                 <TextBlock Width="130" Text="NGÀY TRẢ:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
                 <DatePicker VerticalAlignment="Bottom" Name="EndDatePicker" IsTodayHighlighted="True" Width="205" materialDesign:HintAssist.Hint="Ngày Trả Phòng" Margin="15,0,5,0" Foreground="White" BorderBrush="White" Height="32" />
             </StackPanel>
+           
             <!--Button-->
             <StackPanel Orientation="Horizontal" Height="45" Margin="0,31,0,0">
                 <Button x:Name="ApplyButton" Click="ConfirmBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" 
                         materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
-                        materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="105" Height="30"
-                        BorderBrush="White" BorderThickness="2" Margin="20,0,0,0" />
+                        materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="120" Height="30"
+                        BorderBrush="White" BorderThickness="2" Margin="60,0,0,0" />
 
                 <Button x:Name="AddButton" Click="AddButton_Click" Style="{StaticResource MaterialDesignOutlinedButton}"
-                        ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White"
-                        BorderBrush="White" Margin="15,0,0,0">
+                    ToolTip="MaterialDesignOutlinedButton" Width="120" Height="30" Foreground="White"
+                    BorderBrush="White" Margin="15,0,0,0">
                     THÊM
                 </Button>
-
-                <Button x:Name="CancelButton" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="105" Height="30" Foreground="White" BorderBrush="White" Margin="15,0,0,0">
-                    HỦY BỎ
-                </Button>
             </StackPanel>
-        </StackPanel>
+
+                <!--Button-->
+                <StackPanel Orientation="Horizontal" Height="45" Margin="0">
+                    <Button Click="BackBtn_Click" x:Name="CancelButton" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="120" Height="30" Foreground="White" BorderBrush="White" Margin="60,0,0,0">
+                        TRỞ VỀ
+                    </Button>
+
+                    <Button x:Name="checkoutButton" Click="CheckOutButton_Click" Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="MaterialDesignOutlinedButton" Width="120" Height="30" Foreground="White"
+                    BorderBrush="White" Margin="15,0,0,0">
+                        TRẢ PHÒNG
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
 
         <ListView x:Name="RentListView" Margin="0,60,380,0" MouseDoubleClick="MouseDown_DoubleClick">
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Name}">
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding Customer.NameCustomer}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="180" VerticalAlignment="Center" HorizontalContentAlignment="Center">KHÁCH HÀNG</GridViewColumnHeader>
                     </GridViewColumn>
-                    <GridViewColumn Width="108" DisplayMemberBinding="{Binding Type}">
+                    <GridViewColumn Width="108" DisplayMemberBinding="{Binding Customer.TypeCustomer}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="108" VerticalAlignment="Center" HorizontalContentAlignment="Center">LOẠI KHÁCH</GridViewColumnHeader>
                     </GridViewColumn>
-                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding IDNumber}">
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding Customer.IDNumber}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="80" VerticalAlignment="Center" HorizontalContentAlignment="Center">CMND</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn Width="105">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="105" VerticalAlignment="Center" HorizontalContentAlignment="Center">ĐỊA CHỈ</GridViewColumnHeader>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding Address}" Width="105" />
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Customer.Address}" Width="105" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -90,7 +111,7 @@
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="116" VerticalAlignment="Center" HorizontalContentAlignment="Center">NGÀY THUÊ</GridViewColumnHeader>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding StartDate}" Width="116" />
+                                <TextBlock TextWrapping="Wrap" Text="{Binding DateBookRoom}" Width="116" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

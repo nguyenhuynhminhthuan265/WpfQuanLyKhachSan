@@ -52,7 +52,7 @@ namespace WpfQuanLyKhachSan.View
             var idRoom = ((Button)sender).Tag;
             var room = (sender as Button).DataContext;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            Frame.Content = new View.Rental((int)idRoom);
+            Frame.Content = new View.Rental((int)idRoom, Frame);
         }
     }
 }

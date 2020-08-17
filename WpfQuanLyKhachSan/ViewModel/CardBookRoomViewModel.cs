@@ -24,6 +24,10 @@ namespace WpfQuanLyKhachSan.ViewModel
             cardBookRoomRepository.Add(item);
         }
 
-       
+        public CardBookRoom FindById(int id)
+        {
+            return cardBookRoomRepository.FindById(id);
+
+        }
     }
 }

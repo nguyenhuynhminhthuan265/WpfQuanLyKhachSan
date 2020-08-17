@@ -44,9 +44,10 @@ namespace WpfQuanLyKhachSan.View
         CardBookRoomViewModel cardBookRoomViewModel = new CardBookRoomViewModel();
         RoomViewModel roomViewModel = new RoomViewModel();
         BindingList<CardBookRoom> cardBookRooms;
-
+        Frame myFrame;
         public Rental()
         {
+            
             InitializeComponent();
             this.idRoom = idRoom;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
@@ -64,10 +65,10 @@ namespace WpfQuanLyKhachSan.View
             //RentListView.ItemsSource = cardBookRooms;            
         }
 
-        public Rental(int idRoom)
+        public Rental(int idRoom, Frame frame)
         {
             InitializeComponent();
-
+            this.myFrame = frame;
             this.idRoom = idRoom;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             txtBoxIdRoom.Text = this.idRoom.ToString();
@@ -80,10 +81,32 @@ namespace WpfQuanLyKhachSan.View
             types.Add("Nước Ngoài");
             TypeComboBox.ItemsSource = types;
             //RentListView.ItemsSource = rentalInfos;
+            LoadPage(idRoom);
 
 
 
+        }
 
+        public void LoadPage(int idRoom)
+        {
+            BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            for(int i=0;i<listBookRooms.Count();i++)
+            {
+                if(listBookRooms[i].RoomId != idRoom)
+                {
+                    listBookRooms.RemoveAt(i);
+                }
+                else
+                {
+                    listBookRooms[i].Room = roomViewModel.FindById(listBookRooms[i].RoomId);
+                    listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
+                }
+            }
+            cardBookRooms = listBookRooms;
+            RentListView.ItemsSource = cardBookRooms;
+            
+            //cardBookRoom.Room = roomViewModel.FindById(idRoom);
+            //MessageBox.Show($"Data {cardBookRoom.Room.NameRoom}");
         }
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -94,13 +117,15 @@ namespace WpfQuanLyKhachSan.View
 
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //var info = RentListView.SelectedItem as RentalInfo;
-            //NameTextBox.Text = info.Name;
-            //TypeComboBox.SelectedValue = info.Type.ToString();
-            //CMNDTextBox.Text = info.IDNumber.ToString();
-            //AddressTextBox.Text = info.Address;
-            //StartDatePicker.SelectedDate = info.StartDate;
-            //EndDatePicker.SelectedDate = info.EndDate;
+            var info = RentListView.SelectedItem as CardBookRoom;
+            txtBoxAmount.Text = info.CountCustomers.ToString();
+            PriceBookRoomTextBox.Text = info.PriceBookRoom.ToString();
+            NameTextBox.Text = info.Customer.NameCustomer;
+            TypeComboBox.SelectedValue = info.Customer.TypeCustomer.ToString();
+            CMNDTextBox.Text = info.Customer.IDNumber.ToString();
+            AddressTextBox.Text = info.Customer.Address;
+            StartDatePicker.SelectedDate = info.DateBookRoom;
+            EndDatePicker.SelectedDate = info.DateReturnRoom;
             
         }
 
@@ -186,6 +211,24 @@ namespace WpfQuanLyKhachSan.View
 
 
 
+            }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            myFrame.Content = new View.Home(myFrame);
+        }
+
+        private void CheckOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RentListView.SelectedItem != null)
+            {
+                var info = RentListView.SelectedItem as CardBookRoom;
+                myFrame.Content = new View.TotalRevenue(info.Id, myFrame);
+            }
+            else
+            {
+                MessageBox.Show("Ban chua chon Phieu Thue Phong!!!");
             }
         }
 

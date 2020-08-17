@@ -54,5 +54,11 @@ namespace WpfQuanLyKhachSan.ViewModel
         {
             customerRepository.Update(customer);
         }
+
+        public Customer FindById(int id)
+        {
+            return customerRepository.FindById(id);
+
+        }
     }
 }
