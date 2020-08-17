@@ -35,7 +35,9 @@ namespace WpfQuanLyKhachSan
 
         private const string GuestHello = "Xin chào Tony Stark";
         private const string GuestHello1 = "Xin chào Tony Thuan";
+
         private const string GuestHello2 = "Xin chào Tony Thanh";
+        private const string GuestHello4 = "Xin chào Tony Thanh4";
 
         public MainWindow(String abc)
         {
@@ -49,6 +51,9 @@ namespace WpfQuanLyKhachSan
 
             Login_Click(null, null);
         }
+
+        private const string GuestHello3 = "Xin chào Tony Thuan2";
+
 
 
         public MainWindow()
