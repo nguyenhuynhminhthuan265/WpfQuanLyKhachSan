@@ -38,7 +38,6 @@ namespace WpfQuanLyKhachSan.View
             List<Room> rooms = roomViewModel.findAll();
 
             roomComboBox.ItemsSource = rooms;
-
             
         }
 
