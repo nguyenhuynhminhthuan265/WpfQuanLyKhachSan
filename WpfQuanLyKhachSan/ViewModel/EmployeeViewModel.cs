@@ -34,5 +34,11 @@ namespace WpfQuanLyKhachSan.ViewModel
         {
             employeeRepository.Update(employee);
         }
+
+        public Employee FindById(int id)
+        {
+            return employeeRepository.FindById(id);
+
+        }
     }
 }
