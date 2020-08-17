@@ -35,6 +35,20 @@ namespace WpfQuanLyKhachSan
 
         private const string GuestHello = "Xin chào Tony Stark";
         private const string GuestHello1 = "Xin chào Tony Thuan";
+        private const string GuestHello2 = "Xin chào Tony Thanh";
+
+        public MainWindow(String abc)
+        {
+            InitializeComponent();
+
+            EmployeeRepository employeeRepo = new EmployeeRepository();
+            if (employeeRepo.findAll().Count == 0)
+            {
+                FillEmployee();
+            }
+
+            Login_Click(null, null);
+        }
 
 
         public MainWindow()
