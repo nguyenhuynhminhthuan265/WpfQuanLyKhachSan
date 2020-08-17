@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace WpfQuanLyKhachSan.View
 {
     /// <summary>
-    /// Interaction logic for TotalRevenue.xaml
+    /// Interaction logic for TotalDueBill.xaml
     /// </summary>
-    public partial class TotalRevenue : Page
+    public partial class TotalDueBill : Page
     {
         Frame myFrame;
-        public TotalRevenue()
+        public TotalDueBill()
         {
             InitializeComponent();
         }
 
-        public TotalRevenue(int idCardBookRoom,Frame frame)
+        public TotalDueBill(int idCardBookRoom,Frame frame)
         {
             InitializeComponent();
         }

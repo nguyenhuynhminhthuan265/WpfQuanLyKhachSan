@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfQuanLyKhachSan.View.TotalRevenue"
+﻿<Page x:Class="WpfQuanLyKhachSan.View.TotalDueBill"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -70,9 +70,9 @@
 
         </StackPanel>
 
-        <StackPanel Margin="550,80,20,10">
+        <StackPanel Margin="480,80,20,10">
             <Border Height="560.5" BorderBrush="LightGray" BorderThickness="0.8" >
-                <StackPanel Margin="0,0,0,-88.5">
+                <StackPanel Margin="0,0,0,-60">
                     <TextBox Height="30" Text=" THÔNG TIN HÓA ĐƠN" Margin="0" FontSize="18" Background="LightGray" VerticalContentAlignment="Center"/>
                     <!--Ma Hoa Don-->
                     <!--Binding Renevues ID-->
@@ -93,11 +93,12 @@
   Name="DateReturnRoom" IsTodayHighlighted="True"
   Height="40" FontSize="24" Margin="10,10,10,0" 
   materialDesign:HintAssist.HelperText="Ngày trả phòng"/>
-                    <TextBox x:Name="PriceBookRoomTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="ĐƠN GIÁ PHÒNG"></TextBox>
+                    <TextBox x:Name="UnitPriceRoomTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="ĐƠN GIÁ PHÒNG"></TextBox>
                     <TextBox x:Name="timeSpanTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="THỜI GIAN" ></TextBox>
-                    <TextBox x:Name="FactorTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="HỆ SỐ"></TextBox>
+                    <TextBox x:Name="factorTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="HỆ SỐ"></TextBox>
                     <TextBox x:Name="surchargeTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="PHỤ PHÍ"></TextBox>
-                    <Label x:Name="TotalPriceTxtBox" Margin="0,20,0,0" Height="70" Content="THÀNH TIỀN" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="Red"></Label>
+                    <Label x:Name="TotalPriceTxtBox" Margin="0,20,0,0" Height="70" Content="THÀNH TIỀN" HorizontalContentAlignment="Left"
+                           VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="Red"></Label>
                 </StackPanel>
             </Border>
         </StackPanel>

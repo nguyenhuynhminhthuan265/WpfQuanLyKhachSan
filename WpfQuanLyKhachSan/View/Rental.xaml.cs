@@ -224,7 +224,7 @@ namespace WpfQuanLyKhachSan.View
             if (RentListView.SelectedItem != null)
             {
                 var info = RentListView.SelectedItem as CardBookRoom;
-                myFrame.Content = new View.TotalRevenue(info.Id, myFrame);
+                myFrame.Content = new View.TotalDueBill(info.Id, myFrame);
             }
             else
             {

@@ -114,8 +114,8 @@
     <Compile Include="View\Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TotalRevenue.xaml.cs">
-      <DependentUpon>TotalRevenue.xaml</DependentUpon>
+    <Compile Include="View\TotalDueBill.xaml.cs">
+      <DependentUpon>TotalDueBill.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AdminManagement.xaml">
       <SubType>Designer</SubType>
@@ -175,7 +175,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TotalRevenue.xaml">
+    <Page Include="View\TotalDueBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -150,7 +150,7 @@ namespace WpfQuanLyKhachSan
         {
             if (currentUser != null)
             {
-                MyFrame.Content = new View.TotalRevenue(); 
+                MyFrame.Content = new View.TotalDueBill(); 
             }
         }
 
