@@ -34,6 +34,7 @@ namespace WpfQuanLyKhachSan
         Employee currentUser = null;
 
         private const string GuestHello = "Xin chào Tony Stark";
+        private const string GuestHello1 = "Xin chào Tony Thuan";
 
 
         public MainWindow()
