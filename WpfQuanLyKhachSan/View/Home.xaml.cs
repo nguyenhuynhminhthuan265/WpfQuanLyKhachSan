@@ -24,21 +24,25 @@ namespace WpfQuanLyKhachSan.View
     {
         private RoomViewModel roomViewModel = new RoomViewModel();
         Frame Frame;
+
+        public static Brush roomAvailable = Brushes.LightSalmon;
+        public static Brush roomBooked = Brushes.LightGray;
+        private List<Room> rooms;
+
         public Home()
         {
             InitializeComponent();
-            List<Room> rooms = roomViewModel.findAll();
-            roomComboBox.ItemsSource = rooms;
+            rooms = roomViewModel.findAll();
+            roomsWrapPanel.ItemsSource = rooms;
         }
 
         public Home(Frame frame)
         {
             this.Frame = frame;
             InitializeComponent();
-            List<Room> rooms = roomViewModel.findAll();
+            rooms = roomViewModel.findAll();
 
-            roomComboBox.ItemsSource = rooms;
-            
+            roomsWrapPanel.ItemsSource = rooms;           
         }
 
         private void roomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,10 +52,10 @@ namespace WpfQuanLyKhachSan.View
 
         private void BookRoom(object sender, RoutedEventArgs e)
         {
-            var idRoom = ((Button)sender).Tag;
+            //var idRoom = ((Button)sender).Tag;
             var room = (sender as Button).DataContext;
-            Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            Frame.Content = new View.Rental((int)idRoom, Frame);
+            //Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
+            Frame.Content = new View.Rental((Room)room, Frame);
         }
     }
 }

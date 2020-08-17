@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\RoomStatusConverter.cs" />
     <Compile Include="MainTest\PasswordEncode.cs" />
     <Compile Include="Migrations\202008170011284_create_db.cs" />
     <Compile Include="Migrations\202008170011284_create_db.designer.cs">
