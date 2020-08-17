@@ -29,18 +29,20 @@ namespace WpfQuanLyKhachSan.View
         RoomViewModel roomViewModel = new RoomViewModel();
         BillViewModel billViewModel = new BillViewModel();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
-        Bill mainbill;
+        Bill mainbill = new Bill();
 
         private string currencyUnit = " VND";
 
         public TotalDueBill()
         {
             InitializeComponent();
+
         }
 
-        public TotalDueBill(CardBookRoom cardBookRoom,Frame frame)
+        public TotalDueBill(CardBookRoom cardBookRoom, Frame frame)
         {
             InitializeComponent();
+            myFrame = frame;
 
             LoadPage(cardBookRoom);
             this.DataContext = mainbill;
@@ -70,13 +72,13 @@ namespace WpfQuanLyKhachSan.View
             //}
 
             //Khoi tao gia tri Binding
-            mainbill = new Bill();
+            
 
             mainbill.CardBookRoom = cardBookRoom;
             mainbill.Employee = MainWindow.currentUser;
             mainbill.CardBookRoom.Room = roomViewModel.FindById(cardBookRoom.RoomId);
             //mainbill.CardBookRoom.Customer = customerViewModel.FindById(mainbill.CardBookRoom.CustomerId);
-            mainbill.isDelete = false;
+            mainbill.isDeleted = false;
             mainbill.TotalPrice = mainbill.GetTotalPrice();
             
 

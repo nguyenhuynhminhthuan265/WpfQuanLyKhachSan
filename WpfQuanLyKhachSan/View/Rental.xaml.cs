@@ -190,6 +190,9 @@ namespace WpfQuanLyKhachSan.View
                     isDelete = false
                 };
 
+                selectedRoom.Status = Room.BOOKED;
+                roomViewModel.Update(selectedRoom);
+
                 CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
                 cbrRepository.Add(cardBookRoom);
             }
