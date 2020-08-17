@@ -90,9 +90,9 @@ namespace WpfQuanLyKhachSan.View
         public void LoadPage(int idRoom)
         {
             BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
-            for(int i=0;i<listBookRooms.Count();i++)
+            for (int i = listBookRooms.Count() - 1; i >= 0; i--)
             {
-                if(listBookRooms[i].RoomId != idRoom)
+                if (listBookRooms[i].RoomId != idRoom)
                 {
                     listBookRooms.RemoveAt(i);
                 }
@@ -102,9 +102,10 @@ namespace WpfQuanLyKhachSan.View
                     listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
                 }
             }
+
             cardBookRooms = listBookRooms;
             RentListView.ItemsSource = cardBookRooms;
-            
+
             //cardBookRoom.Room = roomViewModel.FindById(idRoom);
             //MessageBox.Show($"Data {cardBookRoom.Room.NameRoom}");
         }
