@@ -7,17 +7,18 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="970"
-      Title="TotalRevenue">
+      Title="TotalDueBill">
 
     <Grid Background="White">
-        <Label Content="HÓA ĐƠN TỔNG" Margin="0,0,0,620" Height="80" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="HÓA ĐƠN TỔNG" Margin="0,0,0,0" Height="80" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"/>
         <StackPanel Margin="20,80,550,10">
             <Border Height="250" BorderBrush="LightGray" BorderThickness="0.8" >
                 <StackPanel>
                     <TextBox Height="30" Text=" THÔNG TIN HÓA ĐƠN" Margin="0" FontSize="18" Background="LightGray" VerticalContentAlignment="Center"/>
                     <!--Ma Hoa Don-->
-                    <!--Binding Renevues ID-->
-                    <TextBox x:Name="RevenueIDText"
+                    <!--Binding Bill ID-->
+                    <TextBox x:Name="BillIDText"
   materialDesign:HintAssist.Hint="Mã hóa đơn"
   materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
   materialDesign:HintAssist.FloatingScale="0.50"
@@ -70,39 +71,61 @@
 
         </StackPanel>
 
-        <StackPanel Margin="480,80,20,10">
-            <Border Height="560.5" BorderBrush="LightGray" BorderThickness="0.8" >
-                <StackPanel Margin="0,0,0,-60">
-                    <TextBox Height="30" Text=" THÔNG TIN HÓA ĐƠN" Margin="0" FontSize="18" Background="LightGray" VerticalContentAlignment="Center"/>
-                    <!--Ma Hoa Don-->
-                    <!--Binding Renevues ID-->
-                    <TextBox x:Name="roomNameTextBox"
+        <Border Margin="470,80,20,10" BorderBrush="LightGray" BorderThickness="0.8" >
+            <StackPanel >
+                <TextBox Height="30" Text=" THÔNG TIN HÓA ĐƠN" Margin="0" FontSize="18" Background="LightGray" VerticalContentAlignment="Center"/>
+                <!--Ma Hoa Don-->
+                <!--Binding Renevues ID-->
+                <TextBox x:Name="roomNameTextBox"
   materialDesign:HintAssist.Hint="Mã hóa đơn"
   materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
   materialDesign:HintAssist.FloatingScale="0.50"
   Text="Mã Hóa Đơn" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  FontSize="24" Margin="10,10,10,0" />
-                    <!--TÊN NGƯỜI LẬP HÓA ĐƠN-->
-                    <DatePicker VerticalAlignment="Bottom"
-  Name="DateBookRoom" IsTodayHighlighted="True"
-  Height="40" FontSize="24" Margin="10,10,10,0" 
-  materialDesign:HintAssist.HelperText="Ngày thuê phòng"/>
-                    <!--Ngày lập hóa đơn-->
-                    <DatePicker VerticalAlignment="Bottom"
-  Name="DateReturnRoom" IsTodayHighlighted="True"
-  Height="40" FontSize="24" Margin="10,10,10,0" 
-  materialDesign:HintAssist.HelperText="Ngày trả phòng"/>
-                    <TextBox x:Name="UnitPriceRoomTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="ĐƠN GIÁ PHÒNG"></TextBox>
-                    <TextBox x:Name="timeSpanTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="THỜI GIAN" ></TextBox>
-                    <TextBox x:Name="factorTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="HỆ SỐ"></TextBox>
-                    <TextBox x:Name="surchargeTxtBox" Height="40" FontSize="24" Margin="10,20,10,0" materialDesign:HintAssist.Hint="PHỤ PHÍ"></TextBox>
-                    <Label x:Name="TotalPriceTxtBox" Margin="0,20,0,0" Height="70" Content="THÀNH TIỀN" HorizontalContentAlignment="Left"
-                           VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="Red"></Label>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+  FontSize="22" Margin="10,10,10,0" />
+                <!--NGÀY THUÊ PHÒNG-->
+                <DatePicker VerticalAlignment="Bottom" Name="DateBookRoom" IsTodayHighlighted="True"
+                                Height="60" FontSize="22" Margin="10,10,10,0" 
+                                materialDesign:HintAssist.Hint="Ngày thuê phòng" materialDesign:HintAssist.FloatingScale="0.5"
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                <!--NGÀY TRẢ PHÒNG ~ LẬP HÓA ĐƠN-->
+                <DatePicker VerticalAlignment="Bottom" Name="DateReturnRoom" IsTodayHighlighted="True"
+                                Height="60" FontSize="22" Margin="10,10,10,10" 
+                                materialDesign:HintAssist.Hint="Ngày trả phòng" materialDesign:HintAssist.FloatingScale="0.5" 
+                                Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                <TextBox x:Name="UnitPriceRoomTxtBox" 
+                             materialDesign:HintAssist.Hint="Đơn giá phòng"
+                             materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                             materialDesign:HintAssist.FloatingScale="0.50"
+                             Text="Đơn Giá Phòng"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             FontSize="22" Margin="10,10,10,0"/>
+                <!--<TextBox
+    materialDesign:HintAssist.Hint="Mã hóa đơn"
+    materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+    materialDesign:HintAssist.FloatingScale="0.50"
+    Text="Mã Hóa Đơn" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+    FontSize="24" Margin="10,10,10,0" />-->
+
+                <TextBox x:Name="timeSpanTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Thời gian"
+                             materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                             materialDesign:HintAssist.FloatingScale="0.50"
+                             Text="Số ngày"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox x:Name="factorTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Hệ số"
+                             materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                             materialDesign:HintAssist.FloatingScale="0.50"
+                             Text="Hệ số" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox x:Name="surchargeTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Phụ phí"
+                             materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                             materialDesign:HintAssist.FloatingScale="0.50"
+                             Text="Phụ phí" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <DockPanel Height="90">
+                    <Label Margin="10,0,0,16" Content="Thành Tiền" HorizontalContentAlignment="Left"
+                           DockPanel.Dock="Left" VerticalContentAlignment="Center" FontSize="28" FontWeight="Medium" Foreground="Black"/>
+                    <Label x:Name="totalAmounLabel" Margin="0,0,0,0" Content="500 000 VND" HorizontalContentAlignment="Right"
+                           DockPanel.Dock="Left" VerticalContentAlignment="Center" FontSize="34" FontWeight="Bold" Foreground="Red"/>
+                </DockPanel>
+            </StackPanel>
+        </Border>
     </Grid>
-    
     
 </Page>
