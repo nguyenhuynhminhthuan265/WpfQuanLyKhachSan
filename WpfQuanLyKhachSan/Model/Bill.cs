@@ -16,23 +16,22 @@ namespace WpfQuanLyKhachSan.Model
         
         public double TotalPrice { get; set; }
 
-        public int IdCardBookRoom { get; set; }
+        public string IdCardBookRoom { get; set; }
 
         public int IdEmployee { get; set; }
         [ForeignKey("IdEmployee")]
         public Employee Employee { get; set; }
 
-        [ForeignKey("IdCardBookRoom")]
-        public CardBookRoom CardBookRoom { get; set; }
+        
 
         public Boolean isDelete = false;
 
-        public double GetTotalPrice()
+        /*public double GetTotalPrice()
         {
             double total;
             total = CardBookRoom.GetPriceRoomRental();
             return total;
-        }
+        }*/
         
     }
 }
