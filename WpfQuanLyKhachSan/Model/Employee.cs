@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Employee
+    public class Employee
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

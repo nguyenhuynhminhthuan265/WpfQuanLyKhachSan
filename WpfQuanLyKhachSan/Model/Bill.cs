@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class Bill
+    public class Bill
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -87,9 +87,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainTest\PasswordEncode.cs" />
+<<<<<<< HEAD
     <Compile Include="Migrations\202008170011284_create_db.cs" />
     <Compile Include="Migrations\202008170011284_create_db.designer.cs">
       <DependentUpon>202008170011284_create_db.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202008162125213_create-db.cs" />
+    <Compile Include="Migrations\202008162125213_create-db.designer.cs">
+      <DependentUpon>202008162125213_create-db.cs</DependentUpon>
+>>>>>>> 6ed5f71b7a2a12f9797a6bd4ccd24401c353dd09
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bill.cs" />
@@ -194,8 +200,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202008170011284_create_db.resx">
       <DependentUpon>202008170011284_create_db.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202008162125213_create-db.resx">
+      <DependentUpon>202008162125213_create-db.cs</DependentUpon>
+>>>>>>> 6ed5f71b7a2a12f9797a6bd4ccd24401c353dd09
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -23,26 +23,27 @@ namespace WpfQuanLyKhachSan.View
     /// <summary>
     /// Interaction logic for Rental.xaml
     /// </summary>
-    class RentalInfo
-    {
+    //class RentalInfo
+    //{
        
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int IDNumber { get; set; }
-        public string Address { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-    }
+    //    public string Name { get; set; }
+    //    public string Type { get; set; }
+    //    public int IDNumber { get; set; }
+    //    public string Address { get; set; }
+    //    public DateTime StartDate { get; set; }
+    //    public DateTime EndDate { get; set; }
+    //}
     public partial class Rental : Page
     {
         public bool isSort;
-        BindingList<RentalInfo> rentalInfos = new BindingList<RentalInfo>();
+        //BindingList<CardBookRoom> rentalInfos = new BindingList<CardBookRoom>();
 
         private int idRoom { get; set; }
         ArrayList customers = new ArrayList();
         CustomerViewModel customerViewModel = new CustomerViewModel();
         CardBookRoomViewModel cardBookRoomViewModel = new CardBookRoomViewModel();
         RoomViewModel roomViewModel = new RoomViewModel();
+        BindingList<CardBookRoom> cardBookRooms;
 
         public Rental()
         {
@@ -52,23 +53,19 @@ namespace WpfQuanLyKhachSan.View
             txtBoxIdRoom.Text = this.idRoom.ToString();
 
             isSort = false;
-/*
-            rentalInfos.Add(new RentalInfo() { Name = "Le Dinh Thanh", Type = "Nước Ngoài", IDNumber = 025868208, Address = "123 ABC",StartDate = new DateTime(2020,8,8),EndDate=new DateTime(2020,8,10) });
-            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Huynh Minh Thuan", Type = "Việt Nam", IDNumber = 01234567, Address = "123 ABC FDAJI WJREIQJFIQ DJAIFJIA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
-            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Khanh Hoang", Type = "Việt Nam", IDNumber = 09876543, Address = "FDJAIJI MNKKNK JIFDAJIFDAJI ĐÀKÀKẠK FDJIAFJDIAFJDA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
-           */
-            
             
             List<String> types = new List<String>();
-            types.Add("Việt Nam");
-            types.Add("Nước Ngoài");
+            types.Add(Customer.DOMESTIC);
+            types.Add(Customer.FOREIGNER);
             TypeComboBox.ItemsSource = types;
-            RentListView.ItemsSource = rentalInfos;
-            
+            //RentListView.ItemsSource = rentalInfos;
+
+            cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            //RentListView.ItemsSource = cardBookRooms;            
         }
+
         public Rental(int idRoom)
         {
-            
             InitializeComponent();
 
             this.idRoom = idRoom;
@@ -76,16 +73,16 @@ namespace WpfQuanLyKhachSan.View
             txtBoxIdRoom.Text = this.idRoom.ToString();
 
             isSort = false;
-            /*rentalInfos.Add(new RentalInfo() { Name = "Le Dinh Thanh", Type = "Nước Ngoài", IDNumber = 025868208, Address = "123 ABC", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
-            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Huynh Minh Thuan", Type = "Việt Nam", IDNumber = 01234567, Address = "123 ABC FDAJI WJREIQJFIQ DJAIFJIA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });
-            rentalInfos.Add(new RentalInfo() { Name = "Nguyen Khanh Hoang", Type = "Việt Nam", IDNumber = 09876543, Address = "FDJAIJI MNKKNK JIFDAJIFDAJI ĐÀKÀKẠK FDJIAFJDIAFJDA", StartDate = new DateTime(2020, 8, 8), EndDate = new DateTime(2020, 8, 10) });*/
-            
-            
+
+
             List<String> types = new List<String>();
             types.Add("Việt Nam");
             types.Add("Nước Ngoài");
             TypeComboBox.ItemsSource = types;
-            RentListView.ItemsSource = rentalInfos;
+            //RentListView.ItemsSource = rentalInfos;
+
+
+
 
         }
 
@@ -97,36 +94,39 @@ namespace WpfQuanLyKhachSan.View
 
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var info = RentListView.SelectedItem as RentalInfo;
-            NameTextBox.Text = info.Name;
-            TypeComboBox.SelectedValue = info.Type.ToString();
-            CMNDTextBox.Text = info.IDNumber.ToString();
-            AddressTextBox.Text = info.Address;
-            StartDatePicker.SelectedDate = info.StartDate;
-            EndDatePicker.SelectedDate = info.EndDate;
+            //var info = RentListView.SelectedItem as RentalInfo;
+            //NameTextBox.Text = info.Name;
+            //TypeComboBox.SelectedValue = info.Type.ToString();
+            //CMNDTextBox.Text = info.IDNumber.ToString();
+            //AddressTextBox.Text = info.Address;
+            //StartDatePicker.SelectedDate = info.StartDate;
+            //EndDatePicker.SelectedDate = info.EndDate;
             
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            RentalInfo info = new RentalInfo();
-            info.Name = NameTextBox.Text;
-            info.Type = TypeComboBox.SelectedValue.ToString();
-            info.IDNumber = int.Parse(CMNDTextBox.Text);
-            info.Address = AddressTextBox.Text;
-            info.StartDate = StartDatePicker.SelectedDate.Value;
-            info.EndDate = EndDatePicker.SelectedDate.Value;
+            //RentalInfo info = new RentalInfo();
+            //info.Name = NameTextBox.Text;
+            //info.Type = TypeComboBox.SelectedValue.ToString();
+            //info.IDNumber = int.Parse(CMNDTextBox.Text);
+            //info.Address = AddressTextBox.Text;
+            //info.StartDate = StartDatePicker.SelectedDate.Value;
+            //info.EndDate = EndDatePicker.SelectedDate.Value;
 
             /*INSERT Customer to database*/
-            Customer customer = new Customer();
-            customer.NameCustomer = NameTextBox.Text;
-            customer.IDNumber= CMNDTextBox.Text;
-            customer.Address= AddressTextBox.Text;
-            customer.TypeCustomer= TypeComboBox.SelectedValue.ToString();
-            customer.isDeleted = false;
-            /*CustomerRepository customerRepository = new CustomerRepository();
-            customerRepository.Add(customer);*/
-            customers.Add(customer);
+            Customer customer = new Customer()
+            {
+                NameCustomer = NameTextBox.Text,
+                IDNumber = CMNDTextBox.Text,
+                Address = AddressTextBox.Text,
+                TypeCustomer = TypeComboBox.SelectedValue.ToString(),
+                isDeleted = false
+            };
+            
+            CustomerRepository customerRepository = new CustomerRepository();
+            customerRepository.Add(customer);
+            //customers.Add(customer);
 
 
             CardBookRoom cardBookRoom = new CardBookRoom();
@@ -134,10 +134,9 @@ namespace WpfQuanLyKhachSan.View
             cardBookRoom.isDelete = false;
 
 
-            Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
-            Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
+            //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
+            //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
 
-            rentalInfos.Add(info);
         }
 
         private void ConfirmBookRoom(object sender, RoutedEventArgs e)

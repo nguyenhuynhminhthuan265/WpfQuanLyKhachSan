@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Model
 {
-    class CardBookRoom
+    public class CardBookRoom
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,7 +24,8 @@ namespace WpfQuanLyKhachSan.Model
 
         /*
          * public virtual ICollection<Customer> Customer { get; set; }
-        */
+         */
+
         public int RoomId { get; set; }
         public int CustomerId { get; set; }
 
@@ -36,8 +37,13 @@ namespace WpfQuanLyKhachSan.Model
 
         public double GetPriceRoomRental()
         {
+            double result;
             var timeSpan = DateReturnRoom - DateBookRoom;
             int days = timeSpan.Days;
+            
+            double factor = (Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
+            result = days * PriceBookRoom * factor;
+            result = result + result*((CountCustomers < Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0);
             
             return days * Room.TypeRoom.Price;
         }
@@ -52,7 +58,6 @@ namespace WpfQuanLyKhachSan.Model
 
 
         public Boolean isDelete { get; set; }
-
-
+        
     }
 }

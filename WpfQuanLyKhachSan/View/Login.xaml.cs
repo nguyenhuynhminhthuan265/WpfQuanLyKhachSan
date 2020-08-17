@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfQuanLyKhachSan.MainTest;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.Repository;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan.View
 {
@@ -34,7 +35,7 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
         }
 
-        public delegate void SendResultDelegate(int userID);
+        public delegate void SendResultDelegate(Employee emp);
         public event SendResultDelegate LoginHandler;
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
@@ -46,8 +47,8 @@ namespace WpfQuanLyKhachSan.View
         {
             string enteredUsername = usernameTextBox.Text;
             string enteredPassword = passwordBox.Password;
-            EmployeeRepository employeeRepository = new EmployeeRepository();
-            List<Employee> allEmployees = employeeRepository.findAll();
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            List<Employee> allEmployees = employeeViewModel.findAll();
             Employee findResult = allEmployees.Find(emp => emp.Email == enteredUsername);
             if (findResult != null)
             {
@@ -55,7 +56,7 @@ namespace WpfQuanLyKhachSan.View
                 if (findResult.Password.Equals(encoder.EncodePasswordToBase64(enteredPassword)))
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Đăng nhập", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LoginHandler?.Invoke(findResult.Id);
+                    LoginHandler?.Invoke(findResult);
                 }
                 else
                 {

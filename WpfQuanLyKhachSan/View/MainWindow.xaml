@@ -119,27 +119,10 @@
                         <materialDesign:PackIcon Kind="Send" />
                     </Button>
                 </StackPanel>
-                
-                
+
+
             </DockPanel>
         </materialDesign:ColorZone>
-
-        <!--Quan ly phien su dung--><!--
-        <materialDesign:Chip x:Name="chipUserSession"
-            Content="Xin chào Tony Stark"
-                             IsDeletable="True"
-                             Click="ChipUserSession_OnClick"
-                             DeleteClick="ChipUserSession_OnDeleteClick"
-                             ToolTip="Click to go to Manage you account"
-                             DeleteToolTip="Your friendly neighbor Delete Button"
-                             
-                             IconForeground="#FF673AB7"
-                             IconBackground="White"
-                             Background="#FF673AB7">
-            <materialDesign:Chip.Icon>
-                <Image Source="../Assets/Tony.png"></Image>
-            </materialDesign:Chip.Icon>
-        </materialDesign:Chip>-->
 
         <!--Sidebar Here -->
         <materialDesign:Card Background="#FF673AB7"
