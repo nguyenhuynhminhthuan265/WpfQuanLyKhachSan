@@ -69,9 +69,9 @@ namespace WpfQuanLyKhachSan.Repository
                     Customer.Id = model.Id;
                     Customer.IDNumber = model.IDNumber;
                     Customer.NameCustomer = model.NameCustomer;
-                    Customer.Address = model.Address;
+                    /*Customer.Address = model.Address;*/
                     Customer.TypeCustomer = model.TypeCustomer;
-                    Customer.isBooking = model.isBooking;
+                   /* Customer.isBooking = model.isBooking;*/
 
 
                     entities.Entry(Customer).State = System.Data.Entity.EntityState.Modified;

@@ -33,15 +33,15 @@
                     </Grid.ColumnDefinitions>
 
                     <DataGrid Grid.Column="0"
-                              x:Name="ClientsGrid"
-                              ItemsSource="{Binding Context.Clients.Local}"
-                              SelectedItem="{Binding SelectedClient, Mode=TwoWay}">
+                              x:Name="CustomersGrid"
+                              ItemsSource="{Binding Context.Customers.Local}"
+                              AutoGenerateColumns="False"
+                                    >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="First name" />
-                            <DataGridTextColumn Header="Last name" />
-                            <DataGridTextColumn Header="Birthdate" />
-                            <DataGridTextColumn Header="Account" />
-                            <DataGridTextColumn Header="Room number" />
+                            <DataGridTextColumn Header="Name"  Binding="{Binding NameCustomer}"/>
+                            <DataGridTextColumn Header="ID Number" Binding="{Binding IDNumber}"/>
+                            <DataGridTextColumn Header="Type Customer" Binding="{Binding TypeCustomer}"/>
+
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -70,197 +70,64 @@
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Margin="5"
-                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                                       Text="{Binding ElementName=CustomersGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="5"
-                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                                       Text="{Binding ElementName=CustomersGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
                             <TextBlock Grid.Row="2"
                                        Grid.Column="0"
                                        Margin="5"
-                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
-                            <TextBlock Grid.Row="3"
-                                       Grid.Column="0"
-                                       Margin="5"
-                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
-                            <TextBlock Grid.Row="4"
-                                       Grid.Column="0"
-                                       Margin="5"
-                                       Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}" />
+                                       Text="{Binding ElementName=CustomersGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+
+
+
+                            <TextBox 
+                                     Visibility="Hidden"
+                                     Text="{Binding SelectedItem.Id, ElementName=CustomersGrid}"
+                                     x:Name="IdCustomerCRUD" />
 
                             <TextBox Grid.Row="0"
                                      Grid.Column="1"
                                      Margin="3"
-                                     Text="{Binding ClientInfo.FirstName, Mode=TwoWay}" />
+                                     x:Name="NameCustomerCRUD"
+                                     Text="{Binding SelectedItem.NameCustomer,ElementName=CustomersGrid}" />
                             <TextBox Grid.Row="1"
                                      Grid.Column="1"
                                      Margin="3"
-                                     Text="{Binding ClientInfo.LastName, Mode=TwoWay}" />
-                            <DatePicker Grid.Row="2"
-                                        Grid.Column="1"
-                                        Margin="3"
-                                        SelectedDate="{Binding ClientInfo.Birthdate, Mode=TwoWay}" />
-                            <TextBox Grid.Row="3"
+                                     x:Name="IDNumberCRUD"
+                                     Text="{Binding SelectedItem.IDNumber, ElementName=CustomersGrid}" />
+                            
+                            <TextBox Grid.Row="2"
                                      Grid.Column="1"
                                      Margin="3"
-                                     Text="{Binding ClientInfo.Account, Mode=TwoWay}" />
-                            <ComboBox Grid.Row="4"
-                                      Grid.Column="1"
-                                      Margin="3"
-                                      ItemsSource="{Binding Context.Rooms.Local}"
-                                      SelectedItem="{Binding ClientInfo.Room, Mode=TwoWay}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock>
-                                            <TextBlock.Text>
-                                                <MultiBinding StringFormat="{}{0} - {1}">
-                                                    <Binding Path="Number" />
-                                                    <Binding Path="Type" />
-                                                </MultiBinding>
-                                            </TextBlock.Text>
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                     x:Name="TypeCustomerCRUD"
+                                     Text="{Binding SelectedItem.TypeCustomer, ElementName=CustomersGrid}" />
 
-                            <DockPanel Grid.Row="5"
-                                       Grid.Column="0"
-                                       Grid.ColumnSpan="2"
-                                       HorizontalAlignment="Center"
-                                       Width="277"
-                                       Margin="31,0,26,0">
+
+                            <StackPanel Grid.Row="9"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Add"
-                                        Command="{Binding AddClientCommand}" />
+                                        Click="CRUDItemCustomer"
+                                         />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Update"
-                                        Command="{Binding UpdateClientCommand}" />
+                                        Click="CRUDItemCustomer"
+                                        />
                                 <Button Margin="5"
                                         Padding="10,0,10,0"
                                         Content="Delete"
-                                        Command="{Binding DeleteClientCommand}" />
-                                <Button Margin="5"
-                                        Padding="10,0,10,0"
-                                        HorizontalAlignment="Right"
-                                        Content="Export"
-                                        Command="{Binding ExportClientsCommand}" />
-                            </DockPanel>
+                                        Click="CRUDItemCustomer"
+                                        />
+                            </StackPanel>
 
-                            <!-- < Clients Filter > -->
-                            <Expander Grid.Row="6"
-                                      Grid.Column="0"
-                                      Grid.ColumnSpan="2"
-                                      Header="Filters">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Row="0"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="1"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="2"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="3"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[3].Header, StringFormat={}{0}:}" />
-                                    <TextBlock Grid.Row="4"
-                                               Grid.Column="0"
-                                               Margin="5"
-                                               Text="{Binding ElementName=ClientsGrid, Path=Columns[4].Header, StringFormat={}{0}:}" />
-
-                                    <TextBox x:Name="FnTbFilter"
-                                             Grid.Row="0"
-                                             Grid.Column="1"
-                                             Margin="3"
-                                             Text="{Binding ClientFilter.FirstName, UpdateSourceTrigger=PropertyChanged}">
-
-                                    </TextBox>
-                                    <TextBox x:Name="LnTbFilter"
-                                             Grid.Row="1"
-                                             Grid.Column="1"
-                                             Margin="3"
-                                             Text="{Binding ClientFilter.LastName, UpdateSourceTrigger=PropertyChanged}">
-
-                                    </TextBox>
-                                    <DatePicker x:Name="BdDpFilter"
-                                                Grid.Row="2"
-                                                Grid.Column="1"
-                                                Margin="3"
-                                                SelectedDate="{Binding ClientFilter.Birthdate}">
-
-                                    </DatePicker>
-                                    <TextBox x:Name="AccTbFilter"
-                                             Grid.Row="3"
-                                             Grid.Column="1"
-                                             Margin="3"
-                                             Text="{Binding ClientFilter.Account, UpdateSourceTrigger=PropertyChanged}">
-
-                                    </TextBox>
-                                    <ComboBox x:Name="RnCbFilter"
-                                              Grid.Row="4"
-                                              Grid.Column="1"
-                                              Margin="3"
-                                              ItemsSource="{Binding Context.Rooms.Local}"
-                                              SelectedItem="{Binding ClientFilter.Room}">
-                                        <ComboBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBlock>
-                                                    <TextBlock.Text>
-                                                        <MultiBinding StringFormat="{}{0} - {1}">
-                                                            <Binding Path="Number" />
-                                                            <Binding Path="Type" />
-                                                        </MultiBinding>
-                                                    </TextBlock.Text>
-                                                </TextBlock>
-                                            </DataTemplate>
-                                        </ComboBox.ItemTemplate>
-
-                                    </ComboBox>
-                                    <Button Grid.Row="5"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
-                                            Margin="4,5,4,5"
-                                            Content="Reset filter"
-                                            Command="{Binding ResetFilterClientCommand}">
-
-                                    </Button>
-
-                                    <DataGrid Grid.Row="6"
-                                              Grid.Column="0"
-                                              Grid.ColumnSpan="2"
-                                              ItemsSource="{Binding FilteredClientList}">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="First name" />
-                                            <DataGridTextColumn Header="Last name" />
-                                            <DataGridTextColumn Header="Birthdate" />
-                                            <DataGridTextColumn Header="Account" />
-                                            <DataGridTextColumn Header="Room number" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </Grid>
-                            </Expander>
-                            <!-- </ Clients Filter > -->
                         </Grid>
                     </Border>
                     <!-- </ Clients CRUD > -->
@@ -550,7 +417,136 @@
                 </Grid>
             </TabItem>
             <!-- </ Hotel room TAB > -->
+            
+            <!--===================================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
 
+            <!-- </ Hotel type room TAB > -->
+            <TabItem x:Name="TypeRoomsTab"
+                     Header="Type rooms"
+                     IsSelected="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="239*" />
+                        <ColumnDefinition Width="247*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Grid.Column="0"
+                              x:Name="TypeRoomsGrid"
+                              ItemsSource="{Binding Context.TypeRooms.Local}"
+                              SelectedItem="{Binding SelectedTypeRoom, Mode=TwoWay}"
+                              SelectionChanged="TypeRoomsGrid_SelectionChanged"
+                              MouseDoubleClick="Row_MouseDoubleClick"
+                              AutoGenerateColumns="False"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,0.4,0.4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type Room name"
+                                                Binding="{Binding NameTypeRoom}" />
+                            <DataGridTextColumn Header="Price"
+                                                Binding="{Binding Price}" />
+                         
+                            <DataGridTextColumn Header="Number of Customer"
+                                                Binding="{Binding NumberOfCustomer}" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <!-- < Hotel type rooms CRUD > -->
+                    <Border Grid.Column="2"
+                            BorderThickness="1"
+                            Margin="49.6,50,50,50.4"
+                            CornerRadius="10"
+                            BorderBrush="LightBlue">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=TypeRoomsGrid, Path=Columns[0].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=TypeRoomsGrid, Path=Columns[1].Header, StringFormat={}{0}:}" />
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Text="{Binding ElementName=TypeRoomsGrid, Path=Columns[2].Header, StringFormat={}{0}:}" />
+
+
+                          
+
+                            <TextBox 
+                                     Visibility="Hidden"
+                                     Text="{Binding SelectedItem.Id, ElementName=TypeRoomsGrid}"
+                                     x:Name="IdTypeRoomCRUD" />
+
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.NameTypeRoom, ElementName=TypeRoomsGrid}"
+                                     x:Name="NameTypeRoomCRUD"
+                                     />
+
+                            <TextBox Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.Price, ElementName=TypeRoomsGrid}"
+                                     x:Name="PriceTypeRoomCRUD" />
+
+                            <TextBox Grid.Row="2"
+                                     Grid.Column="1"
+                                     Margin="3"
+                                     Text="{Binding SelectedItem.NumberOfCustomer, ElementName=TypeRoomsGrid}"
+                                     x:Name="NumberOfCustomerCRUD" />
+
+
+
+
+
+
+
+                            <StackPanel Grid.Row="9"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Add"
+                                        Click="CRUDItemTypeRoom"
+                                         />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Update"
+                                        Click="CRUDItemTypeRoom"
+                                        />
+                                <Button Margin="5"
+                                        Padding="10,0,10,0"
+                                        Content="Delete"
+                                        Click="CRUDItemTypeRoom"
+                                        />
+                            </StackPanel>
+
+                            <!-- < Rooms Filter > -->
+                            <!-- </ Rooms Filter > -->
+                        </Grid>
+                    </Border>
+
+                    <!-- </ Hotel rooms CRUD > -->
+                </Grid>
+            </TabItem>
 
         </TabControl>
       

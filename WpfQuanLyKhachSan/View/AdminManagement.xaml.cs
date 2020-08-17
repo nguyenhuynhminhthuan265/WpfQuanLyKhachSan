@@ -26,6 +26,7 @@ namespace WpfQuanLyKhachSan.View
     public partial class AdminManagement : Page
     {
         private RoomViewModel roomViewModel = new RoomViewModel();
+        private CustomerViewModel customerViewModel = new CustomerViewModel();
         private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
         private EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         private RoleViewModel roleViewModel = new RoleViewModel();
@@ -73,6 +74,11 @@ namespace WpfQuanLyKhachSan.View
 
             EmployeesGrid.ItemsSource = employees;
             RoleTypeCb.ItemsSource = roleViewModel.findAll();
+
+            CustomersGrid.ItemsSource = customerViewModel.findAll();
+
+            TypeRoomsGrid.ItemsSource = typeRoomViewModel.findAllActive();
+
 
         }
 
@@ -318,6 +324,197 @@ namespace WpfQuanLyKhachSan.View
             Console.WriteLine("==================>>>>>>>>>>> Employee selected: " + $"{obj.Id} " + $"{name}");
 
             
+        }
+
+        private void CRUDItemCustomer(object sender, RoutedEventArgs e)
+        {
+            
+            var action = (e.Source as Button).Content.ToString();
+            Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
+
+            /*MessageBox.Show(keyword);*/
+            string _nameCus = NameCustomerCRUD.Text;
+            string _IDNumberCus = IDNumberCRUD.Text;
+            /*float _pRoom = float.Parse(PriceRoomCRUD.Text);*/
+            string _typeCus = TypeCustomerCRUD.Text;
+            
+            /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
+         
+            switch (action)
+            {
+                case "Add":
+                    /*int _idAdd = 0;
+                    *//*  _nameRoom = NameRoomCRUD.Text;
+                      _noteRoom = NoteRoomCRUD.Text;
+                      _priceRoom = float.Parse(PriceRoomCRUD.Text);
+
+
+                     *//*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*//* // gives you the required string
+                      _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;*//*
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Employee add: " + $"{_nameEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>Email add: " + $"{_emailEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>password add: " + $"{_passwordEmp}");
+                    Console.WriteLine("=================>>>>>>>>>>>>TypeRoleId Room add: " + $"{_typeRoleId}");
+
+                    Employee employee = new Employee()
+                    {
+                        Id = _idAdd,
+                        Fullname = _nameEmp,
+                        Email = _emailEmp,
+                        RoleId = _typeRoleId,
+                        Password = hashed
+                    };
+
+                    employeeViewModel.Add(employee);*/
+
+
+                    break;
+
+                case "Update":
+                    int _idUpdate = int.Parse(IdCustomerCRUD.Text);
+                    Console.WriteLine("==============>>>>>>>>>>>>> ID UPDATE Cus: " + $"{_idUpdate}");
+
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Cus name: " + $"{_nameCus}");
+                    Console.WriteLine("=================>>>>>>>>>>>>IDNUMBER update: " + $"{_IDNumberCus}");
+                    Console.WriteLine("=================>>>>>>>>>>>>password update: " + $"{_typeCus}");
+
+
+                    Customer customerUpdate = new Customer()
+                    {
+                        Id = _idUpdate,
+                        NameCustomer = _nameCus,
+                        IDNumber = _IDNumberCus,
+                        TypeCustomer=_typeCus
+
+                    };
+                    customerViewModel.Update(customerUpdate);
+
+
+
+                    break;
+
+
+                case "Delete":
+                    int _idDelete = (CustomersGrid.SelectedItem as Customer).Id;
+                    Console.WriteLine("=================>>>>>>>>>>>>> id delete: " + $"{_idDelete}");
+
+                    string message = "Are you sure?";
+                    string caption = "Confirmation";
+                    MessageBoxButton buttons = MessageBoxButton.YesNo;
+                    MessageBoxImage icon = MessageBoxImage.Question;
+                    if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+                    {
+                        customerViewModel.UpdateIsDeleted(_idDelete);
+                        LoadContent();
+                    }
+                    else
+                    {
+                        // Cancel code here  
+                    }
+
+
+                    break;
+
+            }
+        }
+
+        private void CRUDItemTypeRoom(object sender, RoutedEventArgs e)
+        {
+            var action = (e.Source as Button).Content.ToString();
+            Console.WriteLine("=================>>>>>>>>>>>>CRUD Click: " + $"{action}");
+
+            /*MessageBox.Show(keyword);*/
+            string _nameTypeRoom= NameTypeRoomCRUD.Text;
+            float _price = float.Parse(PriceTypeRoomCRUD.Text);
+            /*float _pRoom = float.Parse(PriceRoomCRUD.Text);*/
+            int _numberOfCustomer = int.Parse(NumberOfCustomerCRUD.Text);
+           
+            /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
+           
+            switch (action)
+            {
+                case "Add":
+                    int _idAdd = 0;
+                    /*  _nameRoom = NameRoomCRUD.Text;
+                      _noteRoom = NoteRoomCRUD.Text;
+                      _priceRoom = float.Parse(PriceRoomCRUD.Text);
+
+
+                     *//*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*//* // gives you the required string
+                      _typeRoomId = (RoomTypeCb.SelectedItem as TypeRoom).Id;*/
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Type add: " + $"{_nameTypeRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>price type add: " + $"{_price}");
+                    Console.WriteLine("=================>>>>>>>>>>>>_numberOfCustomer add: " + $"{_numberOfCustomer}");
+      
+
+                    TypeRoom model = new TypeRoom()
+                    {
+                        Id = _idAdd,
+                        NameTypeRoom = _nameTypeRoom,
+                        Price = _price,
+                        NumberOfCustomer = _numberOfCustomer,
+                       
+                    };
+
+                    typeRoomViewModel.Add(model);
+
+
+                    break;
+
+                case "Update":
+                    int _idUpdate = int.Parse(IdTypeRoomCRUD.Text);
+                    Console.WriteLine("==============>>>>>>>>>>>>> ID UPDATE ROOM: " + $"{_idUpdate}");
+
+                    Console.WriteLine("=================>>>>>>>>>>>>Name Type update: " + $"{_nameTypeRoom}");
+                    Console.WriteLine("=================>>>>>>>>>>>>price type update: " + $"{_price}");
+                    Console.WriteLine("=================>>>>>>>>>>>>_numberOfCustomer update: " + $"{_numberOfCustomer}");
+
+
+                    TypeRoom modelUpdate = new TypeRoom()
+                    {
+                        Id = _idUpdate,
+                        NameTypeRoom = _nameTypeRoom,
+                        Price = _price,
+                        NumberOfCustomer = _numberOfCustomer,
+
+                    };
+
+                    typeRoomViewModel.Update(modelUpdate);
+
+
+
+                    break;
+
+
+                case "Delete":
+                    int _idDelete = (TypeRoomsGrid.SelectedItem as TypeRoom).Id;
+                    Console.WriteLine("=================>>>>>>>>>>>>> id delete: " + $"{_idDelete}");
+
+                    string message = "Are you sure?";
+                    string caption = "Confirmation";
+                    MessageBoxButton buttons = MessageBoxButton.YesNo;
+                    MessageBoxImage icon = MessageBoxImage.Question;
+                    if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.Yes)
+                    {
+                        typeRoomViewModel.UpdateIsDeleted(_idDelete);
+                        LoadContent();
+                    }
+                    else
+                    {
+                        // Cancel code here  
+                    }
+
+
+                    break;
+
+            }
+        }
+
+        private void TypeRoomsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TypeRoom obj = TypeRoomsGrid.SelectedItem as TypeRoom;
+            string name = obj.NameTypeRoom;
+            Console.WriteLine("==================>>>>>>>>>>> room selected: " + $"{obj.Id} " + $"{name}");
         }
     }
 }

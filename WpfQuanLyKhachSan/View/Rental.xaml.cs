@@ -171,12 +171,12 @@ namespace WpfQuanLyKhachSan.View
                     Console.WriteLine("=========>>>>>>>>>>>>>> ID customer is booking: " + customer.Id);
                     CardBookRoom cardBookRoom = new CardBookRoom();
                     cardBookRoom.RoomId = this.idRoom;
-                    cardBookRoom.IndexCardBookRoom = this.idRoom;
+                    
                     cardBookRoom.CustomerId = customer.Id;
                     cardBookRoom.DateBookRoom = StartDatePicker.SelectedDate.Value;
                     cardBookRoom.DateReturnRoom = EndDatePicker.SelectedDate.Value;
-                    cardBookRoom.PriceBookRoom = roomBook.TypeRoom.Price;
-
+                    cardBookRoom.PriceBookRoom = cardBookRoom.GetPriceRoomRental(roomBook);
+                    cardBookRoom.CountCustomers = customerBooks.Count;
                     cardBookRoomViewModel.Add(cardBookRoom);
 
                     /*Update Customer attribute isBooking = "done"*/

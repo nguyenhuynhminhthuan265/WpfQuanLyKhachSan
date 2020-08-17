@@ -41,6 +41,15 @@ namespace WpfQuanLyKhachSan.Model
             
             return days * Room.TypeRoom.Price;
         }
+        public double GetPriceRoomRental(Room room)
+        {
+            this.Room = room;
+            var timeSpan = DateReturnRoom - DateBookRoom;
+            int days = timeSpan.Days;
+
+            return days * Room.TypeRoom.Price;
+        }
+
 
         public Boolean isDelete { get; set; }
 

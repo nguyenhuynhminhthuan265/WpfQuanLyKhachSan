@@ -19,20 +19,31 @@ namespace WpfQuanLyKhachSan.ViewModel
             return typeRooms;
         }
 
-        public void Add(TypeRoom model)
+        public List<TypeRoom> findAllActive()
         {
-            
+            List<TypeRoom> typeRooms = typeRoomRepository.FindAllActive();
+
+            return typeRooms;
+        }
+        public void Add(TypeRoom room)
+        {
+            typeRoomRepository.Add(room);
         }
 
-        public void Delete(Role model)
+        public void UpdateIsDeleted(int id)
         {
-          
+            TypeRoom room = typeRoomRepository.FindById(id);
+            typeRoomRepository.UpdateIsDeleted(room);
         }
 
-
-        public void Update(Role model)
+        public void Update(TypeRoom room)
         {
-           
+            typeRoomRepository.Update(room);
+        }
+
+        public TypeRoom FindById(int id)
+        {
+            return typeRoomRepository.FindById(id);
 
         }
     }
