@@ -50,8 +50,13 @@ namespace WpfQuanLyKhachSan.Model
         public double GetPriceRoomRental(Room room)
         {
             this.Room = room;
+            double result;
             var timeSpan = DateReturnRoom - DateBookRoom;
             int days = timeSpan.Days;
+
+            double factor = (Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
+            result = days * PriceBookRoom * factor;
+            result = result + result * ((CountCustomers < Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0);
 
             return days * Room.TypeRoom.Price;
         }
