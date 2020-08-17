@@ -45,6 +45,7 @@ namespace WpfQuanLyKhachSan.View
         RoomViewModel roomViewModel = new RoomViewModel();
         BindingList<CardBookRoom> cardBookRooms;
         Frame myFrame;
+        Employee currentUser;
         public Rental()
         {
             
@@ -65,11 +66,12 @@ namespace WpfQuanLyKhachSan.View
             //RentListView.ItemsSource = cardBookRooms;            
         }
 
-        public Rental(int idRoom, Frame frame)
+        public Rental(int idRoom, Frame frame, Employee user)
         {
             InitializeComponent();
             this.myFrame = frame;
             this.idRoom = idRoom;
+            this.currentUser = user;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             txtBoxIdRoom.Text = this.idRoom.ToString();
 
@@ -217,7 +219,7 @@ namespace WpfQuanLyKhachSan.View
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            myFrame.Content = new View.Home(myFrame);
+            myFrame.Content = new View.Home(myFrame, currentUser);
         }
 
         private void CheckOutButton_Click(object sender, RoutedEventArgs e)
@@ -225,7 +227,7 @@ namespace WpfQuanLyKhachSan.View
             if (RentListView.SelectedItem != null)
             {
                 var info = RentListView.SelectedItem as CardBookRoom;
-                myFrame.Content = new View.TotalDueBill(info.Id, myFrame);
+                myFrame.Content = new View.TotalDueBill(info, myFrame, currentUser);
             }
             else
             {

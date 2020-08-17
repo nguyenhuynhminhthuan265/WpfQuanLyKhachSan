@@ -79,7 +79,7 @@ namespace WpfQuanLyKhachSan
 
             if (currentUser != null)
             {
-                MyFrame.Content = new View.Home(MyFrame);
+                MyFrame.Content = new View.Home(MyFrame, currentUser);
             }
         }
 
@@ -87,7 +87,7 @@ namespace WpfQuanLyKhachSan
         {
             if (currentUser != null)
             {
-                MyFrame.Content = new View.Home(MyFrame);
+                MyFrame.Content = new View.Home(MyFrame,currentUser);
             }            
         }
 

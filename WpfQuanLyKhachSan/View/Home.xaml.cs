@@ -24,6 +24,7 @@ namespace WpfQuanLyKhachSan.View
     {
         private RoomViewModel roomViewModel = new RoomViewModel();
         Frame Frame;
+        Employee currentUser;
         public Home()
         {
             InitializeComponent();
@@ -31,9 +32,10 @@ namespace WpfQuanLyKhachSan.View
             roomComboBox.ItemsSource = rooms;
         }
 
-        public Home(Frame frame)
+        public Home(Frame frame, Employee user)
         {
             this.Frame = frame;
+            this.currentUser = user;
             InitializeComponent();
             List<Room> rooms = roomViewModel.findAll();
 
@@ -51,7 +53,7 @@ namespace WpfQuanLyKhachSan.View
             var idRoom = ((Button)sender).Tag;
             var room = (sender as Button).DataContext;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            Frame.Content = new View.Rental((int)idRoom, Frame);
+            Frame.Content = new View.Rental((int)idRoom, Frame, currentUser);
         }
     }
 }

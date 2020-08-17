@@ -29,27 +29,30 @@ namespace WpfQuanLyKhachSan.View
         RoomViewModel roomViewModel = new RoomViewModel();
         BillViewModel billViewModel = new BillViewModel();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
-        Bill mainbill;
+        Bill mainbill = new Bill();
+        Employee currentUser;
+        CardBookRoom cardBookRoom;
         public TotalDueBill()
         {
             InitializeComponent();
         }
 
-        public TotalDueBill(int idCardBookRoom,Frame frame)
+        public TotalDueBill(CardBookRoom card,Frame frame, Employee user)
         {
             InitializeComponent();
-            
-            LoadPage(idCardBookRoom);
+            this.currentUser = user;
+            this.cardBookRoom = card;
+            LoadPage();
             this.DataContext = mainbill;
 
         }
 
-        public void LoadPage(int idCardBookRoom)
+        public void LoadPage()
         {
-            BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.findAll());
+            
             double reportRevenue = 0;
             int reportTime = 0;
-
+            /*BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.findAll());
             //Lay lastbill khớp với idCardBookRoom
             for (int i = listBills.Count() - 1; i >= 0; i--)
             {
@@ -61,11 +64,11 @@ namespace WpfQuanLyKhachSan.View
                 {
                     mainbill = listBills[i];
                 }
-            }
+            }*/
 
             //Khoi tao gia tri Binding
-            mainbill.CardBookRoom = cardBookRoomViewModel.FindById(mainbill.IdCardBookRoom);
-            mainbill.Employee = employeeViewModel.FindById(mainbill.IdEmployee);
+            mainbill.CardBookRoom = cardBookRoom;
+            mainbill.Employee = currentUser;
             mainbill.CardBookRoom.Room = roomViewModel.FindById(mainbill.CardBookRoom.RoomId);
             mainbill.CardBookRoom.Customer = customerViewModel.FindById(mainbill.CardBookRoom.CustomerId);
             mainbill.TotalPrice = mainbill.GetTotalPrice();
