@@ -39,8 +39,8 @@
             </Border>
 
             <!--Thông tin khách hàng-->
-            <Border Height="274.166" BorderBrush="LightGray" BorderThickness="0.8" Margin="0,35,0,0" >
-                <StackPanel Margin="0,0,0,-24.742">
+            <Border Height="240" BorderBrush="LightGray" BorderThickness="0.8" Margin="0,20,0,0" >
+                <StackPanel Margin="0,0,0,0">
                     <TextBox Height="30" Text=" THÔNG TIN KHÁCH HÀNG" Margin="0" FontSize="18" Background="LightGray" VerticalContentAlignment="Center"/>
                     <!--ID KHÁCH HÀNG-->
                     <TextBox Name="CustomerID"
@@ -49,7 +49,7 @@
   materialDesign:HintAssist.FloatingScale="0.50"
   Text="{Binding CardBookRoom.Customer.Id}" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  FontSize="24" Margin="10,10,10,0" IsEnabled="False"/>
+  FontSize="24" Margin="10,0,10,0" IsEnabled="False"/>
                     <!--TÊN KHÁCH HÀNG-->
                     <TextBox Name="CustomerName"
   materialDesign:HintAssist.Hint="TÊN KHÁCH HÀNG"
@@ -57,7 +57,7 @@
   materialDesign:HintAssist.FloatingScale="0.50"
   Text="{Binding CardBookRoom.Customer.NameCustomer}" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  FontSize="24" Margin="10,10,10,0" IsEnabled="False"/>
+  FontSize="24" Margin="10,0,10,0" IsEnabled="False"/>
                     <!--CMND KHÁCH HÀNG-->
                     <TextBox Name="CustomerIDNumber"
   materialDesign:HintAssist.Hint="CMND Khách Hàng"
@@ -65,11 +65,12 @@
   materialDesign:HintAssist.FloatingScale="0.50"
   Text="{Binding CardBookRoom.Customer.IDNumber}" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  FontSize="24" Margin="10,10,10,0" IsEnabled="False"/>
+  FontSize="24" Margin="10,0,10,0" IsEnabled="False"/>
                 </StackPanel>
             </Border>
-
+            
         </StackPanel>
+        
 
         <Border Margin="470,80,20,10" BorderBrush="LightGray" BorderThickness="0.8" >
             <StackPanel >
@@ -126,6 +127,13 @@
                 </DockPanel>
             </StackPanel>
         </Border>
+
+        <Button x:Name="btnPayAndSaveBill" Style="{StaticResource MaterialDesignRaisedButton}"
+                    materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True" materialDesign:ButtonAssist.CornerRadius="5" 
+                    Content="Thanh toán" FontSize="24" Width="auto" Height="auto"
+                    Margin="260,625,550,25" Click="BtnPayAndSaveBill_Click" />
+
     </Grid>
     
 </Page>

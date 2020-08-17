@@ -11,7 +11,7 @@
                 <TextBlock Width="82" Text="PHÒNG:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
                 <TextBox Width="120" Name="txtBoxRoomName" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Center" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="5,0" VerticalContentAlignment="Center" />
                 <TextBlock Width="42" Text="SL:" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Bottom" Height="30" FontSize="20" Margin="15,0,0,0" />
-                <TextBox Width="60" Name="txtBoxAmount" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Center" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="5,0" VerticalContentAlignment="Center" />
+                <TextBox Width="60" Name="txtBoxCountCustomers" FontWeight="Bold" Foreground="#DDFFFFFF" VerticalAlignment="Center" Height="30" TextDecorations="{x:Null}" FontSize="20" Margin="5,0" VerticalContentAlignment="Center" />
             </StackPanel>
 
             <!--Gia Phong-->
@@ -58,7 +58,7 @@
 
             <!--Button-->
             <StackPanel Orientation="Horizontal" Height="45" Margin="0,20,0,0">
-                <Button x:Name="ApplyButton" Click="ConfirmBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" 
+                <Button x:Name="ApplyUpdateButton" Click="ConfirmUpdateBookRoom" Style="{StaticResource MaterialDesignRaisedButton}" 
                         materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
                         materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="XÁC NHẬN" Width="120" Height="30"
                         BorderBrush="White" BorderThickness="2" Margin="60,0,0,0" />

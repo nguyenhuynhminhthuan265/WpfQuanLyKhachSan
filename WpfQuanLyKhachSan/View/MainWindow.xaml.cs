@@ -31,7 +31,7 @@ namespace WpfQuanLyKhachSan
 
         private TypeRoomViewModel typeRoomViewModel = new TypeRoomViewModel();
 
-        Employee currentUser = null;
+        public static Employee currentUser = null;
 
         private const string GuestHello = "Xin chào Tony Stark";
 
@@ -111,7 +111,7 @@ namespace WpfQuanLyKhachSan
         {
             if (currentUser != null)
             {
-                MyFrame.Content = new View.Rental(); 
+                MyFrame.Content = new View.Rental(MyFrame); 
             }
         }
 

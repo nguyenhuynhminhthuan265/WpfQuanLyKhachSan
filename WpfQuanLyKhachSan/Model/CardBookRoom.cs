@@ -35,31 +35,38 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
 
+        public int GetTimeSpan()
+        {
+            var timeSpan = this.DateReturnRoom - this.DateBookRoom;
+            return timeSpan.Days;
+        }
+
+        public double GetFactor()
+        {
+            return (Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
+        }
+
+        public double GetSurChargePercentage()
+        {
+            return (this.CountCustomers == this.Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0;
+        }
+
         public double GetPriceRoomRental()
         {
             double result;
-            var timeSpan = DateReturnRoom - DateBookRoom;
-            int days = timeSpan.Days;
-            
-            double factor = (Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
+            int days = GetTimeSpan();
+
+            double factor = GetFactor();
             result = days * PriceBookRoom * factor;
-            result = result + result*((CountCustomers < Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0);
+            result = result + result * GetSurChargePercentage();
             
-            return days * Room.TypeRoom.Price;
+            return result;
         }
         public double GetPriceRoomRental(Room room)
         {
             this.Room = room;
-            double result;
-            var timeSpan = DateReturnRoom - DateBookRoom;
-            int days = timeSpan.Days;
 
-            double factor = (Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
-            result = days * PriceBookRoom * factor;
-            result = result + result * ((CountCustomers < Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0);
-
-            return days * Room.TypeRoom.Price;
-            
+            return GetPriceRoomRental();
         }
 
 

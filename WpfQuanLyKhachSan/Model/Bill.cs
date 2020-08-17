@@ -25,7 +25,7 @@ namespace WpfQuanLyKhachSan.Model
         [ForeignKey("IdCardBookRoom")]
         public CardBookRoom CardBookRoom { get; set; }
 
-        public Boolean isDelete = false;
+        public Boolean isDelete { get; set; }
 
         public double GetTotalPrice()
         {

@@ -42,7 +42,11 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
             rooms = roomViewModel.findAll();
 
-            roomsWrapPanel.ItemsSource = rooms;           
+            roomsWrapPanel.ItemsSource = rooms;
+            txtblkAllRooms.Text = rooms.Count.ToString();
+            int nBooked = rooms.Count(r => r.Status.Equals(Room.BOOKED));
+            txtblkBookeds.Text = nBooked.ToString();
+            txtblkAvailables.Text = (rooms.Count - nBooked).ToString();
         }
 
         private void roomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -30,58 +30,99 @@ namespace WpfQuanLyKhachSan.View
         BillViewModel billViewModel = new BillViewModel();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         Bill mainbill;
+
+        private string currencyUnit = " VND";
+
         public TotalDueBill()
         {
             InitializeComponent();
         }
 
-        public TotalDueBill(int idCardBookRoom,Frame frame)
+        public TotalDueBill(CardBookRoom cardBookRoom,Frame frame)
         {
             InitializeComponent();
-            
-            LoadPage(idCardBookRoom);
+
+            LoadPage(cardBookRoom);
             this.DataContext = mainbill;
 
         }
 
-        public void LoadPage(int idCardBookRoom)
+        public void LoadPage(CardBookRoom cardBookRoom)
         {
-            BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.findAll());
-            double reportRevenue = 0;
-            int reportTime = 0;
+            //BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.findAll());
+            //double reportRevenue = 0;
+            //int reportTime = 0;
 
-            //Lay lastbill khớp với idCardBookRoom
-            for (int i = listBills.Count() - 1; i >= 0; i--)
-            {
-                if (listBills[i].IdCardBookRoom != idCardBookRoom)
-                {
-                    listBills.RemoveAt(i);
-                }
-                else
-                {
-                    mainbill = listBills[i];
-                }
-            }
+            int idCardBookRoom = cardBookRoom.Id;
+
+            ////Lay lastbill khớp với idCardBookRoom
+            //for (int i = listBills.Count() - 1; i >= 0; i--)
+            //{
+            //    if (listBills[i].IdCardBookRoom != idCardBookRoom)
+            //    {
+            //        listBills.RemoveAt(i);
+            //    }
+            //    else
+            //    {
+            //        mainbill = listBills[i];
+            //        break;
+            //    }
+            //}
 
             //Khoi tao gia tri Binding
-            mainbill.CardBookRoom = cardBookRoomViewModel.FindById(mainbill.IdCardBookRoom);
-            mainbill.Employee = employeeViewModel.FindById(mainbill.IdEmployee);
-            mainbill.CardBookRoom.Room = roomViewModel.FindById(mainbill.CardBookRoom.RoomId);
-            mainbill.CardBookRoom.Customer = customerViewModel.FindById(mainbill.CardBookRoom.CustomerId);
-            mainbill.TotalPrice = mainbill.GetTotalPrice();
-            reportRevenue += mainbill.TotalPrice;
+            mainbill = new Bill();
 
-            //Xu ly gia tri tinh toan
-            double factor = (mainbill.CardBookRoom.Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
-            var timeSpan = mainbill.CardBookRoom.DateReturnRoom - mainbill.CardBookRoom.DateBookRoom;
-            var surcharge = (mainbill.CardBookRoom.CountCustomers < mainbill.CardBookRoom.Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0;
-            reportTime += timeSpan.Days;
+            mainbill.CardBookRoom = cardBookRoom;
+            mainbill.Employee = MainWindow.currentUser;
+            mainbill.CardBookRoom.Room = roomViewModel.FindById(cardBookRoom.RoomId);
+            //mainbill.CardBookRoom.Customer = customerViewModel.FindById(mainbill.CardBookRoom.CustomerId);
+            mainbill.isDelete = false;
+            mainbill.TotalPrice = mainbill.GetTotalPrice();
+            
+
+            ////Xu ly gia tri tinh toan
+            //double factor = (mainbill.CardBookRoom.Customer.TypeCustomer == Customer.FOREIGNER) ? 1.5 : 1.0;
+            //var timeSpan = mainbill.CardBookRoom.DateReturnRoom - mainbill.CardBookRoom.DateBookRoom;
+            //var surcharge = (mainbill.CardBookRoom.CountCustomers < mainbill.CardBookRoom.Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0;
+            //reportTime += timeSpan.Days;
 
             //Gan gia tri vao nhung label tinh toan
-            totalAmounLabel.Content = reportRevenue.ToString();
-            timeSpanTxtBox.Text = reportTime.ToString();
-            factorTxtBox.Text = factor.ToString();
-            surchargeTxtBox.Text = surcharge.ToString();
+            
+            timeSpanTxtBox.Text = cardBookRoom.GetTimeSpan().ToString();
+            factorTxtBox.Text = cardBookRoom.GetFactor().ToString();
+            surchargeTxtBox.Text = (cardBookRoom.GetSurChargePercentage() * 100)
+                .ToString();
+            totalAmounLabel.Content = MyCurrencyFormatter(mainbill.TotalPrice) + currencyUnit;
+        }
+
+        private void BtnPayAndSaveBill_Click(object sender, RoutedEventArgs e)
+        {
+            billViewModel.Add(mainbill);
+            MessageBox.Show("Thanh toán thành công! Hóa đơn đã được lưu vào CSDL",
+                "Thanh toán...", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private string MyCurrencyFormatter(double number)
+        {
+            string result = "";
+            string temp = number.ToString();
+            int i = temp.IndexOf(',');
+            if (i >= 0)
+            {
+                result = temp.Substring(i);
+            }
+            else
+            {
+                i = temp.Length;
+            }
+
+            while (i - 3 >= 0)
+            {
+                result = " " + temp.Substring(i - 3, 3) + result;
+                i -= 3;
+            }
+            result = result.Remove(0, 1);
+            return result;
         }
     }
 }

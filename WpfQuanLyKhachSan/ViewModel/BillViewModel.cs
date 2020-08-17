@@ -17,5 +17,21 @@ namespace WpfQuanLyKhachSan.ViewModel
 
             return Bills;
         }
+
+        public Bill FindById(int id)
+        {
+            return billRepository.FindById(id);
+
+        }
+
+        public void Add(Bill bill)
+        {
+            billRepository.Add(bill);
+        }
+
+        public void Update(Bill bill)
+        {
+            billRepository.Update(bill);
+        }
     }
 }
