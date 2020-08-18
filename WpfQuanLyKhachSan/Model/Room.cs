@@ -36,5 +36,8 @@ namespace WpfQuanLyKhachSan.Model
         {
             throw new NotImplementedException();
         }
+
+
+
     }
 }

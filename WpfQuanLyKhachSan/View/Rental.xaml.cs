@@ -41,7 +41,7 @@ namespace WpfQuanLyKhachSan.View
         //BindingList<CardBookRoom> rentalInfos = new BindingList<CardBookRoom>();
 
         private int idRoom { get; set; }
-        
+
         CustomerViewModel customerViewModel = new CustomerViewModel();
         CardBookRoomViewModel cardBookRoomViewModel = new CardBookRoomViewModel();
         RoomViewModel roomViewModel = new RoomViewModel();
@@ -52,7 +52,7 @@ namespace WpfQuanLyKhachSan.View
 
         public Rental(Frame frame)
         {
-            
+
             InitializeComponent();
 
             //Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
@@ -60,7 +60,7 @@ namespace WpfQuanLyKhachSan.View
 
             isSort = false;
             myFrame = frame;
-            
+
             List<String> types = new List<String>();
             types.Add(Customer.DOMESTIC);
             types.Add(Customer.FOREIGNER);
@@ -68,7 +68,7 @@ namespace WpfQuanLyKhachSan.View
 
             cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
 
-            
+
             RentListView.ItemsSource = cardBookRooms;
         }
 
@@ -77,7 +77,7 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
             this.myFrame = frame;
             this.idRoom = room.Id;
-            selectedRoom = room;
+            this.selectedRoom = room;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             txtBoxRoomName.Text = room.NameRoom;
             PriceBookRoomTextBox.Text = room.TypeRoom.Price.ToString();
@@ -123,7 +123,7 @@ namespace WpfQuanLyKhachSan.View
                     //listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
                 }
             }
-            
+
             RentListView.ItemsSource = listBookRooms;
 
             //cardBookRoom.Room = roomViewModel.FindById(idRoom);
@@ -132,8 +132,8 @@ namespace WpfQuanLyKhachSan.View
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
         }
 
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
@@ -148,7 +148,7 @@ namespace WpfQuanLyKhachSan.View
             AddressTextBox.Text = info.Customer.Address;
             StartDatePicker.SelectedDate = info.DateBookRoom;
             EndDatePicker.SelectedDate = info.DateReturnRoom;
-            
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -164,6 +164,13 @@ namespace WpfQuanLyKhachSan.View
             if (selectedRoom != null)
             {
 
+                Console.WriteLine("==============>>>>>>>>>>>> Test ID ROOM BOOKING: " + selectedRoom.Id);
+                if (txtBoxCountCustomers.Text.Trim().Length == 0)
+                {
+                    txtBoxCountCustomers.Text = "1";
+                }
+                int countCustomers = int.Parse(txtBoxCountCustomers.Text);
+                Console.WriteLine("===============================>>>>>>>>>>>>>>>>>>>. So luong khach: " + countCustomers);
                 /*INSERT Customer to database*/
                 Customer customer = new Customer()
                 {
@@ -173,24 +180,32 @@ namespace WpfQuanLyKhachSan.View
                     TypeCustomer = TypeComboBox.SelectedValue.ToString(),
                     isDeleted = false
                 };
+/*                customerViewModel.Book(customer);
+*/                
 
                 CustomerRepository customerRepository = new CustomerRepository();
-                customerRepository.Add(customer);
+                /*customerRepository.Add(customer);*/
                 //customers.Add(customer);
 
-
+                Console.WriteLine("=========>>>>>>>>>>>>>.Test id Room update booked " + selectedRoom.Id);
                 CardBookRoom cardBookRoom = new CardBookRoom()
                 {
                     Customer = customer,
-                    Room = selectedRoom,
+                    RoomId = selectedRoom.Id,
                     DateBookRoom = (DateTime)StartDatePicker.SelectedDate,
                     DateReturnRoom = (DateTime)EndDatePicker.SelectedDate,
-                    CountCustomers = int.Parse(txtBoxCountCustomers.Text),
+                    CountCustomers = countCustomers,
                     PriceBookRoom = selectedRoom.TypeRoom.Price,
                     isDelete = false
                 };
 
+
+
                 selectedRoom.Status = Room.BOOKED;
+
+                Console.WriteLine("=========>>>>>>>>>>>>>.Test id after Room update booked " + selectedRoom.Id);
+
+
                 roomViewModel.Update(selectedRoom);
 
                 CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
@@ -205,15 +220,15 @@ namespace WpfQuanLyKhachSan.View
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-            //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
-            //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
+        //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
+        //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
 
         private void ConfirmUpdateBookRoom(object sender, RoutedEventArgs e)
         {
             //Room roomBook = roomViewModel.FindById(this.idRoom);
             //Console.WriteLine("================>>>>>>>>>>.. Price Room: " + roomBook.TypeRoom.Price);
 
-           
+
             //string message = "Are you sure?";
             //string caption = "Confirmation";
             //if (customers.Count == 0)
@@ -240,7 +255,7 @@ namespace WpfQuanLyKhachSan.View
             //        Console.WriteLine("=========>>>>>>>>>>>>>> ID customer is booking: " + customer.Id);
             //        CardBookRoom cardBookRoom = new CardBookRoom();
             //        cardBookRoom.RoomId = this.idRoom;
-                    
+
             //        cardBookRoom.CustomerId = customer.Id;
             //        cardBookRoom.DateBookRoom = StartDatePicker.SelectedDate.Value;
             //        cardBookRoom.DateReturnRoom = EndDatePicker.SelectedDate.Value;
@@ -251,7 +266,7 @@ namespace WpfQuanLyKhachSan.View
             //        /*Update Customer attribute isBooking = "done"*/
             //        customerViewModel.UpdateBook(customer);
 
-                    
+
             //    }
             //}
         }
@@ -266,7 +281,10 @@ namespace WpfQuanLyKhachSan.View
             if (RentListView.SelectedItem != null)
             {
                 var info = RentListView.SelectedItem as CardBookRoom;
-                myFrame.Content = new View.TotalDueBill(info, myFrame);
+
+                Console.WriteLine("============================>>>>>>>>>>>>>>>>>>>>>>>>> ID Phieu thue phong tinh hoa don: " + info.Id);
+
+               myFrame.Content = new View.TotalDueBill(info, myFrame);
             }
             else
             {

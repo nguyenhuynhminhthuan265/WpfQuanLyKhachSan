@@ -88,9 +88,9 @@
     </ApplicationDefinition>
     <Compile Include="Converter\RoomStatusConverter.cs" />
     <Compile Include="MainTest\PasswordEncode.cs" />
-    <Compile Include="Migrations\202008171516076_create-db.cs" />
-    <Compile Include="Migrations\202008171516076_create-db.designer.cs">
-      <DependentUpon>202008171516076_create-db.cs</DependentUpon>
+    <Compile Include="Migrations\202008180533167_create_db.cs" />
+    <Compile Include="Migrations\202008180533167_create_db.designer.cs">
+      <DependentUpon>202008180533167_create_db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bill.cs" />
@@ -196,8 +196,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008171516076_create-db.resx">
-      <DependentUpon>202008171516076_create-db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008180533167_create_db.resx">
+      <DependentUpon>202008180533167_create_db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

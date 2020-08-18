@@ -105,6 +105,11 @@ namespace WpfQuanLyKhachSan.View
             /*MessageBox.Show(keyword);*/
             string _nameRoom = NameRoomCRUD.Text;
             string _noteRoom = NoteRoomCRUD.Text;
+
+            if (PriceRoomCRUD.Text.ToString().Length == 0)
+            {
+                PriceRoomCRUD.Text = "1";
+            }
             float _priceRoom = float.Parse(PriceRoomCRUD.Text);
 
             /*TypeRoom _typeRoomId = (TypeRoom)RoomTypeCb.SelectedItem;*/ // gives you the required string
@@ -139,7 +144,8 @@ namespace WpfQuanLyKhachSan.View
                         Id = _idAdd,
                         NameRoom = _nameRoom,
                         Note = _noteRoom,
-                        TypeRoomId = _typeRoomId
+                        TypeRoomId = _typeRoomId,
+                        Status=Room.EMPTY
                     };
 
                     roomViewModel.Add(room);
