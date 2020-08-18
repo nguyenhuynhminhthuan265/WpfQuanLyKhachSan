@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,10 @@ namespace WpfQuanLyKhachSan.Model
     {
         public QuanLyKhachSanDbContext() : base("QuanLyKhachSanConnectionString")
         {
-
+            Database.Log = sql => Debug.Write(sql);
         }
+
+        
        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

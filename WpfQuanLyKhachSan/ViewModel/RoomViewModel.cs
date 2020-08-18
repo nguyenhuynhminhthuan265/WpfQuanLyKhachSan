@@ -32,6 +32,7 @@ namespace WpfQuanLyKhachSan.ViewModel
 
         public void Update(Room room)
         {
+            Console.WriteLine("id room in service update: " + room.Id);
             roomRepository.Update(room);
         }
 

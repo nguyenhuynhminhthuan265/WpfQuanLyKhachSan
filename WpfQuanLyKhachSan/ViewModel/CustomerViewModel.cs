@@ -60,5 +60,11 @@ namespace WpfQuanLyKhachSan.ViewModel
             return customerRepository.FindById(id);
 
         }
+
+        public Customer FindCustomerBooking()
+        {
+            return customerRepository.findCustomerBooking();
+
+        }
     }
 }

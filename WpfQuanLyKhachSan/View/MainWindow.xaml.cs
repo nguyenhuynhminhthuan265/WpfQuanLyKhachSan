@@ -190,6 +190,8 @@ namespace WpfQuanLyKhachSan
             }
         }
 
+     
+
         /*private void Fill()
         {
             var rooms = new[]
