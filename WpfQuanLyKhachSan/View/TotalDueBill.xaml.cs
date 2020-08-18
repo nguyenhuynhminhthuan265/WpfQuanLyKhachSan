@@ -99,7 +99,9 @@ namespace WpfQuanLyKhachSan.View
 
         private void BtnPayAndSaveBill_Click(object sender, RoutedEventArgs e)
         {
-            billViewModel.Add(mainbill);
+            /*billViewModel.Add(mainbill);
+            Room roomEditStatus = roomViewModel.FindById(mainbill.CardBookRoom.RoomId);
+            roomViewModel.Update(roomEditStatus);*/
             MessageBox.Show("Thanh toán thành công! Hóa đơn đã được lưu vào CSDL",
                 "Thanh toán...", MessageBoxButton.OK, MessageBoxImage.Information);
         }

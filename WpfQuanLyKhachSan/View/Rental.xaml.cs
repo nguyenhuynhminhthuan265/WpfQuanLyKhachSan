@@ -184,7 +184,7 @@ namespace WpfQuanLyKhachSan.View
 */                
 
                 CustomerRepository customerRepository = new CustomerRepository();
-                customerRepository.Add(customer);
+                /*customerRepository.Add(customer);*/
                 //customers.Add(customer);
 
                 Console.WriteLine("=========>>>>>>>>>>>>>.Test id Room update booked " + selectedRoom.Id);
@@ -195,7 +195,7 @@ namespace WpfQuanLyKhachSan.View
                     DateBookRoom = (DateTime)StartDatePicker.SelectedDate,
                     DateReturnRoom = (DateTime)EndDatePicker.SelectedDate,
                     CountCustomers = countCustomers,
-                    PriceBookRoom = 100,
+                    PriceBookRoom = selectedRoom.TypeRoom.Price,
                     isDelete = false
                 };
 
@@ -278,7 +278,10 @@ namespace WpfQuanLyKhachSan.View
             if (RentListView.SelectedItem != null)
             {
                 var info = RentListView.SelectedItem as CardBookRoom;
-                myFrame.Content = new View.TotalDueBill(info, myFrame);
+
+                Console.WriteLine("============================>>>>>>>>>>>>>>>>>>>>>>>>> ID Phieu thue phong tinh hoa don: " + info.Id);
+
+               myFrame.Content = new View.TotalDueBill(info, myFrame);
             }
             else
             {
