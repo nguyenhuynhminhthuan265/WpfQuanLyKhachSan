@@ -47,7 +47,7 @@ namespace WpfQuanLyKhachSan.Repository
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
-                var item = entities.Rooms.Include("TypeRoom").FirstOrDefault(e => e.Id == id);
+                var item = entities.Rooms.Where(r => r.isDeleted == false).Include("TypeRoom").FirstOrDefault(e => e.Id == id);
                 if (item != null)
                 {
                     return item;
@@ -58,6 +58,7 @@ namespace WpfQuanLyKhachSan.Repository
         }
         public void Update(Room model)
         {
+            Console.WriteLine("id room in service update: " + model.Id);
             using (var entities = new QuanLyKhachSanDbContext())
             {
                 var item = entities.Rooms.FirstOrDefault(e => e.Id == model.Id);
@@ -67,6 +68,7 @@ namespace WpfQuanLyKhachSan.Repository
                     item.NameRoom = model.NameRoom;
                     item.Note = model.Note;
                     item.TypeRoomId = model.TypeRoomId;
+                    item.Status = model.Status;
 
 
                     entities.Entry(item).State = System.Data.Entity.EntityState.Modified;

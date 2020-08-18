@@ -42,7 +42,11 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
             rooms = roomViewModel.findAll();
 
-            roomsWrapPanel.ItemsSource = rooms;           
+            roomsWrapPanel.ItemsSource = rooms;
+            txtblkAllRooms.Text = rooms.Count.ToString();
+            int nBooked = rooms.Count(r => r.Status.Equals(Room.BOOKED));
+            txtblkBookeds.Text = nBooked.ToString();
+            txtblkAvailables.Text = (rooms.Count - nBooked).ToString();
         }
 
         private void roomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -52,10 +56,11 @@ namespace WpfQuanLyKhachSan.View
 
         private void BookRoom(object sender, RoutedEventArgs e)
         {
-            //var idRoom = ((Button)sender).Tag;
-            var room = (sender as Button).DataContext;
+            var idRoom = ((Button)sender).Tag;
+            /*var room = (sender as Button).DataContext;*/
+            Room roomBook = roomViewModel.FindById(int.Parse(idRoom.ToString()));
             //Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
-            Frame.Content = new View.Rental((Room)room, Frame);
+            Frame.Content = new View.Rental((Room)roomBook, Frame);
         }
     }
 }

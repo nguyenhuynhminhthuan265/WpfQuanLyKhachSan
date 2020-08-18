@@ -29,6 +29,7 @@ namespace WpfQuanLyKhachSan.View
         BillViewModel billViewModel = new BillViewModel();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         BindingList<Bill> bills;
+
         public Report()
         {
             InitializeComponent();

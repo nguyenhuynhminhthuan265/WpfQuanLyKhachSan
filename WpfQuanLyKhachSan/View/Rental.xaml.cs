@@ -41,23 +41,26 @@ namespace WpfQuanLyKhachSan.View
         //BindingList<CardBookRoom> rentalInfos = new BindingList<CardBookRoom>();
 
         private int idRoom { get; set; }
-        ArrayList customers = new ArrayList();
+
         CustomerViewModel customerViewModel = new CustomerViewModel();
         CardBookRoomViewModel cardBookRoomViewModel = new CardBookRoomViewModel();
         RoomViewModel roomViewModel = new RoomViewModel();
         BindingList<CardBookRoom> cardBookRooms;
         Frame myFrame;
 
-        public Rental()
+        Room selectedRoom;
+
+        public Rental(Frame frame)
         {
-            
+
             InitializeComponent();
 
             //Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             //txtBoxRoomName.Text = ;
 
             isSort = false;
-            
+            myFrame = frame;
+
             List<String> types = new List<String>();
             types.Add(Customer.DOMESTIC);
             types.Add(Customer.FOREIGNER);
@@ -65,7 +68,7 @@ namespace WpfQuanLyKhachSan.View
 
             cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
 
-            
+
             RentListView.ItemsSource = cardBookRooms;
         }
 
@@ -74,8 +77,10 @@ namespace WpfQuanLyKhachSan.View
             InitializeComponent();
             this.myFrame = frame;
             this.idRoom = room.Id;
+            this.selectedRoom = room;
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             txtBoxRoomName.Text = room.NameRoom;
+            PriceBookRoomTextBox.Text = room.TypeRoom.Price.ToString();
 
             isSort = false;
 
@@ -114,11 +119,11 @@ namespace WpfQuanLyKhachSan.View
                 }
                 else
                 {
-                    listBookRooms[i].Room = roomViewModel.FindById(listBookRooms[i].RoomId);
-                    listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
+                    //listBookRooms[i].Room = roomViewModel.FindById(listBookRooms[i].RoomId);
+                    //listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
                 }
             }
-            
+
             RentListView.ItemsSource = listBookRooms;
 
             //cardBookRoom.Room = roomViewModel.FindById(idRoom);
@@ -127,15 +132,15 @@ namespace WpfQuanLyKhachSan.View
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
         }
 
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             var info = RentListView.SelectedItem as CardBookRoom;
             txtBoxRoomName.Text = info.Room.NameRoom;
-            txtBoxAmount.Text = info.CountCustomers.ToString();
+            txtBoxCountCustomers.Text = info.CountCustomers.ToString();
             PriceBookRoomTextBox.Text = info.PriceBookRoom.ToString();
             NameTextBox.Text = info.Customer.NameCustomer;
             TypeComboBox.SelectedValue = info.Customer.TypeCustomer.ToString();
@@ -143,7 +148,7 @@ namespace WpfQuanLyKhachSan.View
             AddressTextBox.Text = info.Customer.Address;
             StartDatePicker.SelectedDate = info.DateBookRoom;
             EndDatePicker.SelectedDate = info.DateReturnRoom;
-            
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -156,75 +161,111 @@ namespace WpfQuanLyKhachSan.View
             //info.StartDate = StartDatePicker.SelectedDate.Value;
             //info.EndDate = EndDatePicker.SelectedDate.Value;
 
-            /*INSERT Customer to database*/
-            Customer customer = new Customer()
-            {
-                NameCustomer = NameTextBox.Text,
-                IDNumber = CMNDTextBox.Text,
-                Address = AddressTextBox.Text,
-                TypeCustomer = TypeComboBox.SelectedValue.ToString(),
-                isDeleted = false
-            };
-            
-            CustomerRepository customerRepository = new CustomerRepository();
-            customerRepository.Add(customer);
-            //customers.Add(customer);
-
-
-            CardBookRoom cardBookRoom = new CardBookRoom();
-            cardBookRoom.RoomId = this.idRoom;
-            cardBookRoom.isDelete = false;
-
-
-            //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
-            //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
-        }
-
-        private void ConfirmBookRoom(object sender, RoutedEventArgs e)
-        {
-            Room roomBook = roomViewModel.FindById(this.idRoom);
-            Console.WriteLine("================>>>>>>>>>>.. Price Room: " + roomBook.TypeRoom.Price);
-
-            string message = "Are you sure?";
-            string caption = "Confirmation";
-            if (customers.Count == 0)
+            if (selectedRoom != null)
             {
 
-                MessageBoxButton buttons = MessageBoxButton.YesNo;
-                MessageBoxImage icon = MessageBoxImage.Question;
-                MessageBox.Show(message, caption, buttons, icon);
+                Console.WriteLine("==============>>>>>>>>>>>> Test ID ROOM BOOKING: " + selectedRoom.Id);
+                if (txtBoxCountCustomers.Text.Trim().Length == 0)
+                {
+                    txtBoxCountCustomers.Text = "1";
+                }
+                int countCustomers = int.Parse(txtBoxCountCustomers.Text);
+                Console.WriteLine("===============================>>>>>>>>>>>>>>>>>>>. So luong khach: " + countCustomers);
+                /*INSERT Customer to database*/
+                Customer customer = new Customer()
+                {
+                    NameCustomer = NameTextBox.Text,
+                    IDNumber = CMNDTextBox.Text,
+                    Address = AddressTextBox.Text,
+                    TypeCustomer = TypeComboBox.SelectedValue.ToString(),
+                    isDeleted = false
+                };
+/*                customerViewModel.Book(customer);
+*/                
+
+                CustomerRepository customerRepository = new CustomerRepository();
+                /*customerRepository.Add(customer);*/
+                //customers.Add(customer);
+
+                Console.WriteLine("=========>>>>>>>>>>>>>.Test id Room update booked " + selectedRoom.Id);
+                CardBookRoom cardBookRoom = new CardBookRoom()
+                {
+                    Customer = customer,
+                    RoomId = selectedRoom.Id,
+                    DateBookRoom = (DateTime)StartDatePicker.SelectedDate,
+                    DateReturnRoom = (DateTime)EndDatePicker.SelectedDate,
+                    CountCustomers = countCustomers,
+                    PriceBookRoom = selectedRoom.TypeRoom.Price,
+                    isDelete = false
+                };
+
+
+
+                selectedRoom.Status = Room.BOOKED;
+
+                Console.WriteLine("=========>>>>>>>>>>>>>.Test id after Room update booked " + selectedRoom.Id);
+
+
+                roomViewModel.Update(selectedRoom);
+
+                CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
+                cbrRepository.Add(cardBookRoom);
             }
             else
             {
-                foreach(Customer customer in customers)
-                {
-                    Console.WriteLine("=========>>>>>>>>>>>>>> name customer: " + customer.NameCustomer);
-                    customerViewModel.Book(customer);
-                }
-
-                /*GET LIST USER BOOKING*/
-                List<Customer> customerBooks = customerViewModel.findAllCustomerBooking();
-                /*info.StartDate = StartDatePicker.SelectedDate.Value;
-                info.EndDate = StartDatePicker.SelectedDate.Value;*/
-                foreach (Customer customer in customerBooks)
-                {
-                    Console.WriteLine("=========>>>>>>>>>>>>>> ID customer is booking: " + customer.Id);
-                    CardBookRoom cardBookRoom = new CardBookRoom();
-                    cardBookRoom.RoomId = this.idRoom;
-                    
-                    cardBookRoom.CustomerId = customer.Id;
-                    cardBookRoom.DateBookRoom = StartDatePicker.SelectedDate.Value;
-                    cardBookRoom.DateReturnRoom = EndDatePicker.SelectedDate.Value;
-                    cardBookRoom.PriceBookRoom = cardBookRoom.GetPriceRoomRental(roomBook);
-                    cardBookRoom.CountCustomers = customerBooks.Count;
-                    cardBookRoomViewModel.Add(cardBookRoom);
-
-                    /*Update Customer attribute isBooking = "done"*/
-                    customerViewModel.UpdateBook(customer);
-
-                    
-                }
+                MessageBox.Show("Bạn chưa chọn phòng nào để thuê!", "Thuê phòng...",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+        //Console.WriteLine("=================>>>>>>>>>>.. Start Date: " + $"{StartDatePicker.SelectedDate.Value}");
+        //Console.WriteLine("=================>>>>>>>>>>.. End Date: " + $"{info.EndDate}");
+
+        private void ConfirmUpdateBookRoom(object sender, RoutedEventArgs e)
+        {
+            //Room roomBook = roomViewModel.FindById(this.idRoom);
+            //Console.WriteLine("================>>>>>>>>>>.. Price Room: " + roomBook.TypeRoom.Price);
+
+
+            //string message = "Are you sure?";
+            //string caption = "Confirmation";
+            //if (customers.Count == 0)
+            //{
+
+            //    MessageBoxButton buttons = MessageBoxButton.YesNo;
+            //    MessageBoxImage icon = MessageBoxImage.Question;
+            //    MessageBox.Show(message, caption, buttons, icon);
+            //}
+            //else
+            //{
+            //    foreach(Customer customer in customers)
+            //    {
+            //        Console.WriteLine("=========>>>>>>>>>>>>>> name customer: " + customer.NameCustomer);
+            //        customerViewModel.Book(customer);
+            //    }
+
+            //    /*GET LIST USER BOOKING*/
+            //    List<Customer> customerBooks = customerViewModel.findAllCustomerBooking();
+            //    /*info.StartDate = StartDatePicker.SelectedDate.Value;
+            //    info.EndDate = StartDatePicker.SelectedDate.Value;*/
+            //    foreach (Customer customer in customerBooks)
+            //    {
+            //        Console.WriteLine("=========>>>>>>>>>>>>>> ID customer is booking: " + customer.Id);
+            //        CardBookRoom cardBookRoom = new CardBookRoom();
+            //        cardBookRoom.RoomId = this.idRoom;
+
+            //        cardBookRoom.CustomerId = customer.Id;
+            //        cardBookRoom.DateBookRoom = StartDatePicker.SelectedDate.Value;
+            //        cardBookRoom.DateReturnRoom = EndDatePicker.SelectedDate.Value;
+            //        cardBookRoom.PriceBookRoom = cardBookRoom.GetPriceRoomRental(roomBook);
+            //        cardBookRoom.CountCustomers = customerBooks.Count;
+            //        cardBookRoomViewModel.Add(cardBookRoom);
+
+            //        /*Update Customer attribute isBooking = "done"*/
+            //        customerViewModel.UpdateBook(customer);
+
+
+            //    }
+            //}
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -237,7 +278,10 @@ namespace WpfQuanLyKhachSan.View
             if (RentListView.SelectedItem != null)
             {
                 var info = RentListView.SelectedItem as CardBookRoom;
-                myFrame.Content = new View.TotalDueBill(info.Id, myFrame);
+
+                Console.WriteLine("============================>>>>>>>>>>>>>>>>>>>>>>>>> ID Phieu thue phong tinh hoa don: " + info.Id);
+
+               myFrame.Content = new View.TotalDueBill(info, myFrame);
             }
             else
             {

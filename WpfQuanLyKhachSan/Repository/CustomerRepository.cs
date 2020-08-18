@@ -26,7 +26,20 @@ namespace WpfQuanLyKhachSan.Repository
 
             }
         }
+        public Customer findCustomerBooking()
+        {
+           
+            using (var entities = new QuanLyKhachSanDbContext())
+            {
+                var item = entities.Customers.Where(c => c.isDeleted == false && c.isBooking.Equals("booking")).FirstOrDefault();
+                if (item != null)
+                {
+                    return item;
+                }
 
+                return null;
+            }
+        }
         public void Add(Customer model)
         {
             using (var entities = new QuanLyKhachSanDbContext())

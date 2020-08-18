@@ -13,7 +13,7 @@ namespace WpfQuanLyKhachSan.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202008170011284_create_db"; }
+            get { return "202008180533167_create_db"; }
         }
         
         string IMigrationMetadata.Source
