@@ -11,9 +11,9 @@ namespace WpfQuanLyKhachSan.ViewModel
     class RoomViewModel
     {
         private RoomRepository roomRepository = new RoomRepository();
-        public List<Room> findAll()
+        public List<Room> FindAll()
         {
-            List<Room> typeRooms = roomRepository.findAll();
+            List<Room> typeRooms = roomRepository.FindAll();
 
             return typeRooms;
         }

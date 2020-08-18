@@ -9,7 +9,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class CustomerRepository
     {
-        public List<Customer> findAll()
+        public List<Customer> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -18,7 +18,7 @@ namespace WpfQuanLyKhachSan.Repository
             }
         }
 
-        public List<Customer> findAllCustomerBooking()
+        public List<Customer> FindAllCustomerBooking()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {

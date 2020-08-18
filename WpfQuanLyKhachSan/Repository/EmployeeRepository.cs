@@ -10,7 +10,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class EmployeeRepository
     {
-        public List<Employee> findAll()
+        public List<Employee> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -67,6 +67,7 @@ namespace WpfQuanLyKhachSan.Repository
                     item.Fullname = model.Fullname;
                     item.Email = model.Email;
                     item.RoleId = model.RoleId;
+                    item.Password = model.Password;
 
 
                     entities.Entry(item).State = System.Data.Entity.EntityState.Modified;

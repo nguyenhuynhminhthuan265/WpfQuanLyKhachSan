@@ -40,7 +40,8 @@ namespace WpfQuanLyKhachSan.View
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            usernameTextBox.Text = "";
+            passwordBox.Password = "";
         }
 
         private void SubmitBtn_Click(object sender, RoutedEventArgs e)
@@ -48,7 +49,7 @@ namespace WpfQuanLyKhachSan.View
             string enteredUsername = usernameTextBox.Text;
             string enteredPassword = passwordBox.Password;
             EmployeeViewModel employeeViewModel = new EmployeeViewModel();
-            List<Employee> allEmployees = employeeViewModel.findAll();
+            List<Employee> allEmployees = employeeViewModel.FindAll();
             Employee findResult = allEmployees.Find(emp => emp.Email == enteredUsername);
             if (findResult != null)
             {

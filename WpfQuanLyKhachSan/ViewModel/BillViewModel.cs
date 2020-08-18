@@ -11,9 +11,9 @@ namespace WpfQuanLyKhachSan.ViewModel
     class BillViewModel
     {
         private BillRepository billRepository = new BillRepository();
-        public List<Bill> findAll()
+        public List<Bill> FindAll()
         {
-            List<Bill> Bills = billRepository.findAll();
+            List<Bill> Bills = billRepository.FindAll();
 
             return Bills;
         }

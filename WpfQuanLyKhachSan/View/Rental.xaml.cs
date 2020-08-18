@@ -66,10 +66,7 @@ namespace WpfQuanLyKhachSan.View
             types.Add(Customer.FOREIGNER);
             TypeComboBox.ItemsSource = types;
 
-            cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
-
-
-            RentListView.ItemsSource = cardBookRooms;
+            LoadPage();
         }
 
         public Rental(Room room, Frame frame)
@@ -92,9 +89,23 @@ namespace WpfQuanLyKhachSan.View
             LoadPage(idRoom);
         }
 
+        public void LoadPage()
+        {
+            cardBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.FindAll());
+            for (int i = cardBookRooms.Count() - 1; i >= 0; i--)
+            {
+                if (cardBookRooms[i].isDelete == true)
+                {
+                    cardBookRooms.RemoveAt(i);
+                }
+            }
+
+            RentListView.ItemsSource = cardBookRooms;
+        }
+
         public void LoadPage(int idRoom)
         {
-            //BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            //BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.FindAll());
             //for(int i=0;i<listBookRooms.Count();i++)
             //{
             //    if(listBookRooms[i].RoomId != idRoom)
@@ -110,7 +121,7 @@ namespace WpfQuanLyKhachSan.View
             //cardBookRooms = listBookRooms;
             //RentListView.ItemsSource = cardBookRooms;
 
-            BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.findAll());
+            BindingList<CardBookRoom> listBookRooms = new BindingList<CardBookRoom>(cardBookRoomViewModel.FindAll());
             for (int i = listBookRooms.Count() - 1; i >= 0; i--)
             {
                 if (listBookRooms[i].RoomId != idRoom)
@@ -121,8 +132,13 @@ namespace WpfQuanLyKhachSan.View
                 {
                     //listBookRooms[i].Room = roomViewModel.FindById(listBookRooms[i].RoomId);
                     //listBookRooms[i].Customer = customerViewModel.FindById(listBookRooms[i].CustomerId);
+                    if (listBookRooms[i].isDelete == true)
+                    {
+                        listBookRooms.RemoveAt(i);
+                    }
                 }
             }
+
 
             RentListView.ItemsSource = listBookRooms;
 
@@ -180,13 +196,9 @@ namespace WpfQuanLyKhachSan.View
                     TypeCustomer = TypeComboBox.SelectedValue.ToString(),
                     isDeleted = false
                 };
-/*                customerViewModel.Book(customer);
-*/                
+                //customerViewModel.Book(customer);
 
-                CustomerRepository customerRepository = new CustomerRepository();
-                /*customerRepository.Add(customer);*/
-                //customers.Add(customer);
-
+                
                 Console.WriteLine("=========>>>>>>>>>>>>>.Test id Room update booked " + selectedRoom.Id);
                 CardBookRoom cardBookRoom = new CardBookRoom()
                 {
@@ -208,11 +220,13 @@ namespace WpfQuanLyKhachSan.View
 
                 roomViewModel.Update(selectedRoom);
 
-                CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
-                cbrRepository.Add(cardBookRoom);
+                //CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
+                //cbrRepository.Add(cardBookRoom);
+                cardBookRoomViewModel.Add(cardBookRoom);
 
                 MessageBox.Show("Đăng ký thuê phòng thành công!", "Thuê phòng...", MessageBoxButton.OK,
                     MessageBoxImage.Information);
+                LoadPage(idRoom);
             }
             else
             {
@@ -247,7 +261,7 @@ namespace WpfQuanLyKhachSan.View
             //    }
 
             //    /*GET LIST USER BOOKING*/
-            //    List<Customer> customerBooks = customerViewModel.findAllCustomerBooking();
+            //    List<Customer> customerBooks = customerViewModel.FindAllCustomerBooking();
             //    /*info.StartDate = StartDatePicker.SelectedDate.Value;
             //    info.EndDate = StartDatePicker.SelectedDate.Value;*/
             //    foreach (Customer customer in customerBooks)

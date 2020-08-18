@@ -32,7 +32,7 @@ namespace WpfQuanLyKhachSan.View
         public Home()
         {
             InitializeComponent();
-            rooms = roomViewModel.findAll();
+            rooms = roomViewModel.FindAll();
             roomsWrapPanel.ItemsSource = rooms;
         }
 
@@ -40,7 +40,7 @@ namespace WpfQuanLyKhachSan.View
         {
             this.Frame = frame;
             InitializeComponent();
-            rooms = roomViewModel.findAll();
+            rooms = roomViewModel.FindAll();
 
             roomsWrapPanel.ItemsSource = rooms;
             txtblkAllRooms.Text = rooms.Count.ToString();

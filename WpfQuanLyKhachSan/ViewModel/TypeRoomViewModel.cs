@@ -12,14 +12,14 @@ namespace WpfQuanLyKhachSan.ViewModel
     {
         TypeRoomRepository typeRoomRepository = new TypeRoomRepository();
 
-        public List<TypeRoom> findAll()
+        public List<TypeRoom> FindAll()
         {
-            List<TypeRoom> typeRooms = typeRoomRepository.findAll();
+            List<TypeRoom> typeRooms = typeRoomRepository.FindAll();
             
             return typeRooms;
         }
 
-        public List<TypeRoom> findAllActive()
+        public List<TypeRoom> FindAllActive()
         {
             List<TypeRoom> typeRooms = typeRoomRepository.FindAllActive();
 

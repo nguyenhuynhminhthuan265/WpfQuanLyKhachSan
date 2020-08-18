@@ -30,12 +30,14 @@ namespace WpfQuanLyKhachSan.View
         BillViewModel billViewModel = new BillViewModel();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         Bill mainbill = new Bill();
+        CardBookRoom selectedCard;
 
         private string currencyUnit = " VND";
 
         public TotalDueBill()
         {
             InitializeComponent();
+            btnPayAndSaveBill.IsEnabled = false;
 
         }
 
@@ -46,12 +48,12 @@ namespace WpfQuanLyKhachSan.View
 
             LoadPage(cardBookRoom);
             this.DataContext = mainbill;
-
+            this.selectedCard = cardBookRoom;
         }
 
         public void LoadPage(CardBookRoom cardBookRoom)
         {
-            //BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.findAll());
+            //BindingList<Bill> listBills = new BindingList<Bill>(billViewModel.FindAll());
             //double reportRevenue = 0;
             //int reportTime = 0;
 
@@ -76,7 +78,7 @@ namespace WpfQuanLyKhachSan.View
 
             mainbill.CardBookRoom = cardBookRoom;
             mainbill.Employee = MainWindow.currentUser;
-            mainbill.CardBookRoom.Room = roomViewModel.FindById(cardBookRoom.RoomId);
+            //mainbill.CardBookRoom.Room = roomViewModel.FindById(cardBookRoom.RoomId);
             //mainbill.CardBookRoom.Customer = customerViewModel.FindById(mainbill.CardBookRoom.CustomerId);
             mainbill.isDeleted = false;
             mainbill.TotalPrice = mainbill.GetTotalPrice();
@@ -99,11 +101,28 @@ namespace WpfQuanLyKhachSan.View
 
         private void BtnPayAndSaveBill_Click(object sender, RoutedEventArgs e)
         {
-            /*billViewModel.Add(mainbill);
-            Room roomEditStatus = roomViewModel.FindById(mainbill.CardBookRoom.RoomId);
-            roomViewModel.Update(roomEditStatus);*/
+
+            Bill newBill = new Bill()
+            {
+                IdEmployee = mainbill.Employee.Id,
+                IdCardBookRoom = mainbill.CardBookRoom.Id,
+                TotalPrice = mainbill.TotalPrice,
+                isDeleted = false
+            };
+
+            billViewModel.Add(newBill);
+            var returnedRoom = this.selectedCard.Room;
+            returnedRoom.Status = Room.EMPTY;
+            
+            roomViewModel.Update(returnedRoom);
+
+            selectedCard.isDelete = true;
+            cardBookRoomViewModel.Update(selectedCard);
+
             MessageBox.Show("Thanh toán thành công! Hóa đơn đã được lưu vào CSDL",
                 "Thanh toán...", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            btnPayAndSaveBill.IsEnabled = false;
         }
 
         private string MyCurrencyFormatter(double number)

@@ -9,7 +9,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class CardBookRoomRepository
     {
-        public List<CardBookRoom> findAll()
+        public List<CardBookRoom> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -37,6 +37,30 @@ namespace WpfQuanLyKhachSan.Repository
                 }
 
                 return null;
+            }
+        }
+
+        public void Update(CardBookRoom model)
+        {
+            using (var entities = new QuanLyKhachSanDbContext())
+            {
+                var item = entities.CardBookRooms.FirstOrDefault(e => e.Id == model.Id);
+                if (item != null)
+                {
+                    //item.Id = model.Id;
+                    item.CustomerId = model.CustomerId;
+                    item.DateBookRoom = model.DateBookRoom;
+                    item.DateReturnRoom = model.DateReturnRoom;
+                    item.CountCustomers = model.CountCustomers;
+                    item.RoomId = model.RoomId;
+                    item.isDelete = model.isDelete;
+                    item.PriceBookRoom = model.PriceBookRoom;
+
+
+                    entities.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                }
+                entities.SaveChanges();
+
             }
         }
     }

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfQuanLyKhachSan.Model;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan.View
 {
@@ -47,20 +48,42 @@ namespace WpfQuanLyKhachSan.View
             fullnameTextBox.Text = this.currentUser.Fullname;
             roleBox.Text = this.currentUser.Role.Description;*/
             this.DataContext = currentUser;
-            this.DataContext = currentUser;
-
-
-
+            //this.DataContext = currentUser;
         }
 
         private void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            List<Employee> employees = employeeViewModel.FindAll();
+            string newEmail = emailTextBox.Text;
 
+            Employee findResult = employees.Find(emp => emp.Id != currentUser.Id && emp.Email.Equals(newEmail));
+            if (findResult != null)
+            {
+                MessageBox.Show("Tên đăng nhập/Email mới bị trùng. Hãy đổi sang Email khác.",
+                    "Cập nhật thông tin", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                currentUser.Email = newEmail;
+                currentUser.Fullname = fullnameTextBox.Text;
+                employeeViewModel.Update(currentUser);
+
+                MessageBox.Show("Cập nhật thông tin thành công!", "Cập nhật thông tin",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
+            this.MyFrame.Content = new View.Home(MyFrame);
+        }
 
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordChanging passwordChanging = new PasswordChanging(this.currentUser);
+            passwordChanging.ShowDialog();
         }
     }
 }

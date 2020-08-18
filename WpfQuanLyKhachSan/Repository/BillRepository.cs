@@ -9,7 +9,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class BillRepository
     {
-        public List<Bill> findAll()
+        public List<Bill> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -48,18 +48,18 @@ namespace WpfQuanLyKhachSan.Repository
 
         public void Update(Bill model)
         {
-            using (var entities = new QuanLyKhachSanDbContext())
-            {
-                var item = entities.Bills.FirstOrDefault(e => e.Id == model.Id);
-                if (item != null)
-                {
+            //using (var entities = new QuanLyKhachSanDbContext())
+            //{
+            //    var item = entities.Bills.FirstOrDefault(e => e.Id == model.Id);
+            //    if (item != null)
+            //    {
 
 
-                    entities.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                }
-                entities.SaveChanges();
+            //        entities.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            //    }
+            //    entities.SaveChanges();
 
-            }
+            //}
 
         }
     }

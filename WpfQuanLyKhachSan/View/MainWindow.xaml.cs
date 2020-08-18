@@ -41,7 +41,7 @@ namespace WpfQuanLyKhachSan
             InitializeComponent();
 
             EmployeeRepository employeeRepo = new EmployeeRepository();
-            if (employeeRepo.findAll().Count == 0) {
+            if (employeeRepo.FindAll().Count == 0) {
                 FillEmployee();
             }
 
@@ -64,7 +64,7 @@ namespace WpfQuanLyKhachSan
 
         private void FindAllRoom(object sender, RoutedEventArgs e)
         {
-            /*List<TypeRoom> typeRooms = typeRoomViewModel.findAll();
+            /*List<TypeRoom> typeRooms = typeRoomViewModel.FindAll();
             Console.WriteLine("======>>>>>>>>sender: " + sender);
             foreach (TypeRoom item in typeRooms)
             {

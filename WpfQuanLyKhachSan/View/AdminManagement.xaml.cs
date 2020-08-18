@@ -66,18 +66,18 @@ namespace WpfQuanLyKhachSan.View
         public AdminManagement()
         {
             InitializeComponent();
-            List<Room> rooms = roomViewModel.findAll();
-            List<Employee> employees = employeeViewModel.findAll();
+            List<Room> rooms = roomViewModel.FindAll();
+            List<Employee> employees = employeeViewModel.FindAll();
 
             RoomsGrid.ItemsSource = rooms;
-            RoomTypeCb.ItemsSource = typeRoomViewModel.findAll();
+            RoomTypeCb.ItemsSource = typeRoomViewModel.FindAll();
 
             EmployeesGrid.ItemsSource = employees;
-            RoleTypeCb.ItemsSource = roleViewModel.findAll();
+            RoleTypeCb.ItemsSource = roleViewModel.FindAll();
 
-            CustomersGrid.ItemsSource = customerViewModel.findAll();
+            CustomersGrid.ItemsSource = customerViewModel.FindAll();
 
-            TypeRoomsGrid.ItemsSource = typeRoomViewModel.findAllActive();
+            TypeRoomsGrid.ItemsSource = typeRoomViewModel.FindAllActive();
 
 
         }

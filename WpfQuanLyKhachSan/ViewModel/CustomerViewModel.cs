@@ -11,16 +11,16 @@ namespace WpfQuanLyKhachSan.ViewModel
     class CustomerViewModel
     {
         private CustomerRepository customerRepository = new CustomerRepository();
-        public List<Customer> findAll()
+        public List<Customer> FindAll()
         {
-            List<Customer> customers = customerRepository.findAll();
+            List<Customer> customers = customerRepository.FindAll();
 
             return customers;
         }
 
-        public List<Customer> findAllCustomerBooking()
+        public List<Customer> FindAllCustomerBooking()
         {
-            List<Customer> customers = customerRepository.findAllCustomerBooking();
+            List<Customer> customers = customerRepository.FindAllCustomerBooking();
 
             return customers;
         }

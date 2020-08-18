@@ -10,7 +10,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class RoomRepository
     {
-        public List<Room> findAll()
+        public List<Room> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {
@@ -64,11 +64,12 @@ namespace WpfQuanLyKhachSan.Repository
                 var item = entities.Rooms.FirstOrDefault(e => e.Id == model.Id);
                 if (item != null)
                 {
-                    item.Id = model.Id;
+                    //item.Id = model.Id;
                     item.NameRoom = model.NameRoom;
                     item.Note = model.Note;
                     item.TypeRoomId = model.TypeRoomId;
                     item.Status = model.Status;
+                    item.isDeleted = model.isDeleted;
 
 
                     entities.Entry(item).State = System.Data.Entity.EntityState.Modified;

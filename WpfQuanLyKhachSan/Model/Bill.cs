@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan.Model
 {
@@ -30,7 +31,7 @@ namespace WpfQuanLyKhachSan.Model
         public double GetTotalPrice()
         {
             double total;
-            total = CardBookRoom.GetPriceRoomRental();
+            total = this.CardBookRoom.GetPriceRoomRental();
             return total;
         }
 

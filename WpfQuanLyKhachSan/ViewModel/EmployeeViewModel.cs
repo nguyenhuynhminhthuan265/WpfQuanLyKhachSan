@@ -11,9 +11,9 @@ namespace WpfQuanLyKhachSan.ViewModel
     class EmployeeViewModel
     {
         private EmployeeRepository employeeRepository = new EmployeeRepository();
-        public List<Employee> findAll()
+        public List<Employee> FindAll()
         {
-            List<Employee> employees = employeeRepository.findAll();
+            List<Employee> employees = employeeRepository.FindAll();
 
             return employees;
         }

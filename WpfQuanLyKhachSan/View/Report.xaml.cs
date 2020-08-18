@@ -33,11 +33,16 @@ namespace WpfQuanLyKhachSan.View
         public Report()
         {
             InitializeComponent();
-            double reportRevenue=0;
+            LoadPage();
+        }
+
+        private void LoadPage()
+        {
+            double reportRevenue = 0;
             int reportRoom = 0;
-            int reportTime = 0;
-            bills = new BindingList<Bill>(billViewModel.findAll());
-            foreach(var bill in bills)
+            double reportTime = 0;
+            bills = new BindingList<Bill>(billViewModel.FindAll());
+            foreach (var bill in bills)
             {
                 bill.CardBookRoom = cardBookRoomViewModel.FindById(bill.IdCardBookRoom);
                 bill.Employee = employeeViewModel.FindById(bill.IdEmployee);
@@ -46,8 +51,9 @@ namespace WpfQuanLyKhachSan.View
                 bill.TotalPrice = bill.GetTotalPrice();
                 reportRevenue += bill.TotalPrice;
                 reportRoom += 1;
+                //var timeSpan = bill.CardBookRoom.GetTimeSpan();
                 var timeSpan = bill.CardBookRoom.DateReturnRoom - bill.CardBookRoom.DateBookRoom;
-                reportTime += timeSpan.Days;
+                reportTime += timeSpan.TotalHours;
             }
             RevenueLabel.Content = reportRevenue.ToString();
             RoomRentLabel.Content = reportRoom.ToString();

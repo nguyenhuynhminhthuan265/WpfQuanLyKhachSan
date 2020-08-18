@@ -9,7 +9,7 @@ namespace WpfQuanLyKhachSan.Repository
 {
     class TypeRoomRepository
     {
-        public List<TypeRoom> findAll()
+        public List<TypeRoom> FindAll()
         {
             using (var entities = new QuanLyKhachSanDbContext())
             {

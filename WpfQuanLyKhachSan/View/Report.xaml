@@ -72,7 +72,7 @@
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="160" VerticalAlignment="Center" HorizontalContentAlignment="Center">NGÀY THUÊ</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn Width="160" DisplayMemberBinding="{Binding CardBookRoom.DateReturnRoom}">
-                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="160" VerticalAlignment="Center" HorizontalContentAlignment="Center">NGÀY TR</GridViewColumnHeader>
+                        <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="160" VerticalAlignment="Center" HorizontalContentAlignment="Center">NGÀY TRẢ</GridViewColumnHeader>
                     </GridViewColumn>
                     <GridViewColumn Width="170" DisplayMemberBinding="{Binding TotalPrice}">
                         <GridViewColumnHeader Click="GridViewColumnHeader_Click" Width="170" VerticalAlignment="Center" HorizontalContentAlignment="Center">TỔNG TIỀN</GridViewColumnHeader>

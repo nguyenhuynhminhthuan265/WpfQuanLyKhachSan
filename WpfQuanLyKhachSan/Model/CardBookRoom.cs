@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfQuanLyKhachSan.ViewModel;
 
 namespace WpfQuanLyKhachSan.Model
 {
@@ -48,7 +49,9 @@ namespace WpfQuanLyKhachSan.Model
 
         public double GetSurChargePercentage()
         {
-            return (this.CountCustomers == this.Room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0;
+            RoomViewModel roomViewModel = new RoomViewModel();
+            var room = roomViewModel.FindById(this.Room.Id);
+            return (this.CountCustomers == room.TypeRoom.NumberOfCustomer) ? 0.25 : 0.0;
         }
 
         public double GetPriceRoomRental()

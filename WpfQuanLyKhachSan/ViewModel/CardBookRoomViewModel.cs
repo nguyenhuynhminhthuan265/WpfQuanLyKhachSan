@@ -11,9 +11,9 @@ namespace WpfQuanLyKhachSan.ViewModel
     class CardBookRoomViewModel
     {
         private CardBookRoomRepository cardBookRoomRepository = new CardBookRoomRepository();
-        public List<CardBookRoom> findAll()
+        public List<CardBookRoom> FindAll()
         {
-            List<CardBookRoom> cardBookRooms = cardBookRoomRepository.findAll();
+            List<CardBookRoom> cardBookRooms = cardBookRoomRepository.FindAll();
 
             return cardBookRooms;
         }
@@ -29,5 +29,12 @@ namespace WpfQuanLyKhachSan.ViewModel
             return cardBookRoomRepository.FindById(id);
 
         }
+
+        public void Update(CardBookRoom item)
+        {
+            cardBookRoomRepository.Update(item);
+        }
+
+        
     }
 }
