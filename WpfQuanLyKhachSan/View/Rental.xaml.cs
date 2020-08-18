@@ -195,6 +195,9 @@ namespace WpfQuanLyKhachSan.View
 
                 CardBookRoomRepository cbrRepository = new CardBookRoomRepository();
                 cbrRepository.Add(cardBookRoom);
+
+                MessageBox.Show("Đăng ký thuê phòng thành công!", "Thuê phòng...", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
             }
             else
             {
@@ -267,7 +270,8 @@ namespace WpfQuanLyKhachSan.View
             }
             else
             {
-                MessageBox.Show("Ban chua chon Phieu Thue Phong!!!");
+                MessageBox.Show("Bạn chưa chọn Phiếu Thuê Phòng!", "Trả phòng...", MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
             }
         }
 
