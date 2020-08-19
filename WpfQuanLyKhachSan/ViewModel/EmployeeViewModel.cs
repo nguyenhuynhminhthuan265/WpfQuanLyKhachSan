@@ -30,6 +30,11 @@ namespace WpfQuanLyKhachSan.ViewModel
             employeeRepository.UpdateIsDeleted(employee);
         }
 
+        public void UpdateNotPass(Employee employee)
+        {
+            employeeRepository.UpdateNotPass(employee);
+        }
+
         public void Update(Employee employee)
         {
             employeeRepository.Update(employee);

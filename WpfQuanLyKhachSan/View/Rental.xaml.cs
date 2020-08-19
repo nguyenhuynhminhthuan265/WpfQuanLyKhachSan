@@ -155,15 +155,23 @@ namespace WpfQuanLyKhachSan.View
         private void MouseDown_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             var info = RentListView.SelectedItem as CardBookRoom;
-            txtBoxRoomName.Text = info.Room.NameRoom;
-            txtBoxCountCustomers.Text = info.CountCustomers.ToString();
-            PriceBookRoomTextBox.Text = info.PriceBookRoom.ToString();
-            NameTextBox.Text = info.Customer.NameCustomer;
-            TypeComboBox.SelectedValue = info.Customer.TypeCustomer.ToString();
-            CMNDTextBox.Text = info.Customer.IDNumber.ToString();
-            AddressTextBox.Text = info.Customer.Address;
-            StartDatePicker.SelectedDate = info.DateBookRoom;
-            EndDatePicker.SelectedDate = info.DateReturnRoom;
+
+            Console.WriteLine("====================>>>>>>>>>>>>>>>>>>>>>>>> check info :" );
+            Console.WriteLine(info == null);
+            if (info != null)
+            {
+                txtBoxRoomName.Text = info.Room.NameRoom;
+                txtBoxCountCustomers.Text = info.CountCustomers.ToString();
+                PriceBookRoomTextBox.Text = info.PriceBookRoom.ToString();
+                NameTextBox.Text = info.Customer.NameCustomer;
+                TypeComboBox.SelectedValue = info.Customer.TypeCustomer.ToString();
+                CMNDTextBox.Text = info.Customer.IDNumber.ToString();
+                AddressTextBox.Text = info.Customer.Address;
+                StartDatePicker.SelectedDate = info.DateBookRoom;
+                EndDatePicker.SelectedDate = info.DateReturnRoom;
+            }
+
+            
 
         }
 

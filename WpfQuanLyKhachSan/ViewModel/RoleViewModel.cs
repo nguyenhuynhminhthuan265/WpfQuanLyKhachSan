@@ -4,29 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfQuanLyKhachSan.Model;
+using WpfQuanLyKhachSan.Repository;
 
 namespace WpfQuanLyKhachSan.ViewModel
 {
     class RoleViewModel
     {
+        private RoleRepository roleRepository = new RoleRepository();
         public List<Role> FindAll()
         {
-            using (var entities = new QuanLyKhachSanDbContext())
-            {
-                return entities.Roles.ToList();
-
-            }
+            return roleRepository.FindAll();
         }
 
         public void Add(Role model)
         {
-            using (var entities = new QuanLyKhachSanDbContext())
-            {
-                entities.Roles.Add(model);
-                entities.SaveChanges();
-            }
+            /* using (var entities = new QuanLyKhachSanDbContext())
+             {
+                 entities.Roles.Add(model);
+                 entities.SaveChanges();
+             }*/
+            roleRepository.Add(model);
         }
-
+        public Role FindById(int id)
+        {
+            /* using (var entities = new QuanLyKhachSanDbContext())
+             {
+                 entities.Roles.Add(model);
+                 entities.SaveChanges();
+             }*/
+            return roleRepository.FindById(id);
+        }
         public void Delete(Role model)
         {
             using (var entities = new QuanLyKhachSanDbContext())
@@ -37,10 +44,15 @@ namespace WpfQuanLyKhachSan.ViewModel
             }
         }
 
+        public Role FindRoleIdByName(string roleName)
+        {
+            return roleRepository.FindRoleIdByName(roleName);
+        }
+
 
         public void Update(Role model)
         {
-            using (var entities = new QuanLyKhachSanDbContext())
+            /*using (var entities = new QuanLyKhachSanDbContext())
             {
                 var role = entities.Roles.FirstOrDefault(e => e.Id == model.Id);
                 if (role != null)
@@ -54,8 +66,11 @@ namespace WpfQuanLyKhachSan.ViewModel
                 }
                 entities.SaveChanges();
 
-            }
+            }*/
+            roleRepository.Update(model);
 
         }
+
+
     }
 }

@@ -78,6 +78,27 @@ namespace WpfQuanLyKhachSan.Repository
 
         }
 
+        public void UpdateNotPass(Employee model)
+        {
+            using (var entities = new QuanLyKhachSanDbContext())
+            {
+                var item = entities.Employees.FirstOrDefault(e => e.Id == model.Id);
+                if (item != null)
+                {
+                    item.Id = model.Id;
+                    item.Fullname = model.Fullname;
+                    item.Email = model.Email;
+                    item.RoleId = model.RoleId;
+                    
+
+
+                    entities.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                }
+                entities.SaveChanges();
+
+            }
+        }
+
         public void UpdateIsDeleted(Employee model)
         {
             using (var entities = new QuanLyKhachSanDbContext())

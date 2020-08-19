@@ -163,7 +163,7 @@
                             <DataGridTextColumn Header="Room type"
                                                 Binding="{Binding TypeRoom.NameTypeRoom}" />
                             <DataGridTextColumn Header="Price"
-                                                Binding="{Binding TypeRoom.Price}" />
+                                                Binding="{Binding TypeRoom.Price , StringFormat=C , ConverterCulture=vi-VN}" />
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -444,7 +444,7 @@
                             <DataGridTextColumn Header="Type Room name"
                                                 Binding="{Binding NameTypeRoom}" />
                             <DataGridTextColumn Header="Price"
-                                                Binding="{Binding Price}" />
+                                                Binding="{Binding Price ,StringFormat=C , ConverterCulture=vi-VN}" />
                          
                             <DataGridTextColumn Header="Number of Customer"
                                                 Binding="{Binding NumberOfCustomer}" />
@@ -452,7 +452,7 @@
 
                     </DataGrid>
 
-                    <!-- < Hotel type rooms CRUD > -->
+                    <!--========================= < Hotel type rooms CRUD > =========================-->
                     <Border Grid.Column="2"
                             BorderThickness="1"
                             Margin="49.6,50,50,50.4"
@@ -502,12 +502,14 @@
                             <TextBox Grid.Row="1"
                                      Grid.Column="1"
                                      Margin="3"
+                                     PreviewTextInput="NumberValidationTextBox"
                                      Text="{Binding SelectedItem.Price, ElementName=TypeRoomsGrid}"
                                      x:Name="PriceTypeRoomCRUD" />
 
                             <TextBox Grid.Row="2"
                                      Grid.Column="1"
                                      Margin="3"
+                                     PreviewTextInput="NumberValidationTextBox"
                                      Text="{Binding SelectedItem.NumberOfCustomer, ElementName=TypeRoomsGrid}"
                                      x:Name="NumberOfCustomerCRUD" />
 

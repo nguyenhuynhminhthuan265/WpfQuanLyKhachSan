@@ -37,6 +37,34 @@ namespace WpfQuanLyKhachSan.Repository
             }
         }
 
+        public Role FindById(int id)
+        {
+            using (var entities = new QuanLyKhachSanDbContext())
+            {
+                var item = entities.Roles.Where(r => r.isDeleted == false).FirstOrDefault(e => e.Id == id);
+                if (item != null)
+                {
+                    return item;
+                }
+
+                return null;
+            }
+        }
+
+        public Role FindRoleIdByName(string nameRole)
+        {
+            using (var entities = new QuanLyKhachSanDbContext())
+            {
+                var item = entities.Roles.Where(r => r.isDeleted == false).FirstOrDefault(e => e.Name.Equals(nameRole));
+                if (item != null)
+                {
+                    return item;
+                }
+
+                return null;
+            }
+        }
+
 
         public void Update(Role model)
         {

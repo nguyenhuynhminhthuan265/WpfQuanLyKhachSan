@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfQuanLyKhachSan.Converter;
 using WpfQuanLyKhachSan.Model;
 using WpfQuanLyKhachSan.ViewModel;
 
@@ -55,7 +57,13 @@ namespace WpfQuanLyKhachSan.View
                 var timeSpan = bill.CardBookRoom.DateReturnRoom - bill.CardBookRoom.DateBookRoom;
                 reportTime += timeSpan.TotalHours;
             }
-            RevenueLabel.Content = reportRevenue.ToString();
+
+            string money = reportRevenue.ToString();
+            /*string.Format("{0:#.00}", Convert.ToDecimal(money) / 100);*/
+            /*CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            string moneyFormatVN= double.Parse(money).ToString("#,###", cul.NumberFormat);*/
+
+            RevenueLabel.Content = FormatCurrency.FormatCurrencyVN(money) + " đ";
             RoomRentLabel.Content = reportRoom.ToString();
             TimeRentLabel.Content = reportTime.ToString();
             ReportListview.ItemsSource = bills;
