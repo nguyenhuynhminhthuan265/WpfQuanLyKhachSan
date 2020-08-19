@@ -95,7 +95,7 @@ namespace WpfQuanLyKhachSan.View
             timeSpanTxtBox.Text = cardBookRoom.GetTimeSpan().ToString();
             factorTxtBox.Text = cardBookRoom.GetFactor().ToString();
             surchargeTxtBox.Text = (cardBookRoom.GetSurChargePercentage() * 100)
-                .ToString();
+                .ToString() + " %";
             totalAmounLabel.Content = MyCurrencyFormatter(mainbill.TotalPrice) + currencyUnit;
         }
 
@@ -144,7 +144,11 @@ namespace WpfQuanLyKhachSan.View
                 result = " " + temp.Substring(i - 3, 3) + result;
                 i -= 3;
             }
-            result = result.Remove(0, 1);
+            if (i >= 0)
+            {
+                result = temp.Substring(0, i) + result;
+            }
+            result = result.Trim();
             return result;
         }
     }

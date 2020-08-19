@@ -97,8 +97,8 @@
                 <TextBox Name="UnitPriceRoomTxtBox" 
                              materialDesign:HintAssist.Hint="Đơn giá phòng"
                              materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
-                             materialDesign:HintAssist.FloatingScale="0.50"
-                             Text="{Binding CardBookRoom.PriceBookRoom}"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.FloatingScale="0.50" TextAlignment="Right"
+                             Text="{Binding CardBookRoom.PriceBookRoom, Mode=OneWay}"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              FontSize="22" Margin="10,10,10,0"/>
                 <!--<TextBox
     materialDesign:HintAssist.Hint="Mã hóa đơn"
@@ -109,15 +109,15 @@
 
                 <TextBox Name="timeSpanTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Thời gian"
                              materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
-                             materialDesign:HintAssist.FloatingScale="0.50"
+                             materialDesign:HintAssist.FloatingScale="0.50" TextAlignment="Right"
                              Text="Số ngày"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Name="factorTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Hệ số"
                              materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
-                             materialDesign:HintAssist.FloatingScale="0.50"
+                             materialDesign:HintAssist.FloatingScale="0.50" TextAlignment="Right"
                              Text="Hệ số" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox Name="surchargeTxtBox" FontSize="22" Margin="10,10,10,0" materialDesign:HintAssist.Hint="Phụ phí"
                              materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
-                             materialDesign:HintAssist.FloatingScale="0.50"
+                             materialDesign:HintAssist.FloatingScale="0.50" TextAlignment="Right"
                              Text="Phụ phí" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <DockPanel Height="90">
                     <Label Margin="10,0,0,16" Content="Thành Tiền" HorizontalContentAlignment="Left"

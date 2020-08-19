@@ -78,6 +78,7 @@ namespace WpfQuanLyKhachSan.View
             Console.WriteLine("==============>>>>>>>>>> ID ROOM BOOKED: " + $"{idRoom}");
             txtBoxRoomName.Text = room.NameRoom;
             PriceBookRoomTextBox.Text = room.TypeRoom.Price.ToString();
+            //PriceBookRoomTextBox.Text = Converter.FormatCurrency.FormatCurrencyVN(room.TypeRoom.Price.ToString());
 
             isSort = false;
 
@@ -171,7 +172,6 @@ namespace WpfQuanLyKhachSan.View
                 EndDatePicker.SelectedDate = info.DateReturnRoom;
             }
 
-            
 
         }
 
@@ -187,6 +187,13 @@ namespace WpfQuanLyKhachSan.View
 
             if (selectedRoom != null)
             {
+                if (selectedRoom.Status.Equals(Room.BOOKED))
+                {
+                    MessageBox.Show("Phòng đang được thuê. Vui lòng chọn phòng khác!", "Thuê phòng...",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
 
                 Console.WriteLine("==============>>>>>>>>>>>> Test ID ROOM BOOKING: " + selectedRoom.Id);
                 if (txtBoxCountCustomers.Text.Trim().Length == 0)
@@ -195,6 +202,15 @@ namespace WpfQuanLyKhachSan.View
                 }
                 int countCustomers = int.Parse(txtBoxCountCustomers.Text);
                 Console.WriteLine("===============================>>>>>>>>>>>>>>>>>>>. So luong khach: " + countCustomers);
+
+                if (countCustomers > selectedRoom.TypeRoom.NumberOfCustomer)
+                {
+                    MessageBox.Show("Số khách đăng ký ở phòng vượt quá số lượng tối đa (" + 
+                        selectedRoom.TypeRoom.NumberOfCustomer +" khách)!",
+                        "Thuê phòng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 /*INSERT Customer to database*/
                 Customer customer = new Customer()
                 {
@@ -208,6 +224,7 @@ namespace WpfQuanLyKhachSan.View
 
                 
                 Console.WriteLine("=========>>>>>>>>>>>>>.Test id Room update booked " + selectedRoom.Id);
+                
                 CardBookRoom cardBookRoom = new CardBookRoom()
                 {
                     Customer = customer,

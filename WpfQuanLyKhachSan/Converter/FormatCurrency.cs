@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace WpfQuanLyKhachSan.Converter
 {
-    static class FormatCurrency
+    public static class FormatCurrency
     {
-        public static String FormatCurrencyVN(string money)
+        public static string FormatCurrencyVN(string money)
         {
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             string moneyFormatVN = double.Parse(money).ToString("#,###", cul.NumberFormat);

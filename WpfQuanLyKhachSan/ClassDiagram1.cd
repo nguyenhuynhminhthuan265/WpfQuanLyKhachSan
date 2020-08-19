@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WpfQuanLyKhachSan.App" Collapsed="true">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACoAQEAAQAAACACABAAIAQAgBgECAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Converter.FormatCurrency" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\FormatCurrency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.RoomStatusConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\RoomStatusConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.AdminManagement" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAoIiAAEAQEAAAIAQhAAkAgAAAAAAgAQAIAAAAAAQ=</HashCode>
+      <FileName>View\AdminManagement.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.Home" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAQAAAAAAAAAEIAgAAAAAAAAAAAAQAAAAAAAAE=</HashCode>
+      <FileName>View\Home.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.Information" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>View\Information.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.Login" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAE=</HashCode>
+      <FileName>View\Login.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.PasswordChanging" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAEAAAQA=</HashCode>
+      <FileName>View\PasswordChanging.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.Rental" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACACIIIAAAAAEGAAAAAAAAIAIAAACAAAAGIAAAAAAA=</HashCode>
+      <FileName>View\Rental.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.Report" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAIIAAAAQAEAEAAAAAAAAAAQAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>View\Report.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.View.TotalDueBill" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAIAAAAAQAEUAAAABABEAAAQAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>View\TotalDueBill.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.MainTest.PasswordEncode" Collapsed="true">
+    <Position X="4.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainTest\PasswordEncode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Migrations.create_db" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\202008180533167_create_db.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Migrations.Configuration" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Bill" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAAAAAAACABAYAABAAAAAABAAAA=</HashCode>
+      <FileName>Model\Bill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.CardBookRoom" Collapsed="true">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEGAAIGAAAAAAAAABAAAAAAAAABABABAAQAIBAAgAA=</HashCode>
+      <FileName>Model\CardBookRoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Customer" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAEAAAQAAAAAACQAAAAAQAAAADAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Employee" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAIAACAAAAAAEAAABAAAAAAAAAADAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Product" Collapsed="true">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.QuanLyKhachSanDbContext" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFAAAAAAAgAAAAAAAAABAACGgAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Model\QuanLyKhachSanDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Revenue" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAAAABAAAAAAAAAAAAABAAAIAAAAAAA=</HashCode>
+      <FileName>Model\Revenue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Role" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQASAAgAQABAAAAAAAACAA=</HashCode>
+      <FileName>Model\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Room" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAEEAAAAAAAAAAAAAACAAAAAgABAAAAgAFAAAA=</HashCode>
+      <FileName>Model\Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.Test" Collapsed="true">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Model.TypeRoom" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAgAAAAAAAACAAAAAAABAAACAAAAAAA=</HashCode>
+      <FileName>Model\TypeRoom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Properties.Resources" Collapsed="true">
+    <Position X="13.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Properties.Settings" Collapsed="true">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.BillRepository" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\BillRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.CardBookRoomRepository" Collapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\CardBookRoomRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.CustomerRepository" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIYAAAAAAAAAAAAAAAAQAAAAAAEBAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.EmployeeRepository" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAEBAAEAAAAAAIAAAAA=</HashCode>
+      <FileName>Repository\EmployeeRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.RoleRepository" Collapsed="true">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAEBAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Repository\RoleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.RoomRepository" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAEBAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\RoomRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.Repository.TypeRoomRepository" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAEBAAEAAAAAAAAACAA=</HashCode>
+      <FileName>Repository\TypeRoomRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.BillViewModel" Collapsed="true">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ViewModel\BillViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.CardBookRoomViewModel" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ViewModel\CardBookRoomViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.CustomerViewModel" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAYAAAAAEAAAAABAAIAQAAAAAAABAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CustomerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.EmployeeViewModel" Collapsed="true">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAgAAAAAAAAAAAAQAAAAAAABAAEAAAAAAIAAAAA=</HashCode>
+      <FileName>ViewModel\EmployeeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.RoleViewModel" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAgAAAAAAAQAAAAAAEBAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ViewModel\RoleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.RoomViewModel">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAIAAAAAAQAAAAAAABAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\RoomViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WpfQuanLyKhachSan.ViewModel.TypeRoomViewModel" Collapsed="true">
+    <Position X="13.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAQAAAAQAABAAEAAAAAAAAACAA=</HashCode>
+      <FileName>ViewModel\TypeRoomViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

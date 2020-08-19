@@ -73,5 +73,11 @@ namespace WpfQuanLyKhachSan.View
         {
 
         }
+
+        private void ReportListview_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedBill = ReportListview.SelectedItem as Bill;
+            
+        }
     }
 }
